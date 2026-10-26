@@ -25,3 +25,6 @@ Setelah mengubah file, ganti `V='bba-v1'` di service-worker.js menjadi `bba-v3` 
 Foto profil disimpan lokal (JPEG kecil) di LocalStorage. Tombol ⬇ Pasang Aplikasi ada di header; jika browser tidak mendukung tombol otomatis, halaman panduan instal (HP, iPhone, PC, Smart TV Android) akan tampil.
 
 Versi 3: tampilan premium (glass header, kartu 3D, cincin level, konfeti), navigasi remote TV dengan panah + OK.
+
+## Versi 4
+Unggah juga `karakter.webp` (sprite 30 karakter) ke root. Cache sekarang `bba-v4`. Mode TV dan Layar Penuh ada di halaman Profil; dukungan tiap Smart TV berbeda-beda.
