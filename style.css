@@ -196,3 +196,8 @@ body.wl footer .don{display:none}
 @media(max-width:340px){.wlk b{font-size:1.2rem}}
 .wlh h1 span{-webkit-text-stroke:0;filter:saturate(1.25);padding-bottom:.08em}
 .wlh h1 span{background-image:linear-gradient(90deg,#f59e0b,#f97316 30%,#ec4899 65%,#8b5cf6);filter:none}
+
+/* ===== v17: penghitung pengunjung ===== */
+.vc{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:.4rem .5rem;margin:0 0 .7rem}.vc[hidden],.wlv[hidden]{display:none}
+.vc span{display:inline-flex;align-items:center;gap:.3rem;padding:.38rem .8rem;border-radius:99px;font-size:.82rem;font-weight:800;color:#164e63;background:#fffd;border:2px solid #a5f3fc;box-shadow:0 2px 6px #0e749022}.vc b{font-size:.95rem;color:#0e7490;font-variant-numeric:tabular-nums}
+.wlv{display:inline-block;margin:.7rem 0 0;padding:.45rem .95rem;border-radius:99px;font-size:.86rem;font-weight:800;color:#164e63;background:#ecfeff;border:2px solid #a5f3fc}.wlv b{color:#0e7490;font-variant-numeric:tabular-nums}

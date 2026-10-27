@@ -16,7 +16,7 @@ Belajar, Bermain, Tumbuh dengan Ceria! — Developed by @benyoriki
 Setelah dibuka sekali secara online, file dan semua soal (lokal) tersimpan oleh Service Worker sehingga bisa dimainkan tanpa internet. Indikator Online/Mode Offline tampil di header.
 
 ## LocalStorage dan keterbatasan
-Profil, poin, dan progres disimpan di browser perangkat ini. Itu bukan akun/login online: tidak ada sinkronisasi cloud, tidak terenkripsi, hilang jika data browser dihapus, dan terbaca pengguna lain di perangkat yang sama. Peringkat hanya antarprofil di perangkat ini. "Skor Belajar" bukan tes IQ atau diagnosis. Tidak ada data dikirim ke server mana pun.
+Profil, poin, dan progres disimpan di browser perangkat ini. Itu bukan akun/login online: tidak ada sinkronisasi cloud, tidak terenkripsi, hilang jika data browser dihapus, dan terbaca pengguna lain di perangkat yang sama. Peringkat hanya antarprofil di perangkat ini. "Skor Belajar" bukan tes IQ atau diagnosis. Profil, foto, dan progres tidak dikirim ke server mana pun; satu-satunya yang dikirim adalah hitungan pengunjung anonim (lihat Versi 17).
 
 ## Memperbarui versi / menghapus cache
 Setelah mengubah file, ganti `V='bba-v1'` di service-worker.js menjadi `bba-v3` (dst.), commit, lalu muat ulang 2 kali. Manual: DevTools › Application › Clear storage, atau pengaturan situs di browser.
@@ -67,3 +67,9 @@ Domain website: **https://belajarbermain.online/** (canonical, Open Graph, dan T
 
 ## Versi 16
 Layar sambutan baru (hero, statistik, keunggulan, 3 langkah) untuk pengunjung baru & profil belum dipilih; tombol donasi di footer disembunyikan pada layar ini. Cache `bba-v16`.
+
+## Versi 17 — Penghitung pengunjung
+- `pengunjung.js` menghitung **pengunjung unik** (sekali per browser) dan **kunjungan** (sekali per sesi) lewat layanan gratis Abacus, namespace `belajarbermain.online`, key `pengunjung` dan `kunjungan`. Angka tampil di footer (semua halaman) dan di layar sambutan.
+- Hanya aktif di domain `belajarbermain.online`; di localhost/GitHub Pages hanya membaca angka. Ubah di objek `C` pada `pengunjung.js`.
+- Keterbatasan: hitungan per browser (bukan per orang; hapus data browser = terhitung lagi), angka tidak kebal manipulasi, dan layanan gratis pihak ketiga bisa berubah. Counter kedaluwarsa jika 6 bulan tanpa akses.
+- Cache `bba-v17`.

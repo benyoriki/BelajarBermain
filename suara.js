@@ -140,5 +140,6 @@ ACT.don=function(v,t){openDon(t)};
 ACT.mclose=function(){closeModal()};
 
 window.Suara={icon:function(){return ICON[S.sm]||'🔊'},open:openSettings};
+var _render=window.render;window.render=function(){var r=_render.apply(this,arguments);if(window.VC)VC.paint();return r};
 hdr();render();
 })();
