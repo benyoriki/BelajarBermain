@@ -37,3 +37,23 @@ Kartu permainan baru dengan deskripsi, latar pemandangan SVG ringan, header soli
 
 ## Versi 7
 File baru: `aset.webp` (91 gambar hewan, buah, benda), `preview.jpg` (pratinjau WhatsApp 1200x628), `icon-maskable-512.png`, `apple-touch-icon.png`. Setelah mengubah gambar pratinjau, WhatsApp menyimpan cache lama; kirim tautan dengan `?v=2` di belakangnya, atau gunakan https://developers.facebook.com/tools/debug/ untuk menyegarkan.
+
+## Versi 8 (tahap 1 upgrade)
+File baru `bank.js` (katalog aset ber-ID + bank soal tervalidasi untuk Hitung, Tambah, Pola, Huruf). Unggah ke root bersama script.js, index.html, style.css, service-worker.js. Cache `bba-v8`. Hapus `README-1.md` (salinan lama).
+
+## Versi 9
+File baru `games2.js` (Mewarnai 35 gambar, Menghubungkan Garis 7 jenis + seret, Labirin 3 babak). Loading screen 3 detik di index.html + style.css. Cache `bba-v9`.
+
+## Versi 10
+File baru `puzzle.js` (Puzzle Petualangan, 7 tingkat). Unggah juga `puzzle.js`; cache `bba-v10`.
+
+## Versi 11
+- Musik & efek suara (folder `audio/`): `lagu_01.mp3` musik utama (loop), `lagu_02.mp3` jawaban benar, `lagu_03.mp3` level selesai, `lagu_04.mp3` jawaban salah. Tombol 🔊 di header membuka **Pengaturan Suara**: Semua suara hidup / Hanya efek suara / Semua suara mati, plus volume musik. Musik baru mulai setelah anak menyentuh layar (aturan autoplay browser).
+- `lagu_01.mp3` dikompres ke 128 kbps (±2,9 MB) agar ringan untuk data seluler.
+- `benyoriki.com` di layar loading dan footer kini tautan yang membuka tab baru.
+- Tombol & halaman **Donasi QRIS** (`qris.png`, dengan tombol Unduh). Untuk mengganti QRIS, timpa `qris.png` dan ubah nama/NMID di `suara.js` (`QRIS_NAME`, `NMID`).
+- File baru: `suara.js`, `qris.png`, `audio/*`. Cache `bba-v13` (v11.1: kartu Orang Tua & Dukungan didesain ulang).
+
+## Versi 13
+- Ikon menu permainan diganti SVG buatan sendiri (`ikon.js`) dengan palet warna baru; tampil jelas di HP dan PC. Warna kartu diatur di `GCOL` pada `ikon.js`.
+- Lencana "Sistem Update v13" di bawah judul (header & layar loading). File baru: `ikon.js`. Cache `bba-v13`.
