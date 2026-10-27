@@ -5,7 +5,7 @@ Belajar, Bermain, Tumbuh dengan Ceria! — Developed by @benyoriki
 1. Buat repository baru di github.com (mis. `BukuBelajarAnak`, Public).
 2. Klik **Add file › Upload files**, unggah SEMUA file (index.html, style.css, script.js, manifest.json, service-worker.js, icon-192.png, icon-512.png, README.md) langsung di root, tanpa folder. Klik **Commit changes**.
 3. Buka **Settings › Pages**, pilih Source **Deploy from a branch**, branch `main`, folder `/ (root)`, Save.
-4. Tunggu 1–2 menit; akses di `https://USERNAME.github.io/BukuBelajarAnak/` (HTTPS, wajib untuk PWA).
+4. Tunggu 1–2 menit; akses di `https://belajarbermain.online/` (HTTPS, wajib untuk PWA).
 
 ## Instal PWA
 - Android/Chrome/Edge/Windows: tombol **Pasang Aplikasi** di halaman Profil, atau menu ⋮ › Instal aplikasi.
@@ -57,3 +57,10 @@ File baru `puzzle.js` (Puzzle Petualangan, 7 tingkat). Unggah juga `puzzle.js`; 
 ## Versi 13
 - Ikon menu permainan diganti SVG buatan sendiri (`ikon.js`) dengan palet warna baru; tampil jelas di HP dan PC. Warna kartu diatur di `GCOL` pada `ikon.js`.
 - Lencana "Sistem Update v13" di bawah judul (header & layar loading). File baru: `ikon.js`. Cache `bba-v13`.
+
+## Domain baru
+Domain website: **https://belajarbermain.online/** (canonical, Open Graph, dan Twitter image di `index.html`). Link `benyoriki.com` tetap mengarah ke website pengembang. Pratinjau WhatsApp bisa tersimpan cache; kirim tautan dengan `?v=2` atau segarkan lewat https://developers.facebook.com/tools/debug/.
+
+## SEO / Google (v15)
+- Judul, deskripsi, Open Graph, Twitter Card, JSON-LD (WebSite + SoftwareApplication), `robots.txt`, `sitemap.xml`, hreflang, dan teks cadangan untuk crawler sudah dipasang untuk **https://belajarbermain.online/**.
+- Langkah wajib di sisi Anda: daftarkan domain di **Google Search Console** (jenis "Domain" atau "URL prefix"), verifikasi (DNS TXT atau tag meta), kirim `https://belajarbermain.online/sitemap.xml`, lalu klik **Inspeksi URL › Minta pengindeksan**. Tampilan di hasil pencarian baru berubah setelah Google meng-crawl ulang (hari hingga minggu); Google tidak menjamin tampilan snippet.
