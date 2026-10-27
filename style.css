@@ -80,3 +80,7 @@ h2::before{content:"";display:inline-block;width:.3rem;height:1.05em;border-radi
 .tg{position:absolute;top:.5rem;right:.5rem;font-style:normal;font-size:.62rem;font-weight:800;background:#fff1b8;color:#b85a00;border-radius:99px;padding:.1rem .45rem}
 .pk{align-items:center;justify-content:center;text-align:center;font-weight:800;min-height:7rem}.pk span{font-size:2.4rem}
 .pf .row .ghost{min-height:44px;padding:.35rem .9rem;font-size:.85rem}
+
+/* v7 aset gambar */
+.ai{display:inline-block;width:var(--s,2.4rem);aspect-ratio:1;background:url(aset.webp) var(--x) var(--y)/1300% 800% no-repeat;vertical-align:middle}
+.opt .ai{--s:3rem}.qb .ai{--s:2.6rem}.big .ai{--s:3.4rem}.mc .ai{--s:2.6rem}.gr .opt .ai,.cell .ai{--s:80%}.cell{overflow:hidden}.sh{display:inline-block}

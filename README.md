@@ -28,3 +28,12 @@ Versi 3: tampilan premium (glass header, kartu 3D, cincin level, konfeti), navig
 
 ## Versi 4
 Unggah juga `karakter.webp` (sprite 30 karakter) ke root. Cache sekarang `bba-v4`. Mode TV dan Layar Penuh ada di halaman Profil; dukungan tiap Smart TV berbeda-beda.
+
+## Versi 5
+Kesulitan permainan mengikuti usia + level anak (6 tingkat). Cache `bba-v5`.
+
+## Versi 6
+Kartu permainan baru dengan deskripsi, latar pemandangan SVG ringan, header solid, perbaikan input foto. Cache `bba-v6`.
+
+## Versi 7
+File baru: `aset.webp` (91 gambar hewan, buah, benda), `preview.jpg` (pratinjau WhatsApp 1200x628), `icon-maskable-512.png`, `apple-touch-icon.png`. Setelah mengubah gambar pratinjau, WhatsApp menyimpan cache lama; kirim tautan dengan `?v=2` di belakangnya, atau gunakan https://developers.facebook.com/tools/debug/ untuk menyegarkan.
