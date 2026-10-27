@@ -48,7 +48,7 @@ File baru `games2.js` (Mewarnai 35 gambar, Menghubungkan Garis 7 jenis + seret, 
 File baru `puzzle.js` (Puzzle Petualangan, 7 tingkat). Unggah juga `puzzle.js`; cache `bba-v10`.
 
 ## Versi 11
-- Musik & efek suara (folder `audio/`): `lagu_01.mp3` musik utama (loop), `lagu_02.mp3` jawaban benar, `lagu_03.mp3` level selesai, `lagu_04.mp3` jawaban salah. Tombol 🔊 di header membuka **Pengaturan Suara**: Semua suara hidup / Hanya efek suara / Semua suara mati, plus volume musik. Musik baru mulai setelah anak menyentuh layar (aturan autoplay browser).
+- Musik & efek suara (folder `audio/`): `lagu_01.mp3` musik utama (loop), `lagu_5.mp3` jawaban benar, `lagu_6.mp3` jawaban salah, `lagu_7.mp3` level selesai (v19). Tombol 🔊 di header membuka **Pengaturan Suara**: Semua suara hidup / Hanya efek suara / Semua suara mati, plus volume musik. Musik baru mulai setelah anak menyentuh layar (aturan autoplay browser).
 - `lagu_01.mp3` dikompres ke 128 kbps (±2,9 MB) agar ringan untuk data seluler.
 - `benyoriki.com` di layar loading dan footer kini tautan yang membuka tab baru.
 - Tombol & halaman **Donasi QRIS** (`qris.png`, dengan tombol Unduh). Untuk mengganti QRIS, timpa `qris.png` dan ubah nama/NMID di `suara.js` (`QRIS_NAME`, `NMID`).
@@ -73,3 +73,20 @@ Layar sambutan baru (hero, statistik, keunggulan, 3 langkah) untuk pengunjung ba
 - Hanya aktif di domain `belajarbermain.online`; di localhost/GitHub Pages hanya membaca angka. Ubah di objek `C` pada `pengunjung.js`.
 - Keterbatasan: hitungan per browser (bukan per orang; hapus data browser = terhitung lagi), angka tidak kebal manipulasi, dan layanan gratis pihak ketiga bisa berubah. Counter kedaluwarsa jika 6 bulan tanpa akses.
 - Cache `bba-v17`.
+
+## Versi 18 — Tampilan modern 2026 (tetap ringan)
+- `modern.css` (lapisan tampilan): latar aurora pastel, header & dock navigasi kaca, kartu dan tombol lebih halus, hero beranda bergradasi, layar sambutan 2 kolom di PC, animasi muncul saat scroll (CSS murni, otomatis mati bila "kurangi gerakan").
+- Font lokal `fonts/` (Fredoka untuk judul, Nunito untuk teks; total ±69 KB, lisensi OFL) agar tampil seragam di semua perangkat. Tanpa library tambahan.
+- Perbaikan: header tidak lagi tinggi/kosong di layar sambutan (bentrok nama class), header tidak sesak di lebar 800–1100 px (mode desktop di HP), kartu permainan tidak lagi menyisakan baris yatim (Belajar 6 kartu, Bermain 8 kartu), layar loading 1,8 dtk pada kunjungan pertama dan 0,25 dtk berikutnya (sebelumnya selalu 3 dtk).
+- Pill "N pengunjung" di layar sambutan baru muncul jika pengunjung ≥ 50 (bukti sosial yang kuat); angka di footer selalu tampil.
+- Cache `bba-v18`.
+
+## Versi 19
+- **Lebih ringan**: loader pendek (0,5 dtk, bukan 1,8 dtk), skrip `defer`, tanpa blur/backdrop-filter, tanpa animasi denyut box-shadow & animasi scroll-driven, animasi loncat berhenti sendiri, `lagu_01.mp3` 2,9 MB → 1,4 MB (64 kbps mono) dan tidak lagi diunduh paksa saat instal (disimpan otomatis setelah pertama diputar).
+- **Suara baru**: `lagu_5.mp3` (benar), `lagu_6.mp3` (salah), `lagu_7.mp3` (level selesai). Untuk menukar peran, ubah `SFXF` di `suara.js`. `lagu_02/03/04` dihapus. Cache `bba-v20`.
+- **Tombol Pasang** kini hanya ikon unduh.
+- **Tombol gambar "Mulai Cerita"** (`mulai-cerita-500.webp`, `mulai-cerita-1000.webp`) di layar awal dan dasbor; membuka https://benyoriki.github.io/Kisah3Dino/ di tab yang sama (`location.replace`).
+
+## Versi 19.1
+- Jendela "Terima Kasih Telah Peduli" didesain ulang (header lembut, manfaat, kartu QRIS, langkah, penutup) dengan teks baru.
+- Tombol "Donasi untuk Pengembangan" dan penghitung pengunjung di footer hanya tampil di Beranda; di Belajar, Bermain, Peringkat, dan Profil footer hanya berisi teks. Cache `bba-v20`.

@@ -1,5 +1,5 @@
-const V='bba-v17',F=['./','index.html','style.css','script.js','bank.js','games2.js','puzzle.js','suara.js','ikon.js','pengunjung.js','manifest.json','icon-192.png','icon-512.png','karakter.webp','aset.webp','icon-maskable-512.png','qris.png','audio/lagu_02.mp3','audio/lagu_03.mp3','audio/lagu_04.mp3'],BG='audio/lagu_01.mp3';
-self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(F).then(()=>{c.add(BG).catch(()=>{})})).then(()=>self.skipWaiting())));
+const V='bba-v20',F=['./','index.html','style.css','script.js','bank.js','games2.js','puzzle.js','suara.js','ikon.js','pengunjung.js','modern.css','fonts/fredoka-latin-wght-normal.woff2','fonts/nunito-latin-wght-normal.woff2','manifest.json','icon-192.png','icon-512.png','karakter.webp','aset.webp','icon-maskable-512.png','mulai-cerita-500.webp','mulai-cerita-1000.webp','audio/lagu_5.mp3','audio/lagu_6.mp3','audio/lagu_7.mp3'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>c.addAll(F)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 /* Audio memakai permintaan Range: jawab dari cache dengan potongan 206 agar bisa loop/seek (Safari wajib) */
 async function ranged(r){

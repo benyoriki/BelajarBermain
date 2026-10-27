@@ -2,6 +2,8 @@
 (function(){
 'use strict';
 var BASE='audio/',MODES=['all','sfx','off'];
+/* efek suara: ok = jawaban benar, bad = jawaban salah, fin = level selesai */
+var SFXF={ok:'lagu_5.mp3',bad:'lagu_6.mp3',fin:'lagu_7.mp3'},SFXK=['ok','bad','fin'];
 var ICON={all:'🔊',sfx:'🔔',off:'🔇'};
 var bgm=null,sfx={},started=false,duckT=null,lastOpener=null;
 
@@ -14,7 +16,7 @@ sync();
 /* ---------- audio ---------- */
 function mkAudio(f,loop){var a=new Audio(BASE+f);a.preload=loop?'none':'auto';a.loop=!!loop;return a}
 function getBgm(){if(!bgm){bgm=mkAudio('lagu_01.mp3',true);bgm.volume=S.mv}return bgm}
-function getSfx(n){if(!sfx[n]){sfx[n]=mkAudio('lagu_0'+n+'.mp3');sfx[n].volume=1}return sfx[n]}
+function getSfx(n){if(!sfx[n]){sfx[n]=mkAudio(SFXF[n]);sfx[n].volume=.6}return sfx[n]}
 
 function musicOn(){return S.sm==='all'}
 function playBgm(){if(!musicOn()||document.hidden)return;var a=getBgm();a.volume=S.mv;var p=a.play();if(p&&p.catch)p.catch(function(){started=false})}
@@ -29,7 +31,7 @@ function duck(ms){
 function play(n){
   if(S.sm==='off')return;
   /* hentikan efek lain agar tidak bertumpuk */
-  [2,3,4].forEach(function(i){if(i!==n&&sfx[i]){sfx[i].pause();try{sfx[i].currentTime=0}catch(e){}}});
+  SFXK.forEach(function(i){if(i!==n&&sfx[i]){sfx[i].pause();try{sfx[i].currentTime=0}catch(e){}}});
   var a=getSfx(n);
   try{a.currentTime=0}catch(e){}
   var p=a.play();if(p&&p.catch)p.catch(function(){});
@@ -39,7 +41,7 @@ function play(n){
 /* buka kunci audio pada gestur pertama pengguna (kebijakan autoplay browser & iOS) */
 function unlock(){
   if(started)return;started=true;
-  [2,3,4].forEach(function(i){
+  SFXK.forEach(function(i){
     var a=getSfx(i);a.muted=true;
     var p=a.play();
     var done=function(){a.pause();try{a.currentTime=0}catch(e){}a.muted=false};
@@ -56,9 +58,9 @@ document.addEventListener('visibilitychange',function(){
 
 /* ---------- pemicu suara pada permainan ---------- */
 var _ok=window.ok,_bad=window.bad,_fin=window.fin;
-window.ok=function(){_ok.apply(this,arguments);play(2)};   /* lagu_02: jawaban benar */
-window.bad=function(){_bad.apply(this,arguments);play(4)};  /* lagu_04: jawaban salah */
-window.fin=function(){var first=!G.done;var r=_fin.apply(this,arguments);if(first)play(3);return r}; /* lagu_03: level selesai */
+window.ok=function(){_ok.apply(this,arguments);play('ok')};   /* lagu_5: jawaban benar */
+window.bad=function(){_bad.apply(this,arguments);play('bad')};  /* lagu_6: jawaban salah */
+window.fin=function(){var first=!G.done;var r=_fin.apply(this,arguments);if(first)play('fin');return r}; /* lagu_7: level selesai */
 
 /* ---------- modal ---------- */
 function modal(html,cls){
@@ -99,7 +101,7 @@ function setMode(m){
   if(MODES.indexOf(m)<0)return;
   S.sm=m;sync();
   if(m==='all'){started=false;unlock()}else stopBgm();
-  if(m!=='off')play(2); /* contoh bunyi */
+  if(m!=='off')play('ok'); /* contoh bunyi */
   var d=document.getElementById('md');
   if(d){var b=d.querySelector('.mb'),x=b.querySelector('.mx');var tmp=document.createElement('div');tmp.innerHTML=settingsHtml();
     while(b.lastChild&&b.lastChild!==x)b.removeChild(b.lastChild);
@@ -111,17 +113,22 @@ function setMode(m){
 /* ---------- Donasi ---------- */
 var QRIS_NAME='RIKI HERMAWAN, DIGITAL & KREATIF',NMID='ID1026615097429';
 function donHtml(){
-  return '<h2 id="mt">💝 Terima Kasih Telah Peduli</h2>'+
-  '<p class="dl">Setiap senyum anak yang berhasil menyelesaikan satu level adalah alasan kami terus berkarya. Buku Belajar Anak dirancang agar <b>gratis, bebas iklan, dan aman</b> untuk si kecil — dan itu hanya bisa bertahan dengan dukungan orang-orang baik seperti Anda.</p>'+
-  '<ul class="dk"><li>🎮 Permainan dan soal baru yang lebih seru</li><li>🎨 Ilustrasi, karakter, dan musik yang lebih menarik</li><li>🚫 Tetap bebas iklan &amp; aman untuk anak</li><li>🛠️ Perawatan dan pembaruan berkelanjutan</li></ul>'+
-  '<p class="dl dq">“Kebaikan sekecil apa pun, jika dilakukan bersama, tumbuh menjadi masa depan yang besar bagi anak-anak kita.”</p>'+
-  '<div class="qw"><img src="qris.png" alt="Kode QRIS donasi atas nama '+QRIS_NAME+'" width="800" height="924" decoding="async"></div>'+
-  '<p class="dn"><b>'+QRIS_NAME+'</b><br>NMID: '+NMID+'</p>'+
-  '<a class="cta dbtn" href="qris.png" download="QRIS-Donasi-Buku-Belajar-Anak.png">⬇ Unduh QRIS</a>'+
-  '<ol class="dh"><li>Unduh QRIS, atau scan langsung dari layar ini.</li><li>Buka e-wallet atau mobile banking Anda (GoPay, OVO, DANA, ShopeePay, LinkAja, dll.).</li><li>Pilih <b>Scan</b> (atau <b>Upload dari galeri</b>), isi nominal sesuai keikhlasan, lalu konfirmasi.</li></ol>'+
-  '<p class="dl sm">Donasi bersifat sukarela. Doa dan dukungan Anda sangat berarti — terima kasih telah menjadi bagian dari tumbuh kembang anak-anak kita 🦕💛</p>';
+  return '<div class="dm-h"><span class="dm-ic" aria-hidden="true">💝</span><div><h2 id="mt">Terima Kasih Telah Peduli</h2><p class="dm-sub">Dukungan Anda menjaga Buku Belajar Anak tetap gratis.</p></div></div>'+
+  '<p class="dm-p">Di balik setiap senyum anak yang berhasil menyelesaikan satu level, ada waktu, tenaga, dan biaya yang kami jaga dengan sepenuh hati. Buku Belajar Anak dibuat agar tetap <b>gratis, bebas iklan, dan aman</b> untuk si kecil, dan itu hanya bisa bertahan berkat orang-orang baik seperti Anda.</p>'+
+  '<section class="dm-b" aria-label="Manfaat dukungan Anda"><h3>Dukungan Anda membantu kami menghadirkan</h3><ul>'+
+  '<li><span aria-hidden="true">🎮</span>Permainan dan soal baru yang lebih seru</li>'+
+  '<li><span aria-hidden="true">🎨</span>Ilustrasi, karakter, dan musik yang lebih menarik</li>'+
+  '<li><span aria-hidden="true">🛡️</span>Pengalaman bebas iklan yang aman untuk anak</li>'+
+  '<li><span aria-hidden="true">🛠️</span>Perawatan dan pembaruan yang berkelanjutan</li></ul></section>'+
+  '<section class="dm-q" aria-label="Donasi lewat QRIS"><h3>Donasi lewat QRIS</h3><div class="qw"><img src="qris.png" alt="Kode QRIS donasi atas nama '+QRIS_NAME+'" width="800" height="924" decoding="async" loading="lazy"></div>'+
+  '<p class="dm-n"><b>'+QRIS_NAME+'</b><span>NMID: '+NMID+'</span></p>'+
+  '<a class="cta dm-dl" href="qris.png" download="QRIS-Donasi-Buku-Belajar-Anak.png">⬇ Unduh QRIS</a></section>'+
+  '<ol class="dm-s"><li>Unduh QRIS, atau scan langsung dari layar ini.</li><li>Buka e-wallet atau mobile banking Anda, seperti GoPay, OVO, DANA, ShopeePay, atau LinkAja.</li><li>Pilih <b>Scan</b> (atau <b>Upload dari galeri</b>), isi nominal sesuai keikhlasan, lalu konfirmasi.</li></ol>'+
+  '<blockquote class="dm-k">Kebaikan kecil yang dilakukan bersama akan tumbuh menjadi masa depan yang besar bagi anak-anak kita.</blockquote>'+
+  '<p class="dm-f">Donasi bersifat sukarela. Berapa pun nilainya, doa dan dukungan Anda sangat berarti. Terima kasih telah ikut menemani anak-anak Indonesia belajar dan tumbuh dengan gembira 🦕💛</p>'+
+  '<button class="ghost dm-x" data-a="mclose">Tutup</button>';
 }
-function openDon(t){lastOpener=t||null;modal(donHtml(),'don')}
+function openDon(t){lastOpener=t||null;modal(donHtml(),'dmod')}
 function donCard(){
   return '<section class="card dcard" aria-labelledby="dt"><span class="dheart" aria-hidden="true">💝</span><small class="ey">Ajakan dari hati</small><h2 id="dt">Satu Kebaikan Kecil,<br>Dampak yang Besar</h2>'+
   '<p class="lead">Buku Belajar Anak dibuat dengan cinta agar setiap anak bisa belajar dengan gembira — <b>gratis dan bebas iklan</b>. Di balik tiap permainan ada waktu, tenaga, dan biaya yang tidak sedikit.</p>'+

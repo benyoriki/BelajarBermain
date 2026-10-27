@@ -20,7 +20,7 @@ function call(kind,key){
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
 function paint(){
   var ready=val.u!==null&&val.v!==null;
-  [].forEach.call(document.querySelectorAll('[data-vcw]'),function(e){e.hidden=!ready});
+  [].forEach.call(document.querySelectorAll('[data-vcw]'),function(e){var m=+e.getAttribute('data-vcmin')||0;e.hidden=!ready||val.u<m});
   if(!ready)return;
   [].forEach.call(document.querySelectorAll('[data-vc]'),function(e){
     var k=e.getAttribute('data-vc'),to=val[k],from=shown[k];
