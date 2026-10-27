@@ -64,3 +64,6 @@ Domain website: **https://belajarbermain.online/** (canonical, Open Graph, dan T
 ## SEO / Google (v15)
 - Judul, deskripsi, Open Graph, Twitter Card, JSON-LD (WebSite + SoftwareApplication), `robots.txt`, `sitemap.xml`, hreflang, dan teks cadangan untuk crawler sudah dipasang untuk **https://belajarbermain.online/**.
 - Langkah wajib di sisi Anda: daftarkan domain di **Google Search Console** (jenis "Domain" atau "URL prefix"), verifikasi (DNS TXT atau tag meta), kirim `https://belajarbermain.online/sitemap.xml`, lalu klik **Inspeksi URL › Minta pengindeksan**. Tampilan di hasil pencarian baru berubah setelah Google meng-crawl ulang (hari hingga minggu); Google tidak menjamin tampilan snippet.
+
+## Versi 16
+Layar sambutan baru (hero, statistik, keunggulan, 3 langkah) untuk pengunjung baru & profil belum dipilih; tombol donasi di footer disembunyikan pada layar ini. Cache `bba-v16`.
