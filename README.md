@@ -90,3 +90,7 @@ Layar sambutan baru (hero, statistik, keunggulan, 3 langkah) untuk pengunjung ba
 ## Versi 19.1
 - Jendela "Terima Kasih Telah Peduli" didesain ulang (header lembut, manfaat, kartu QRIS, langkah, penutup) dengan teks baru.
 - Tombol "Donasi untuk Pengembangan" dan penghitung pengunjung di footer hanya tampil di Beranda; di Belajar, Bermain, Peringkat, dan Profil footer hanya berisi teks. Cache `bba-v20`.
+
+## Versi 19.2
+- Ikon play (`tombol-play.webp`, 30 KB) ditumpuk di tombol "Mulai Cerita" dengan animasi memantul + cincin berdenyut (hanya transform/opacity, ringan; mati otomatis jika perangkat meminta gerakan dikurangi).
+- Tombol "Dukung via QRIS" dihapus; kartu donasi di Beranda dan Profil kini memakai tombol "Donasi untuk Pengembangan". Tombol donasi di footer dihapus. Cache `bba-v21`.

@@ -134,7 +134,7 @@ function donCard(){
   '<p class="lead">Buku Belajar Anak dibuat dengan cinta agar setiap anak bisa belajar dengan gembira — <b>gratis dan bebas iklan</b>. Di balik tiap permainan ada waktu, tenaga, dan biaya yang tidak sedikit.</p>'+
   '<p class="lead">Dukungan Anda memastikan karya ini tetap gratis, terus bertambah seru, dan menjangkau lebih banyak anak Indonesia.</p>'+
   '<ul class="pl dpl" aria-label="Manfaat donasi"><li>🎮 Permainan baru</li><li>🎨 Ilustrasi &amp; musik</li><li>🛠️ Perawatan rutin</li></ul>'+
-  '<button class="don dcta" data-a="don">💝 Dukung via QRIS</button><p class="dsub">Nominal bebas — berapa pun sangat berarti. Terima kasih 🦕💛</p></section>';
+  '<button class="don dcta" data-a="don">💝 Donasi untuk Pengembangan</button><p class="dsub">Nominal bebas — berapa pun sangat berarti. Terima kasih 🦕💛</p></section>';
 }
 var _home=window.home,_prof=window.prof;
 window.home=function(){return _home.apply(this,arguments).replace('<!--DON-->',donCard())};
