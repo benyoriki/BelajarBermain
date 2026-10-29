@@ -2,8 +2,8 @@
 (function(){
 'use strict';
 var BASE='audio/',MODES=['all','sfx','off'];
-/* efek suara: ok = jawaban benar, bad = jawaban salah, fin = level selesai */
-var SFXF={ok:'lagu_5.mp3',bad:'lagu_6.mp3',fin:'lagu_7.mp3'},SFXK=['ok','bad','fin'];
+/* efek suara: ok = jawaban benar (lagu_6), bad = jawaban salah (lagu_5), fin = level selesai (lagu_7) */
+var SFXF={ok:'lagu_6.mp3',bad:'lagu_5.mp3',fin:'lagu_7.mp3'},SFXK=['ok','bad','fin'];
 var ICON={all:'🔊',sfx:'🔔',off:'🔇'};
 var bgm=null,sfx={},started=false,duckT=null,lastOpener=null;
 
@@ -58,9 +58,11 @@ document.addEventListener('visibilitychange',function(){
 
 /* ---------- pemicu suara pada permainan ---------- */
 var _ok=window.ok,_bad=window.bad,_fin=window.fin;
-window.ok=function(){_ok.apply(this,arguments);play('ok')};   /* lagu_5: jawaban benar */
-window.bad=function(){_bad.apply(this,arguments);play('bad')};  /* lagu_6: jawaban salah */
+window.ok=function(){_ok.apply(this,arguments);play('ok')};   /* lagu_6: jawaban benar */
+window.bad=function(){_bad.apply(this,arguments);play('bad')};  /* lagu_5: jawaban salah */
 window.fin=function(){var first=!G.done;var r=_fin.apply(this,arguments);if(first)play('fin');return r}; /* lagu_7: level selesai */
+
+window.sfxPlay=play;   /* dipakai game yang tidak lewat ok()/bad(), mis. Puzzle Petualangan */
 
 /* ---------- modal ---------- */
 function modal(html,cls){
@@ -113,28 +115,29 @@ function setMode(m){
 /* ---------- Donasi ---------- */
 var QRIS_NAME='RIKI HERMAWAN, DIGITAL & KREATIF',NMID='ID1026615097429';
 function donHtml(){
-  return '<div class="dm-h"><span class="dm-ic" aria-hidden="true">💝</span><div><h2 id="mt">Terima Kasih Telah Peduli</h2><p class="dm-sub">Dukungan Anda menjaga Buku Belajar Anak tetap gratis.</p></div></div>'+
-  '<p class="dm-p">Di balik setiap senyum anak yang berhasil menyelesaikan satu level, ada waktu, tenaga, dan biaya yang kami jaga dengan sepenuh hati. Buku Belajar Anak dibuat agar tetap <b>gratis, bebas iklan, dan aman</b> untuk si kecil, dan itu hanya bisa bertahan berkat orang-orang baik seperti Anda.</p>'+
-  '<section class="dm-b" aria-label="Manfaat dukungan Anda"><h3>Dukungan Anda membantu kami menghadirkan</h3><ul>'+
-  '<li><span aria-hidden="true">🎮</span>Permainan dan soal baru yang lebih seru</li>'+
-  '<li><span aria-hidden="true">🎨</span>Ilustrasi, karakter, dan musik yang lebih menarik</li>'+
-  '<li><span aria-hidden="true">🛡️</span>Pengalaman bebas iklan yang aman untuk anak</li>'+
-  '<li><span aria-hidden="true">🛠️</span>Perawatan dan pembaruan yang berkelanjutan</li></ul></section>'+
-  '<section class="dm-q" aria-label="Donasi lewat QRIS"><h3>Donasi lewat QRIS</h3><div class="qw"><img src="qris.png" alt="Kode QRIS donasi atas nama '+QRIS_NAME+'" width="800" height="924" decoding="async" loading="lazy"></div>'+
+  return '<div class="dm-h"><span class="dm-ic" aria-hidden="true">💛</span><div><h2 id="mt">Donasi melalui QRIS</h2><p class="dm-sub">Dukungan kecil, semangat besar untuk anak-anak Indonesia.</p></div></div>'+
+  '<p class="dm-p"><b>Satu kebaikan kecil dapat membuka lebih banyak kesempatan untuk belajar.</b> Buku Belajar Anak hadir untuk menemani anak-anak Indonesia mengenal huruf, berhitung, melatih logika, dan menjelajahi dunia melalui permainan yang menyenangkan.</p>'+
+  '<p class="dm-p">Kami ingin ruang belajar ini tetap mudah diakses, ramah anak, dan terus berkembang. Di balik setiap permainan, ada waktu untuk merancang soal, membuat ilustrasi, mengembangkan fitur, serta merawat website agar tetap nyaman digunakan.</p>'+
+  '<section class="dm-b" aria-label="Manfaat dukungan Anda"><h3>Dukungan Anda membantu kami untuk</h3><ul>'+
+  '<li><span aria-hidden="true">🎮</span><div><b>Menghadirkan permainan baru</b><br>Lebih banyak aktivitas yang mengajak anak belajar sambil bermain.</div></li>'+
+  '<li><span aria-hidden="true">🎨</span><div><b>Mengembangkan ilustrasi dan cerita</b><br>Karakter, gambar, dan petualangan yang membuat anak semakin antusias.</div></li>'+
+  '<li><span aria-hidden="true">🎵</span><div><b>Menyempurnakan pengalaman belajar</b><br>Musik, suara, dan interaksi yang membantu anak menikmati proses belajar.</div></li>'+
+  '<li><span aria-hidden="true">🛠️</span><div><b>Merawat dan meningkatkan website</b><br>Perbaikan, pembaruan, serta pengembangan agar Buku Belajar Anak terus bertumbuh.</div></li></ul></section>'+
+  '<section class="dm-q" aria-label="Donasi lewat QRIS"><h3>Donasi sukarela melalui QRIS</h3><p class="dm-p">Jika Anda berkenan mendukung perjalanan ini, silakan berdonasi sesuai kemampuan dan keikhlasan. Tidak ada nominal minimum.</p><div class="qw"><img src="qris.png" alt="Kode QRIS donasi atas nama '+QRIS_NAME+'" width="800" height="924" decoding="async" loading="lazy"></div>'+
   '<p class="dm-n"><b>'+QRIS_NAME+'</b><span>NMID: '+NMID+'</span></p>'+
-  '<a class="cta dm-dl" href="qris.png" download="QRIS-Donasi-Buku-Belajar-Anak.png">⬇ Unduh QRIS</a></section>'+
-  '<ol class="dm-s"><li>Unduh QRIS, atau scan langsung dari layar ini.</li><li>Buka e-wallet atau mobile banking Anda, seperti GoPay, OVO, DANA, ShopeePay, atau LinkAja.</li><li>Pilih <b>Scan</b> (atau <b>Upload dari galeri</b>), isi nominal sesuai keikhlasan, lalu konfirmasi.</li></ol>'+
-  '<blockquote class="dm-k">Kebaikan kecil yang dilakukan bersama akan tumbuh menjadi masa depan yang besar bagi anak-anak kita.</blockquote>'+
-  '<p class="dm-f">Donasi bersifat sukarela. Berapa pun nilainya, doa dan dukungan Anda sangat berarti. Terima kasih telah ikut menemani anak-anak Indonesia belajar dan tumbuh dengan gembira 🦕💛</p>'+
+  '<a class="cta dm-dl" href="qris.png" download="QRIS-Donasi-Buku-Belajar-Anak.png">⬇ Unduh Kode QRIS</a></section>'+
+  '<ol class="dm-s"><li>Pindai QRIS di atas atau unduh gambar QRIS.</li><li>Buka aplikasi e-wallet atau mobile banking (GoPay, OVO, DANA, ShopeePay, LinkAja, dll).</li><li>Pilih <b>Scan</b> (atau <b>Upload dari galeri</b>), isi nominal sesuai keikhlasan, lalu konfirmasi.</li></ol>'+
+  '<blockquote class="dm-k"><b>Tidak bisa berdonasi saat ini?</b> Tidak apa-apa. Menemani anak belajar, membagikan website kepada keluarga, atau memberikan saran juga merupakan dukungan yang sangat berarti. Terima kasih! 🦕💛</blockquote>'+
+  '<p class="dm-f">Terima kasih telah menjadi bagian dari perjalanan kecil ini. Semoga semakin banyak anak dapat belajar, bermain, dan tumbuh dengan gembira. 🦖💛</p>'+
   '<button class="ghost dm-x" data-a="mclose">Tutup</button>';
 }
 function openDon(t){lastOpener=t||null;modal(donHtml(),'dmod')}
 function donCard(){
-  return '<section class="card dcard" aria-labelledby="dt"><span class="dheart" aria-hidden="true">💝</span><small class="ey">Ajakan dari hati</small><h2 id="dt">Satu Kebaikan Kecil,<br>Dampak yang Besar</h2>'+
-  '<p class="lead">Buku Belajar Anak dibuat dengan cinta agar setiap anak bisa belajar dengan gembira — <b>gratis dan bebas iklan</b>. Di balik tiap permainan ada waktu, tenaga, dan biaya yang tidak sedikit.</p>'+
-  '<p class="lead">Dukungan Anda memastikan karya ini tetap gratis, terus bertambah seru, dan menjangkau lebih banyak anak Indonesia.</p>'+
-  '<ul class="pl dpl" aria-label="Manfaat donasi"><li>🎮 Permainan baru</li><li>🎨 Ilustrasi &amp; musik</li><li>🛠️ Perawatan rutin</li></ul>'+
-  '<button class="don dcta" data-a="don">💝 Donasi untuk Pengembangan</button><p class="dsub">Nominal bebas — berapa pun sangat berarti. Terima kasih 🦕💛</p></section>';
+  return '<section class="card dcard" aria-labelledby="dt"><span class="dheart" aria-hidden="true">💛</span><h2 id="dt">Bantu Buku Belajar Anak<br>Terus Bertumbuh</h2>'+
+  '<p class="lead"><b>Satu kebaikan kecil dapat membuka lebih banyak kesempatan untuk belajar.</b></p>'+
+  '<p class="lead">Dukungan Anda membantu kami menghadirkan permainan baru, ilustrasi yang lebih menarik, dan pengalaman belajar yang lebih baik untuk anak-anak Indonesia.</p>'+
+  '<ul class="pl dpl" aria-label="Manfaat dukungan"><li>🎮 Permainan baru yang lebih seru</li><li>🎨 Ilustrasi, karakter, dan cerita</li><li>🎵 Musik dan suara yang lebih menyenangkan</li><li>🛠️ Perawatan dan pembaruan website</li></ul>'+
+  '<button class="don dcta" data-a="don">💛 Dukung Sekarang</button><p class="dsub">Sesuai keikhlasan Anda. Berapa pun sangat berarti. Terima kasih telah mendukung anak-anak Indonesia belajar dengan gembira. 🦕💛</p></section>';
 }
 var _home=window.home,_prof=window.prof;
 window.home=function(){return _home.apply(this,arguments).replace('<!--DON-->',donCard())};

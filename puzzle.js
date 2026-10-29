@@ -48,8 +48,8 @@ function fit(){const z=G.pz,b=$('#pzb'),p=$('.pzp');if(!z||!b)return;p.style.set
 addEventListener('resize',fit);
 function stat(){const z=G.pz;$('#pzst').textContent=z.steps;$('#pzpg').textContent=z.ok;$('#pzbar').style.width=z.ok/z.n*100+'%'}
 function place(k,i){const z=G.pz,sl=document.querySelector('.pzs2[data-v="'+i+'"]');if(!z||z.done||z.paused||!sl||sl.classList.contains('lk'))return;z.steps++;
- if(k===i){sl.classList.add('lk');sl.classList.remove('hint');sl.disabled=true;const pc=document.querySelector('.pzp2[data-v="'+k+'"]');if(pc)pc.remove();z.ok++;z.sel=null;beep(620);msg('✅ Pas! Keping terkunci.')}
- else{sl.classList.add('no');setTimeout(()=>sl.classList.remove('no'),350);beep(180);msg('Belum pas, coba kotak lain ya 🙂')}
+ if(k===i){sl.classList.add('lk');sl.classList.remove('hint');sl.disabled=true;const pc=document.querySelector('.pzp2[data-v="'+k+'"]');if(pc)pc.remove();z.ok++;z.sel=null;window.sfxPlay&&sfxPlay('ok');msg('✅ Pas! Keping terkunci.')}
+ else{sl.classList.add('no');setTimeout(()=>sl.classList.remove('no'),350);window.sfxPlay&&sfxPlay('bad');msg('Belum pas, coba kotak lain ya 🙂')}
  stat();if(z.ok===z.n)win()}
 function pick(k){const z=G.pz;if(!z||z.paused||z.done)return;z.sel=k;document.querySelectorAll('.pzp2').forEach(b=>b.classList.toggle('sel',+b.dataset.v===k))}
 function bind(el){let d=null;

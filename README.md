@@ -94,3 +94,20 @@ Layar sambutan baru (hero, statistik, keunggulan, 3 langkah) untuk pengunjung ba
 ## Versi 19.2
 - Ikon play (`tombol-play.webp`, 30 KB) ditumpuk di tombol "Mulai Cerita" dengan animasi memantul + cincin berdenyut (hanya transform/opacity, ringan; mati otomatis jika perangkat meminta gerakan dikurangi).
 - Tombol "Dukung via QRIS" dihapus; kartu donasi di Beranda dan Profil kini memakai tombol "Donasi untuk Pengembangan". Tombol donasi di footer dihapus. Cache `bba-v21`.
+
+## Versi 19.3 — Integrasi Mulai Cerita (proyek cerita terpisah)
+- Cerita Tiga Dino adalah **proyek terpisah** (`Kisah3Dino`, https://benyoriki.github.io/Kisah3Dino/). Tidak ada gambar, musik, atau teks cerita di repositori ini.
+- Tombol/banner **Mulai Cerita** sekarang tautan `<a href>` biasa ke situs cerita di tab yang sama. Sebelumnya memakai `location.replace` lewat event handler (`data-a="dino"`), yang menghapus halaman ini dari riwayat sehingga tombol Back browser tidak kembali ke sini. Tombol 🏠 di situs cerita membuka kembali https://belajarbermain.online/.
+- Jika perangkat sedang offline, tombol menampilkan pesan "Cerita butuh internet" alih-alih membuka halaman galat browser. Mode offline situs ini **tidak** membuat situs cerita tersedia offline.
+- Service worker situs ini hanya menangani permintaan satu-origin; navigasi ke situs cerita tidak dicegat. Cache `bba-v22`.
+- Data `localStorage` kunci `bba1` tidak diubah.
+
+## Versi 19.4 — Perbaikan efek suara
+- Bunyi "beb" (nada sintetis dari `beep()`) saat poin bertambah dan saat keping Puzzle Petualangan ditempatkan sudah dihapus.
+- Pemetaan efek suara kini: **jawaban salah = `audio/lagu_5.mp3`**, **jawaban benar = `audio/lagu_6.mp3`**, **aktivitas/level selesai = `audio/lagu_7.mp3`** (diatur di `SFXF` pada `suara.js`). Puzzle Petualangan ikut memakai suara benar/salah yang sama lewat `sfxPlay()`.
+- Nada sintetis yang tersisa sengaja dipertahankan karena bagian dari permainan, bukan umpan jawaban: nada tombol warna di Ingat Urutan, langkah/dinding di Labirin, dan ketukan karakter di galeri. Beri tahu jika ingin dihapus juga.
+- Cache `bba-v23`.
+
+## Versi 19.5
+- **Layar loading selalu 3 detik** (kunjungan pertama maupun berikutnya): `min=3000` di skrip loader `index.html`, bilah progres 3 dtk (`modern.css`), loncat dino 4 kali (`style.css`). Pengaman jika halaman macet: tertutup otomatis di 5 detik.
+- **Teks donasi baru** (kartu donasi di Beranda/Profil dan jendela QRIS) di `suara.js`, mengikuti naskah "Bantu Buku Belajar Anak Terus Bertumbuh". Tombol kini "Dukung Sekarang". QRIS, nama, dan NMID tidak berubah. Cache `bba-v24`.
