@@ -60,7 +60,7 @@ document.addEventListener('visibilitychange',function(){
 var _ok=window.ok,_bad=window.bad,_fin=window.fin;
 window.ok=function(){_ok.apply(this,arguments);play('ok')};   /* lagu_6: jawaban benar */
 window.bad=function(){_bad.apply(this,arguments);play('bad')};  /* lagu_5: jawaban salah */
-window.fin=function(){var first=!G.done;var r=_fin.apply(this,arguments);if(first)play('fin');return r}; /* lagu_7: level selesai */
+window.fin=function(){var first=!G.done&&!!G.id&&V==='play';var r=_fin.apply(this,arguments);if(first)play('fin');return r}; /* lagu_7: level selesai */
 
 window.sfxPlay=play;   /* dipakai game yang tidak lewat ok()/bad(), mis. Puzzle Petualangan */
 

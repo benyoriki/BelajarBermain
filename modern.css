@@ -132,3 +132,12 @@ body:not([data-v="home"]) footer .vc{display:none}
 @media(hover:hover){.mcerita:hover .pl img{animation-duration:1.4s}}
 @media(prefers-reduced-motion:reduce){.mcerita .pl img,.mcerita .pl::before{animation:none}.mcerita .pl::before{display:none}}
 .dm-b li>div{font-weight:600;font-size:.86rem}.dm-b li>div b{font-weight:800;font-size:.92rem}.dm-b li>span{align-self:flex-start}
+
+/* ---- Audit permainan: perbaikan tata letak ---- */
+.pal .sw{width:2.75rem;height:2.75rem}                     /* target sentuh >= 44px */
+.dheart{right:.5rem}                                        /* ikon hati dekoratif tidak terpotong */
+@media (orientation:landscape) and (max-height:520px){      /* HP landscape: kartu memori tidak lebih tinggi dari layar */
+  .mc{width:clamp(52px,19vh,96px)}
+}
+
+.gctl{margin-top:.9rem;gap:.5rem}.gctl .ghost{min-height:44px}

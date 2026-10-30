@@ -111,3 +111,7 @@ Layar sambutan baru (hero, statistik, keunggulan, 3 langkah) untuk pengunjung ba
 ## Versi 19.5
 - **Layar loading selalu 3 detik** (kunjungan pertama maupun berikutnya): `min=3000` di skrip loader `index.html`, bilah progres 3 dtk (`modern.css`), loncat dino 4 kali (`style.css`). Pengaman jika halaman macet: tertutup otomatis di 5 detik.
 - **Teks donasi baru** (kartu donasi di Beranda/Profil dan jendela QRIS) di `suara.js`, mengikuti naskah "Bantu Buku Belajar Anak Terus Bertumbuh". Tombol kini "Dukung Sekarang". QRIS, nama, dan NMID tidak berubah. Cache `bba-v24`.
+
+## Versi 20.1 — Audit permainan
+Laporan lengkap: `docs/LAPORAN_AUDIT.md`; matriks uji: `docs/TEST_MATRIX.md`; uji manual: `docs/CHECKLIST_MANUAL.md`; skrip uji otomatis (Playwright): `docs/tests_otomatis/`.
+Ringkas: tanggal harian lokal; batas poin 600/hari (konstanta `DAYCAP`, perlu persetujuan); lembar Mewarnai baru tiap sesi; hadiah Puzzle hanya penyelesaian pertama; timer permainan batal saat keluar; Ingat Urutan terkunci saat jeda + tombol Ulangi contoh; migrasi aman `bba1` (data rusak disalin ke `bba1_rusak`); pilihan tingkat Lebih mudah/Pas/Lebih seru; pengurangan untuk 7–8 tahun; dedupe soal; notifikasi versi baru; cache `bba-v26`; kontrol Ulangi + Menu seragam di dalam semua permainan.

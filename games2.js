@@ -57,15 +57,15 @@ B.DR=DR;const cp=Object.assign;
 const PAL12=['#ff5252','#ff9800','#ffd600','#8bc34a','#2e9e4f','#26c6da','#2f9bff','#3f51b5','#9c27b0','#ff80ab','#8d6e63','#212121'];
 const cnt=()=>Object.keys(P().art).filter(k=>k.startsWith(G.dr.id+'_')).length;
 const upd=()=>{const f=$('#fb');if(f)f.textContent='Sudah '+cnt()+' dari '+G.dr.s.length+' bagian diwarnai 🎨'};
-function pickDr(){const so=[...DR].sort((a,b)=>a.s.length-b.s.length),D=dif(),st=Math.round(D/5*(so.length-12)),w=so.slice(st,st+12).filter(d=>!G.dr||d.id!==G.dr.id);return pk(w)}
-window.color=function(){G.dr=null;G.dr=pickDr();G.us=[];G.re=[];G.c=PAL12[0];const dr=G.dr,a=P().art;
+function pickDr(last){const so=[...DR].sort((a,b)=>a.s.length-b.s.length),D=dif(),st=Math.round(D/5*(so.length-12)),w=so.slice(st,st+12).filter(d=>d.id!==last);return pk(w.length?w:so)}
+window.color=function(keep){const last=G.dr&&G.dr.id;G.dr=keep||pickDr(last);G.us=[];G.re=[];G.c=PAL12[0];const dr=G.dr,a=P().art;Object.keys(a).forEach(k=>k.startsWith(dr.id+'_')&&delete a[k]);save();
  M(`<section class="card">${gh(1)}<p class="tgt">${dr.nama} · ${dr.kat} · ${dr.s.length} bagian</p><div class="row pal">${PAL12.map((c,i)=>`<button class="sw ${i?'':'on'}" data-a="col" data-v="${c}" style="background:${c}" aria-label="Warna ${i+1}"></button>`).join('')}<button class="sw" data-a="col" data-v="#ffffff" style="background:#fff" aria-label="Hapus warna">🧽</button></div><svg class="cv" viewBox="0 0 300 200" role="img" aria-label="Gambar ${dr.nama} untuk diwarnai">${dr.s.map((s,i)=>`<${s} tabindex="0" data-a="fill" data-v="${i}" class="f" style="fill:${a[dr.id+'_'+i]||'#fff'}"/>`).join('')}${dr.d}</svg><p id="fb" class="tgt"></p><div class="row"><button class="ghost" data-a="undo">↩ Undo</button><button class="ghost" data-a="redo">↪ Redo</button><button class="ghost" data-a="rs">♻ Reset</button><button class="ghost" data-a="cnext">➡ Gambar lain</button><button class="cta" data-a="cdone">✅ Selesai</button></div></section>`);upd()};
 const setF=(v,c)=>{const t=document.querySelector('.cv [data-v="'+v+'"]'),k=G.dr.id+'_'+v,a=P().art;if(t)t.style.fill=c;if(c==='#ffffff')delete a[k];else a[k]=c;save();upd()};
 cp(ACT,{
 fill(v){const k=G.dr.id+'_'+v,old=P().art[k]||'#ffffff';if(old===G.c)return;setF(v,G.c);G.us.push([v,old,G.c]);G.re=[]},
 undo(){const u=G.us.pop();if(!u)return toast('Belum ada yang dibatalkan');setF(u[0],u[1]);G.re.push(u)},
 redo(){const u=G.re.pop();if(!u)return toast('Tidak ada yang diulang');setF(u[0],u[2]);G.us.push(u)},
-rs(){const a=P().art;Object.keys(a).forEach(k=>k.startsWith(G.dr.id+'_')&&delete a[k]);save();color()},
+rs(){color(G.dr)},
 cnext(){color()},
 cdone(){const need=Math.ceil(G.dr.s.length*[.4,.5,.6,.7,.8,.9][dif()]);if(cnt()<need)return toast('Warnai minimal '+need+' bagian 🎨');fin()}});
 
@@ -83,7 +83,7 @@ const TY={
  makanan:()=>['Hewan dengan makanannya',sm([['monyet','pisang'],['penguin','ikan-biru'],['katak','belalang'],['kelinci','apel']]).map(x=>[I(x[0]),I(x[1])])]};
 let lastT='';
 window.lines=function(){const D=dif(),ks=Object.keys(TY).filter(k=>k!==lastT),k=lastT=pk(ks),[t,p]=TY[k](),n=Math.min([3,4,4,5,5,6][D],p.length),ex=D>=3?p.slice(n,n+2).map(x=>[x[1],'x']):[],
- R=sm(p.slice(0,n).map((x,i)=>[x[1],i]).concat(ex));G.pr=p.slice(0,n);G.m=0;G.s=null;G.t=n;
+ R=sm(p.slice(0,n).map((x,i)=>[x[1],i]).concat(ex));G.pr=p.slice(0,n);G.m=0;G.s=null;G.cx=[];G.t=n;
  M(`<section class="card">${gh(1)}<p class="tgt">Hubungkan: ${t}${ex.length?' (ada gambar yang tidak punya pasangan!)':''}</p><div id="box" class="box"><svg id="sv"></svg><div class="col">${G.pr.map((x,i)=>`<button class="opt" data-a="L" data-v="${i}" id="l${i}">${x[0]}</button>`).join('')}</div><div class="col">${R.map(x=>`<button class="opt" data-a="R" data-v="${x[1]}">${x[0]}</button>`).join('')}</div></div><p class="sm">Ketuk satu gambar lalu pasangannya, atau seret garis dengan jari/mouse.</p><div class="row"><button class="ghost" data-a="go">🔁 Ulangi</button></div></section>`);drag()};
 function drag(){const bx=$('#box'),sv=$('#sv');let d=null;
  const rel=e=>{const r=bx.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
@@ -105,7 +105,7 @@ window.maze=function(r){G.rd=r||0;const n=[6,7,8,9,10,11][dif()]+G.rd,c=[...Arra
  M(`<section class="card">${gh(1)}<p class="tgt">Antar ${G.mz.h} ke ${G.mz.g}. Kumpulkan 3 ⭐ untuk bonus!</p><p id="ms" class="tgt" role="status"></p><div id="mz" class="mz" style="grid-template-columns:repeat(${n},1fr)"></div><div class="dp"><button class="opt" data-a="mv" data-v="0" aria-label="Atas">⬆️</button><br><button class="opt" data-a="mv" data-v="3" aria-label="Kiri">⬅️</button><button class="opt" data-a="mv" data-v="2" aria-label="Bawah">⬇️</button><button class="opt" data-a="mv" data-v="1" aria-label="Kanan">➡️</button></div><div class="row"><button class="ghost" data-a="hint">💡 Petunjuk</button><button class="ghost" data-a="mrs">🔁 Ulangi babak</button></div></section>`);dz();swipe()};
 cp(ACT,{
 mv(v){const z=G.mz;if(!z||z.end||G.id!=='labirin')return;const d=DIR[v];if(z.c[z.p].w&d[2])return beep(150);z.p+=d[1]*z.n+d[0];z.vis[z.p]=1;z.hn.delete(z.p);z.mv++;if(z.st.delete(z.p)){z.got++;beep(760)}beep(500);dz();
- if(z.p===z.n*z.n-1){z.end=1;ok();if(z.got===z.ns)add(5,'Semua bintang');setTimeout(()=>G.rd<2?maze(G.rd+1):fin(),700)}},
+ if(z.p===z.n*z.n-1){z.end=1;ok();if(z.got===z.ns)add(5,'Semua bintang');later(()=>G.rd<2?maze(G.rd+1):fin(),700)}},
 hint(){const z=G.mz;if(!z||z.end)return;const prev={[z.p]:-1},q=[z.p],T=z.n*z.n-1;while(q.length){const i=q.shift();if(i===T)break;DIR.forEach(d=>{if(z.c[i].w&d[2])return;const j=i+d[1]*z.n+d[0];if(!(j in prev)){prev[j]=i;q.push(j)}})}
  const path=[];for(let i=T;i!==-1&&i in prev;i=prev[i])path.unshift(i);z.hn=new Set(path.slice(1,5));dz()},
 mrs(){maze(G.rd)}});

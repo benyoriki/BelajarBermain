@@ -32,7 +32,7 @@ function pzMenu(){clr();const pz=P().pz||{};G.pz=null;
  <label class="pzo"><input type="checkbox" id="pzt" ${sel.timer?'checked':''}> ⏱ Pakai timer (boleh dimatikan)</label><p><button class="cta" data-a="pzgo">▶ Main Puzzle</button> <button class="ghost" data-a="nav" data-v="home">🏠 Beranda</button></p></section>`)}
 function clr(){if(G.pz&&G.pz.iv){clearInterval(G.pz.iv);G.pz.iv=0}}
 /* ---- bermain ---- */
-async function pzStart(){clr();const a=B.ASSETS[sel.img],[nm,n,cols,rows]=LV[sel.lv];M('<section class="card"><p class="tgt">Menyiapkan puzzle…</p></section>');await ready();
+async function pzStart(){clr();const a=B.ASSETS[sel.img],[nm,n,cols,rows]=LV[sel.lv];M('<section class="card"><p class="tgt">Menyiapkan puzzle…</p></section>');const g0=G;await ready();if(G!==g0)return;
  const src=draw(a,cols*100,rows*100),z=G.pz={a,nm,n,cols,rows,src,ok:0,steps:0,hints:0,sec:0,sel:null,paused:0,done:0,nc:0,iv:0};
  const bs=`${cols*100}% ${rows*100}%`,bp=k=>`${k%cols/(cols-1)*100}% ${(k/cols|0)/(rows-1)*100}%`;
  M(`<section class="card pzp" style="${src?`--bi:url('${src}');`:''}--bs:${bs}"><div class="pzh"><button class="ghost" data-a="pzmenu">⬅ Menu</button><b>${a.nama}</b><span class="lv">${nm} · ${n} keping</span></div>
@@ -60,7 +60,7 @@ function bind(el){let d=null;
 function win(){const z=G.pz,p=P(),id=z.a.id;z.done=1;clr();p.pz=p.pz||{};const arr=p.pz[id]=p.pz[id]||[],first=!arr.includes(sel.lv);let b='';
  if(first){arr.push(sel.lv);const pt=10+sel.lv*5;p.ok++;add(pt,'Puzzle '+z.a.nama+' ('+z.n+')');b=' Bonus puzzle baru +'+pt+'.'}else save();
  const info=`<p class="sm">👣 ${z.steps} langkah · 💡 ${z.hints} petunjuk${sel.timer?' · ⏱ '+(z.sec/60|0)+':'+String(z.sec%60).padStart(2,'0'):''}${b?'':' · Puzzle ini sudah pernah selesai di tingkat ini, jadi tanpa bonus baru.'}</p><p><button class="cta" data-a="pznext">▶ Puzzle Berikutnya</button> <button class="ghost" data-a="pzre">🔁 Main Lagi</button> <button class="ghost" data-a="pzmenu">🧩 Menu Puzzle</button></p>`;
- setTimeout(()=>{if(!G.done){fin();const c=$('#main .card');if(c)c.insertAdjacentHTML('beforeend',info)}else{boom();M(`<section class="card"><h1>🎉 Puzzle Selesai!</h1><div class="cnt">${B.img(z.a.id)}</div><p class="big pop">⭐⭐⭐</p>${info}</section>`)}},500)}
+ later(()=>{if(first&&!G.done){fin();const c=$('#main .card');if(c)c.insertAdjacentHTML('beforeend',info)}else{boom();M(`<section class="card"><h1>🎉 Puzzle Selesai!</h1><div class="cnt">${B.img(z.a.id)}</div><p class="big pop">⭐⭐⭐</p>${info}</section>`)}},500)}
 Object.assign(ACT,{
 pzcat(v,t){sel.cat=v;sel.img=list(v)[0].id;tg(t);$('.pzg').innerHTML=grid()},pzimg(v,t){sel.img=v;tg(t)},pzlv(v,t){sel.lv=+v;tg(t)},
 pzgo(){sel.timer=$('#pzt').checked?1:0;pzStart()},pzmenu:pzMenu,pzre:pzStart,
