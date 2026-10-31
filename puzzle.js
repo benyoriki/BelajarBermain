@@ -8,9 +8,9 @@ TH={dinosaurus:['#8fd3ff','#d4f5b0','#5fbf4a','#3f9e3a'],'hewan-darat':['#7cc7ff
 GM.puzzle=['🧩','Puzzle Petualangan'];GD.puzzle=['#00a8e8','Susun potongan, temukan keajaiban!'];
 INS.puzzle='Pilih gambar dan jumlah keping, lalu seret atau ketuk keping ke posisi yang benar.';
 HOW.puzzle=['Pilih gambar dan tingkat','Seret keping (atau ketuk keping, lalu ketuk kotak)','Susun sampai gambar utuh'];
-const sel={cat:'dinosaurus',img:'dino-biru',lv:0,timer:0},SH=new Image();SH.src='aset.webp';
+const sel={cat:null,img:null,lv:null,timer:0},SH=new Image();SH.src='aset.webp';
 const ready=()=>Promise.race([new Promise(r=>{if(SH.complete&&SH.naturalWidth)return r();SH.onload=SH.onerror=r}),new Promise(r=>setTimeout(r,1200))]);
-const tg=t=>{[...t.parentNode.children].forEach(b=>b.classList.remove('on'));t.classList.add('on')},msg=t=>{const m=$('#pzmsg');if(m)m.textContent=t},
+const adv=n=>{const g=G;setTimeout(()=>{if(G===g&&G.id==='puzzle'&&!G.pz)pzMenu(n)},matchMedia('(prefers-reduced-motion:reduce)').matches?0:240)},tg=t=>{[...t.parentNode.children].forEach(b=>b.classList.remove('on'));t.classList.add('on')},msg=t=>{const m=$('#pzmsg');if(m)m.textContent=t},
 list=c=>Object.values(B.ASSETS).filter(a=>a.kategori===c);
 /* ---- gambar sumber: latar tema + dekor + sprite aset, digambar ke canvas lalu dipotong lewat CSS (posisi tepat per keping) ---- */
 function draw(a,W,H){const c=document.createElement('canvas');c.width=W;c.height=H;let x=null;try{x=c.getContext('2d')}catch(e){}if(!x)return'';
@@ -23,24 +23,29 @@ function draw(a,W,H){const c=document.createElement('canvas');c.width=W;c.height
  x.fillStyle='rgba(0,0,0,.18)';x.beginPath();x.ellipse(W/2,H*.9,m*.28,m*.05,0,0,7);x.fill();sp(a.r,a.c,W/2,H*.53,m*.78);
  try{return c.toDataURL('image/jpeg',.88)}catch(e){return''}}
 B.pzDraw=draw;
-/* ---- menu: kategori -> gambar -> tingkat ---- */
-const grid=()=>{const pz=P().pz||{};return list(sel.cat).map(a=>`<button class="pzt ${a.id===sel.img?'on':''}" data-a="pzimg" data-v="${a.id}">${B.img(a.id)}<small>${a.nama}${pz[a.id]?' ✔'+pz[a.id].length:''}</small></button>`).join('')};
-function pzMenu(){clr();const pz=P().pz||{};G.pz=null;
- M(`<section class="card pzm"><div class="cnt">${['dino-biru','dino-merah','dino-kuning','pterodaktil'].map(B.img).join('')}</div><h1>🧩 Puzzle Petualangan</h1><p class="tgt">Susun Potongan, Temukan Keajaiban!</p><p class="sm">Gambar yang pernah selesai: ${Object.keys(pz).length}</p>
- <div class="row">${CATS.map(c=>`<button class="opt ${c[0]===sel.cat?'on':''}" data-a="pzcat" data-v="${c[0]}">${c[2]} ${c[1]}</button>`).join('')}</div><div class="pzg">${grid()}</div>
- <p><b>Tingkat</b> <span class="sm">(makin banyak keping, makin sedikit bantuan)</span></p><div class="row">${LV.map((l,i)=>`<button class="opt ${i===sel.lv?'on':''}" data-a="pzlv" data-v="${i}"><b>${l[1]}</b> keping<small>${l[0]}</small></button>`).join('')}</div>
- <label class="pzo"><input type="checkbox" id="pzt" ${sel.timer?'checked':''}> ⏱ Pakai timer (boleh dimatikan)</label><p><button class="cta" data-a="pzgo">▶ Main Puzzle</button> <button class="ghost" data-a="nav" data-v="home">🏠 Beranda</button></p></section>`)}
+/* ---- menu bertahap: 1 kategori -> 2 karakter -> 3 tingkat -> (siap) Main Puzzle ----
+   Pilihan disimpan di `sel` dan TIDAK dihapus saat anak kembali ke langkah sebelumnya (hanya karakter yang direset bila kategori diganti, karena karakter milik kategori). */
+const grid=()=>{const pz=P().pz||{};return list(sel.cat).map(a=>`<button class="pzt ${a.id===sel.img?'on':''}" data-a="pzimg" data-v="${a.id}" aria-pressed="${a.id===sel.img}">${B.img(a.id)}<small>${a.nama}${pz[a.id]?' ✔':''}</small></button>`).join('')};
+const first=()=>!sel.cat?1:!sel.img?2:sel.lv===null?3:4,
+ stepTxt=()=>[sel.cat?(CATS.find(c=>c[0]===sel.cat)||[0,sel.cat])[1]:'Kategori',sel.img?B.ASSETS[sel.img].nama:'Karakter',sel.lv!==null?LV[sel.lv][1]+' keping':'Tingkat'];
+function pzBar(v){const f=first(),t=stepTxt();return `<ol class="pzsteps" aria-label="Langkah memilih puzzle">${[1,2,3].map(i=>`<li><button class="pzstp${i===v?' cur':''}${i<f?' ok':''}" data-a="pzstep" data-v="${i}" ${i>f?'disabled':''} ${i===v?'aria-current="step"':''}><b>${i<f?'✓':i}</b><span>${esc(t[i-1])}</span></button></li>`).join('')}</ol><p class="pzcnt" role="status">${v>3?'3/3 · Semua pilihan sudah lengkap 🎉':'Langkah '+v+'/3'}</p>`}
+function pzMenu(v){clr();const pz=P().pz||{};G.pz=null;const f=first();v=+v>=1&&+v<=4?Math.min(+v,f):f;sel.view=v;let body='';
+ if(v===1)body=`<h2 class="pzh3">Pilih kategori</h2><div class="pzcats">${CATS.map(c=>{const x=list(c[0])[0];return `<button class="pzc ${c[0]===sel.cat?'on':''}" data-a="pzcat" data-v="${c[0]}" aria-pressed="${c[0]===sel.cat}"><span class="pzci" aria-hidden="true">${x?B.img(x.id):c[2]}</span><b>${c[1]}</b></button>`}).join('')}</div><p class="sm pzdone">Gambar yang pernah selesai: ${Object.keys(pz).length}</p>`;
+ else if(v===2)body=`<h2 class="pzh3">Pilih karakter</h2><div class="pzg">${grid()}</div>`;
+ else if(v===3)body=`<h2 class="pzh3">Pilih tingkat</h2><div class="pzlvs">${LV.map((l,i)=>`<button class="pzl ${i===sel.lv?'on':''}" data-a="pzlv" data-v="${i}" aria-pressed="${i===sel.lv}"><b>${l[1]} keping</b><small>${l[0]}</small></button>`).join('')}</div>`;
+ else{const a=B.ASSETS[sel.img];body=`<div class="pzready"><div class="pzpv" aria-hidden="true">${B.img(a.id)}</div><p class="pzsum"><b>${a.nama}</b><br>${LV[sel.lv][1]} keping · ${LV[sel.lv][0]}</p><button class="cta pzgo" data-a="pzgo">▶ Main Puzzle</button><label class="pzo pzsw"><input type="checkbox" id="pzt" ${sel.timer?'checked':''}><span>⏱ Pakai timer (boleh dilewati)</span></label></div>`}
+ M(`<section class="card pzm"><div class="gh"><button class="gback" data-a="pzback" aria-label="${v>1?'Kembali ke langkah sebelumnya':'Kembali ke menu permainan'}"><span aria-hidden="true">←</span></button><b class="gt">🧩 Puzzle Petualangan</b></div>${pzBar(v)}${body}</section>`)}
 function clr(){if(G.pz&&G.pz.iv){clearInterval(G.pz.iv);G.pz.iv=0}}
 /* ---- bermain ---- */
 async function pzStart(){clr();const a=B.ASSETS[sel.img],[nm,n,cols,rows]=LV[sel.lv];M('<section class="card"><p class="tgt">Menyiapkan puzzle…</p></section>');const g0=G;await ready();if(G!==g0)return;
  const src=draw(a,cols*100,rows*100),z=G.pz={a,nm,n,cols,rows,src,ok:0,steps:0,hints:0,sec:0,sel:null,paused:0,done:0,nc:0,iv:0};
  const bs=`${cols*100}% ${rows*100}%`,bp=k=>`${k%cols/(cols-1)*100}% ${(k/cols|0)/(rows-1)*100}%`;
- M(`<section class="card pzp" style="${src?`--bi:url('${src}');`:''}--bs:${bs}"><div class="pzh"><button class="ghost" data-a="pzmenu">⬅ Menu</button><b>${a.nama}</b><span class="lv">${nm} · ${n} keping</span></div>
+ M(`<section class="card pzp" style="${src?`--bi:url('${src}');`:''}--bs:${bs}"><div class="pzh"><button class="gback" data-a="pzmenu" aria-label="Kembali ke menu puzzle"><span aria-hidden="true">←</span></button><b class="gt">${a.nama}</b><span class="glv">${n} keping</span><button class="gre" data-a="pzre" aria-label="Ulangi puzzle ini (acak lagi)" title="Ulangi"><span aria-hidden="true">🔁</span></button></div>
  <div class="pzs"><span>👣 <b id="pzst">0</b></span><span id="pztm" ${sel.timer?'':'hidden'}>⏱ 0:00</span><span>🧩 <b id="pzpg">0</b>/${n}</span></div><div class="bar"><i id="pzbar" style="width:0"></i></div>
  <div class="pzw" id="pzw"><div id="pzb" class="pzb" style="--c:${cols}">${[...Array(n).keys()].map(i=>`<button class="pzs2" data-a="pzslot" data-v="${i}" aria-label="Kotak baris ${(i/cols|0)+1} kolom ${i%cols+1}" style="--bp:${bp(i)};--go:${GUIDE[sel.lv]}"></button>`).join('')}</div></div>
  <div class="pzy" id="pzy">${shuf([...Array(n).keys()]).map(k=>`<button class="pzp2" data-a="pzpick" data-v="${k}" aria-label="Keping ${k+1}" style="--bp:${bp(k)}"></button>`).join('')}</div>
  <p id="pzmsg" class="tgt" role="status">Seret keping ke kotak, atau ketuk keping lalu ketuk kotak.</p>
- <div class="row"><button class="ghost" data-a="pzhint">💡 Petunjuk</button><button class="ghost" data-a="pzref">👁 Gambar</button><button class="ghost" data-a="pzzoom">🔍 Zoom</button><button class="ghost" data-a="pzpause" id="pzpa">⏸ Jeda</button><button class="ghost" data-a="pzre">🔁 Acak Ulang</button><button class="ghost" data-a="snd">${S.snd?'🔊':'🔇'} Suara</button></div>
+ <div class="row pzctl"><button class="ghost" data-a="pzhint">💡 Petunjuk</button><button class="ghost" data-a="pzref">👁 Lihat Gambar</button>${n>12?'<button class="ghost" data-a="pzzoom">🔍 Zoom</button>':''}${sel.timer?'<button class="ghost" data-a="pzpause" id="pzpa">⏸ Jeda</button>':''}</div>
  <div id="pzr" class="pzr" hidden data-a="pzref"><img alt="Gambar utuh ${a.nama}"><p class="sm">Ketuk untuk menutup</p></div></section>`);
  const im=$('#pzr img');if(src)im.src=src;else im.hidden=true;bind($('.pzp'));fit();
  if(sel.timer)z.iv=setInterval(()=>{const e=$('#pztm');if(!e||G.pz!==z)return clearInterval(z.iv);if(!z.paused&&!z.done){z.sec++;e.textContent='⏱ '+(z.sec/60|0)+':'+String(z.sec%60).padStart(2,'0')}},1000)}
@@ -62,8 +67,9 @@ function win(){const z=G.pz,p=P(),id=z.a.id;z.done=1;clr();p.pz=p.pz||{};const a
  const info=`<p class="sm">👣 ${z.steps} langkah · 💡 ${z.hints} petunjuk${sel.timer?' · ⏱ '+(z.sec/60|0)+':'+String(z.sec%60).padStart(2,'0'):''}${b?'':' · Puzzle ini sudah pernah selesai di tingkat ini, jadi tanpa bonus baru.'}</p><p><button class="cta" data-a="pznext">▶ Puzzle Berikutnya</button> <button class="ghost" data-a="pzre">🔁 Main Lagi</button> <button class="ghost" data-a="pzmenu">🧩 Menu Puzzle</button></p>`;
  later(()=>{if(first&&!G.done){fin();const c=$('#main .card');if(c)c.insertAdjacentHTML('beforeend',info)}else{boom();M(`<section class="card"><h1>🎉 Puzzle Selesai!</h1><div class="cnt">${B.img(z.a.id)}</div><p class="big pop">⭐⭐⭐</p>${info}</section>`)}},500)}
 Object.assign(ACT,{
-pzcat(v,t){sel.cat=v;sel.img=list(v)[0].id;tg(t);$('.pzg').innerHTML=grid()},pzimg(v,t){sel.img=v;tg(t)},pzlv(v,t){sel.lv=+v;tg(t)},
-pzgo(){sel.timer=$('#pzt').checked?1:0;pzStart()},pzmenu:pzMenu,pzre:pzStart,
+pzcat(v,t){if(sel.cat!==v){sel.cat=v;sel.img=null}tg(t);adv(2)},pzimg(v,t){sel.img=v;tg(t);adv(3)},pzlv(v,t){sel.lv=+v;tg(t);adv(4)},pzstep(v){pzMenu(+v)},
+pzback(){const v=sel.view||1;if(v>1&&v<=4)pzMenu(v-1);else ACT.nav('main')},
+pzgo(){const c=$('#pzt');if(c)sel.timer=c.checked?1:0;pzStart()},pzmenu(){pzMenu()},pzre:pzStart,
 pznext(){const l=list(B.ASSETS[sel.img].kategori),i=l.findIndex(a=>a.id===sel.img);sel.img=l[(i+1)%l.length].id;pzStart()},
 pzpick(v){if(G.pz&&G.pz.nc)return;pick(+v);msg('Sekarang ketuk kotak tujuan.')},
 pzslot(v){const z=G.pz;if(!z||z.paused)return;if(z.sel===null)return msg('Pilih keping dulu ya 🙂');place(z.sel,+v)},

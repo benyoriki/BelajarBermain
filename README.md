@@ -1,4 +1,6 @@
 # Buku Belajar Anak
+
+> **v15** — lihat docs/CHANGELOG_v15.md. Pemasangan: docs/PANDUAN_GITHUB_PAGES.md. Catatan versi lama di bawah bersifat arsip.
 Belajar, Bermain, Tumbuh dengan Ceria! — Developed by @benyoriki
 
 ## Cara memasang di GitHub Pages
