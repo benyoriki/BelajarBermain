@@ -1,9 +1,9 @@
-/* games2.js — Tahap 2: Mewarnai, Menghubungkan Garis, Labirin. Dimuat SETELAH script.js dan bank.js. */
+/* games2.js — Tahap 2: Mewarnai (v14: 84 gambar + katalog + palet 24 warna), Menghubungkan Garis, Labirin. Dimuat SETELAH script.js, bank.js, gambar-baru.js. */
 (function(){'use strict';
 if(!window.BBA||typeof ACT==='undefined')return;
 const B=BBA,I=B.img,AL=Object.values(B.ASSETS).filter(a=>!['bentuk','pendidikan'].includes(a.kategori));
 
-/* ================= MEWARNAI: 35 gambar garis, area tertutup ================= */
+/* ================= MEWARNAI: 36 gambar lama (di sini) + 48 baru (gambar-baru.js) = 84, area tertutup ================= */
 const E=(x,y,a,b,r=0)=>`ellipse cx="${x}" cy="${y}" rx="${a}" ry="${b}"${r?` transform="rotate(${r} ${x} ${y})"`:''}`,
 C=(x,y,r)=>`circle cx="${x}" cy="${y}" r="${r}"`,Q=(x,y,w,h,r=6)=>`rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}"`,
 Pg=p=>`polygon points="${p}"`,Pa=d=>`path d="${d}"`,
@@ -54,20 +54,89 @@ add('pelangi','Pelangi','Alam',[band(105,125),band(85,105),band(65,85),band(45,6
 add('awan-hujan','Awan Hujan','Alam',[C(110,70,40),C(160,55,48),C(205,78,34),Q(80,75,150,40,18),E(100,150,8,16),E(150,165,8,16),E(200,150,8,16)]);
 add('robot','Robot Bentuk','Bentuk sederhana',[Q(145,6,10,24,4),C(150,12,10),Q(100,30,100,60,12),Q(85,95,130,70,10),Q(55,100,24,56,10),Q(221,100,24,56,10),Q(105,168,36,28,6),Q(159,168,36,28,6),C(128,58,13),C(172,58,13),Pg('135,125 165,125 150,148')],'');
 B.DR=DR;const cp=Object.assign;
-const PAL12=['#ff5252','#ff9800','#ffd600','#8bc34a','#2e9e4f','#26c6da','#2f9bff','#3f51b5','#9c27b0','#ff80ab','#8d6e63','#212121'];
+
+/* ---------- v14: 48 gambar baru digabung ke DR (36 gambar lama TIDAK diubah) ---------- */
+const KC={'Buah':'Buah dan sayuran','Bentuk sederhana':'Benda'};
+DR.forEach(d=>{d.c=KC[d.kat]||d.kat;if(d.id==='pohon'||d.id==='bunga')d.c='Tumbuhan';d.nw=0});
+(window.BBA_ART||[]).forEach(a=>{if(/_/.test(a.id)||DR.some(d=>d.id===a.id))return;DR.push({id:a.id,nama:a.nama,kat:a.c,c:a.c,s:a.s,d:a.d,nw:1})});
+const LVN=['Mudah','Sedang','Sulit'];
+DR.forEach(d=>{d.lv=d.s.length<=5?0:d.s.length<=9?1:2});
+const DM={};DR.forEach(d=>DM[d.id]=d);
+B.DR=DR;
+const CATS=[['Semua','🎨'],['*fav','♥'],['*mine','🖼️'],['Hewan darat','🦁'],['Hewan laut','🐠'],['Burung','🦜'],['Dinosaurus','🦕'],['Serangga','🦋'],['Buah dan sayuran','🍓'],['Tumbuhan','🌷'],['Kendaraan','🚗'],['Profesi','👩‍⚕️'],['Benda','🏠'],['Luar angkasa','🚀'],['Alam','🌈']],
+CN={'*fav':'Favorit','*mine':'Karyaku'},CCOL={'Hewan darat':'#ff9800','Hewan laut':'#26c6da','Burung':'#8bc34a','Dinosaurus':'#2e9e4f','Serangga':'#ff5252','Buah dan sayuran':'#ec407a','Tumbuhan':'#66bb6a','Kendaraan':'#2f9bff','Profesi':'#9c27b0','Benda':'#8d6e63','Luar angkasa':'#3f51b5','Alam':'#26a0da'};
+
+/* ---------- palet 24 warna ---------- */
+const PAL=['#ff5252','#d32f2f','#ff9800','#ffcc80','#ffd600','#fff59d','#cddc39','#8bc34a','#2e9e4f','#00796b','#26c6da','#a8e6ff','#2f9bff','#1a52b8','#3f51b5','#9c27b0','#ce93d8','#ff80ab','#ec407a','#8d6e63','#4e342e','#e0c9a6','#9e9e9e','#212121'],
+PN=['Merah','Merah tua','Oranye','Persik','Kuning','Kuning muda','Hijau limau','Hijau muda','Hijau','Hijau tua','Tosca','Biru muda','Biru','Biru tua','Nila','Ungu','Ungu muda','Merah muda','Pink','Cokelat','Cokelat tua','Krem','Abu-abu','Hitam'];
+const pn=c=>c==='#ffffff'?'Penghapus':PN[PAL.indexOf(c)]||'Warna favorit';
+
+/* ---------- data tambahan terpisah & kompatibel: P().wn = {fav:[id], cf:[warna], dn:{id:tanggal poin}} ---------- */
+const W=()=>{const p=P();if(!p.wn||typeof p.wn!=='object'||Array.isArray(p.wn))p.wn={};const w=p.wn;if(!Array.isArray(w.fav))w.fav=[];if(!Array.isArray(w.cf))w.cf=[];if(!w.dn||typeof w.dn!=='object'||Array.isArray(w.dn))w.dn={};return w};
 const cnt=()=>Object.keys(P().art).filter(k=>k.startsWith(G.dr.id+'_')).length;
-const upd=()=>{const f=$('#fb');if(f)f.textContent='Sudah '+cnt()+' dari '+G.dr.s.length+' bagian diwarnai 🎨'};
-function pickDr(last){const so=[...DR].sort((a,b)=>a.s.length-b.s.length),D=dif(),st=Math.round(D/5*(so.length-12)),w=so.slice(st,st+12).filter(d=>d.id!==last);return pk(w.length?w:so)}
-window.color=function(keep){const last=G.dr&&G.dr.id;G.dr=keep||pickDr(last);G.us=[];G.re=[];G.c=PAL12[0];const dr=G.dr,a=P().art;Object.keys(a).forEach(k=>k.startsWith(dr.id+'_')&&delete a[k]);save();
- M(`<section class="card">${gh(1)}<p class="tgt">${dr.nama} · ${dr.kat} · ${dr.s.length} bagian</p><div class="row pal">${PAL12.map((c,i)=>`<button class="sw ${i?'':'on'}" data-a="col" data-v="${c}" style="background:${c}" aria-label="Warna ${i+1}"></button>`).join('')}<button class="sw" data-a="col" data-v="#ffffff" style="background:#fff" aria-label="Hapus warna">🧽</button></div><svg class="cv" viewBox="0 0 300 200" role="img" aria-label="Gambar ${dr.nama} untuk diwarnai">${dr.s.map((s,i)=>`<${s} tabindex="0" data-a="fill" data-v="${i}" class="f" style="fill:${a[dr.id+'_'+i]||'#fff'}"/>`).join('')}${dr.d}</svg><p id="fb" class="tgt"></p><div class="row"><button class="ghost" data-a="undo">↩ Undo</button><button class="ghost" data-a="redo">↪ Redo</button><button class="ghost" data-a="rs">♻ Reset</button><button class="ghost" data-a="cnext">➡ Gambar lain</button><button class="cta" data-a="cdone">✅ Selesai</button></div></section>`);upd()};
+const prog=()=>{const m={};Object.keys(P().art).forEach(k=>{const i=k.indexOf('_');if(i>0){const id=k.slice(0,i);m[id]=(m[id]||0)+1}});return m};
+const upd=()=>{const f=$('#fb');if(f&&G.dr){const n=cnt();f.textContent=n>=G.dr.s.length?'Hebat! Semua bagian sudah diwarnai 🌟':'Sudah '+n+' dari '+G.dr.s.length+' bagian diwarnai 🎨'}};
+const RC=[];   /* gambar yang baru dibuka: pemilihan acak tidak mengulang */
+function pickDr(last){const D=dif(),t=D<=1?0:D<=3?1:2,ok=d=>d.id!==last&&!RC.includes(d.id);
+ let w=DR.filter(d=>d.lv===t&&ok(d));if(w.length<2)w=DR.filter(d=>Math.abs(d.lv-t)<=1&&ok(d));if(!w.length)w=DR.filter(d=>d.id!==last);return pk(w)}
+const thumb=dr=>{const a=P().art;return `<svg viewBox="0 0 300 200" aria-hidden="true" focusable="false">${dr.s.map((s,i)=>`<${s} class="tf" style="fill:${a[dr.id+'_'+i]||'#fff'}"/>`).join('')}${dr.d}</svg>`};
+
+/* ---------- KATALOG ---------- */
+const CAT={f:'Semua',q:''},nm=s=>String(s).toLowerCase().replace(/[-\s]+/g,' ').trim();
+let IO=null;
+function lazy(root){if(IO){IO.disconnect();IO=null}const els=[...root.querySelectorAll('.wth')],fl=e=>{if(e.dataset.d)return;e.dataset.d=1;const d=DM[e.dataset.t];if(d)e.innerHTML=thumb(d)};
+ if('IntersectionObserver'in window){IO=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){fl(x.target);IO.unobserve(x.target)}}),{rootMargin:'240px'});els.forEach(e=>IO.observe(e))}
+ else{let i=0;(function st(){const n=Math.min(i+12,els.length);for(;i<n;i++)fl(els[i]);if(i<els.length)setTimeout(st,40)})()}}
+function listDr(){const w=W(),pg=prog(),q=nm(CAT.q);return DR.filter(d=>(CAT.f==='Semua'||(CAT.f==='*fav'?w.fav.includes(d.id):CAT.f==='*mine'?pg[d.id]>0:d.c===CAT.f))&&(!q||nm(d.nama).includes(q)||nm(d.c).includes(q)))}
+function grid(){const g=$('#wg');if(!g)return;const w=W(),pg=prog(),L=listDr();
+ g.innerHTML=L.map(d=>{const fv=w.fav.includes(d.id),n=pg[d.id]||0;return `<div class="wc" role="listitem" style="--k:${CCOL[d.c]||'#2f9bff'}"><button class="wcb" data-a="wpick" data-v="${d.id}" aria-label="Warnai ${d.nama}, ${d.c}, ${LVN[d.lv]}"><span class="wth" data-t="${d.id}"></span><b>${d.nama}</b><small>${d.c}</small><span class="wm"><em class="lv l${d.lv}">${'⭐'.repeat(d.lv+1)} ${LVN[d.lv]}</em>${n?`<em class="pg">🎨 ${Math.min(n,d.s.length)}/${d.s.length}</em>`:''}</span></button><button class="wfv${fv?' on':''}" data-a="wfav" data-v="${d.id}" aria-pressed="${fv}" aria-label="${fv?'Hapus dari favorit':'Jadikan favorit'}: ${d.nama}">${fv?'♥':'♡'}</button>${d.nw?'<span class="wnew">Baru</span>':''}</div>`}).join('');
+ const e=$('#wn0');if(e)e.hidden=L.length>0;const c=$('#wcn');if(c)c.textContent=L.length+' gambar';lazy(g)}
+function catalog(){if(!G||G.id!=='warna'||V!=='play')return;G.dr=null;G.us=[];G.re=[];G.c=G.c||PAL[0];clearTimeout(G.rt);G.rc=0;
+ const w=W(),n={};DR.forEach(d=>{n.Semua=(n.Semua||0)+1;n[d.c]=(n[d.c]||0)+1});n['*fav']=w.fav.length;
+ M(`<section class="card wk">${gh(1)}<div class="wkh"><p class="tgt">Pilih gambar yang mau diwarnai 🎨</p><button class="cta" data-a="wrand">🎲 Gambar acak</button></div><label class="wqw"><span class="sr">Cari gambar</span><input id="wq" type="search" inputmode="search" autocomplete="off" enterkeyhint="search" placeholder="🔍 Cari gambar… (mis. panda)" value="${esc(CAT.q)}" maxlength="30"></label><div class="wchips" role="group" aria-label="Kategori gambar">${CATS.filter(c=>c[0]!=='*fav'||w.fav.length||CAT.f==='*fav').map(c=>`<button class="wchip${CAT.f===c[0]?' on':''}" data-a="wflt" data-v="${c[0]}" aria-pressed="${CAT.f===c[0]}">${c[1]} ${CN[c[0]]||c[0]}${n[c[0]]!==undefined?` <i>${n[c[0]]}</i>`:''}</button>`).join('')}</div><p class="sm wcc" role="status"><span id="wcn"></span> · ketuk gambar untuk mulai, ketuk ♡ untuk favorit</p><div id="wg" class="wgrid" role="list"></div><p id="wn0" class="tgt" hidden>Gambar tidak ketemu 🙈 Coba kata atau kategori lain, ya!</p><div class="row gctl"><button class="ghost" data-a="nav" data-v="home">🏠 Menu</button></div></section>`);grid()}
+window.color=function(keep){if(keep&&keep.s)openDr(keep);else catalog()};
+
+/* ---------- KANVAS ---------- */
+function openDr(dr){if(!dr||!G||G.id!=='warna')return;G.dr=dr;G.us=[];G.re=[];G.nf=0;G.rc=0;G.done=0;G.c=G.c||PAL[0];RC.push(dr.id);if(RC.length>10)RC.shift();draw(dr)}
+function favRow(){const w=W();return `<span class="wl">⭐ Warna favorit:</span>${w.cf.map(c=>`<button class="sw" data-a="col" data-v="${c}" style="background:${c}" aria-label="Warna favorit ${pn(c)}"></button>`).join('')||'<small class="sm">belum ada</small>'}<button class="ghost wsv" data-a="wsavec">${w.cf.includes(G.c)?'✖ Lepas warna':'＋ Simpan warna'}</button><button class="sw wera" data-a="col" data-v="#ffffff" aria-label="Penghapus">🧽 Penghapus</button>`}
+function syncSw(){document.querySelectorAll('.wk .sw').forEach(b=>{const on=b.dataset.v===G.c;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});const s=$('.wsv');if(s&&G.dr)s.textContent=W().cf.includes(G.c)?'✖ Lepas warna':'＋ Simpan warna';const t=$('#wcur');if(t){t.style.background=G.c;t.title=pn(G.c)}}
+function draw(dr){const a=P().art,fv=W().fav.includes(dr.id);
+ M(`<section class="card wk wkc">${gh(1)}<div class="wkt"><p class="tgt"><b>${dr.nama}</b> · ${dr.c} · ${dr.s.length} bagian · ${LVN[dr.lv]}</p><button class="wfv wfvc${fv?' on':''}" data-a="wfav" data-v="${dr.id}" aria-pressed="${fv}" aria-label="${fv?'Hapus dari favorit':'Jadikan favorit'}: ${dr.nama}">${fv?'♥':'♡'}</button></div><svg class="cv" viewBox="0 0 300 200" role="img" aria-label="Gambar ${dr.nama} untuk diwarnai">${dr.s.map((s,i)=>`<${s} tabindex="0" data-a="fill" data-v="${i}" class="f" style="fill:${a[dr.id+'_'+i]||'#fff'}"/>`).join('')}${dr.d}</svg><p id="fb" class="tgt" role="status"></p><div class="wpal" role="group" aria-label="Palet 24 warna">${PAL.map((c,i)=>`<button class="sw" data-a="col" data-v="${c}" style="background:${c}" aria-label="${PN[i]}"></button>`).join('')}</div><small class="sm wh">Geser palet ke samping untuk warna lainnya ➡</small><div class="row wfr">${favRow()}</div><div class="row wtl"><button class="ghost" data-a="undo">↩ Undo</button><button class="ghost" data-a="redo">↪ Redo</button><button class="ghost" data-a="rs">♻ Reset</button><button class="ghost" data-a="cnext">➡ Gambar lain</button></div><div class="row wtl"><button class="ghost" data-a="wback">🖼️ Katalog</button><button class="ghost" data-a="wpng">💾 Simpan PNG</button><button class="ghost" data-a="wshare">📤 Bagikan</button><button class="cta" data-a="cdone">✅ Selesai</button></div></section>`);upd();syncSw()}
 const setF=(v,c)=>{const t=document.querySelector('.cv [data-v="'+v+'"]'),k=G.dr.id+'_'+v,a=P().art;if(t)t.style.fill=c;if(c==='#ffffff')delete a[k];else a[k]=c;save();upd()};
+/* ---------- PNG & bagikan ---------- */
+const svgS=(dr,a)=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="1200" height="800"><style>.ey{fill:#222}.hl{fill:#fff}.o2{fill:none;stroke:#222;stroke-width:3;stroke-linecap:round}.o3{fill:none;stroke:#222;stroke-width:2}</style><rect width="300" height="200" fill="#eaf8ff"/>${dr.s.map((s,i)=>`<${s} fill="${a[dr.id+'_'+i]||'#fff'}" stroke="#333" stroke-width="3" stroke-linejoin="round"/>`).join('')}${dr.d}</svg>`;
+function mkPng(cb){const dr=G.dr;if(!dr)return;const im=new Image();im.onload=()=>{try{const c=document.createElement('canvas');c.width=1200;c.height=920;const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,1200,920);x.drawImage(im,0,0,1200,800);x.fillStyle='#fff6d6';x.fillRect(0,800,1200,120);x.fillStyle='#16324f';x.textBaseline='middle';x.font='700 46px Fredoka,Nunito,system-ui,sans-serif';x.fillText(dr.nama+' — karya '+P().name,36,846);x.font='600 30px Nunito,system-ui,sans-serif';x.fillStyle='#52627a';x.fillText('Buku Belajar Anak · belajarbermain.online',36,886);c.toBlob(b=>b?cb(b):toast('Gambar belum bisa dibuat 🙁'),'image/png')}catch(e){toast('Gambar belum bisa dibuat 🙁')}};im.onerror=()=>toast('Gambar belum bisa dibuat 🙁');im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svgS(dr,P().art))}
+function dl(b,id){const u=URL.createObjectURL(b),l=document.createElement('a');l.href=u;l.download='mewarnai-'+id+'.png';document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),5000)}
+const TXT='Lihat hasil mewarnaiku di Buku Belajar Anak! 🎨 https://belajarbermain.online/';
+
 cp(ACT,{
-fill(v){const k=G.dr.id+'_'+v,old=P().art[k]||'#ffffff';if(old===G.c)return;setF(v,G.c);G.us.push([v,old,G.c]);G.re=[]},
-undo(){const u=G.us.pop();if(!u)return toast('Belum ada yang dibatalkan');setF(u[0],u[1]);G.re.push(u)},
-redo(){const u=G.re.pop();if(!u)return toast('Tidak ada yang diulang');setF(u[0],u[2]);G.us.push(u)},
-rs(){color(G.dr)},
-cnext(){color()},
-cdone(){const need=Math.ceil(G.dr.s.length*[.4,.5,.6,.7,.8,.9][dif()]);if(cnt()<need)return toast('Warnai minimal '+need+' bagian 🎨');fin()}});
+col(v){G.c=v;syncSw()},
+wera(){G.c='#ffffff';syncSw()},
+fill(v){if(!G.dr)return;const k=G.dr.id+'_'+v,old=P().art[k]||'#ffffff';if(old===G.c)return;setF(v,G.c);G.us.push([v,old,G.c]);if(G.us.length>300)G.us.shift();G.re=[];G.nf=(G.nf||0)+1},
+undo(){if(!G.dr)return;const u=G.us.pop();if(!u)return toast('Belum ada yang dibatalkan');setF(u[0],u[1]);G.re.push(u)},
+redo(){if(!G.dr)return;const u=G.re.pop();if(!u)return toast('Tidak ada yang diulang');setF(u[0],u[2]);G.us.push(u)},
+rs(){if(!G.dr)return;if(cnt()>0&&!G.rc){G.rc=1;toast('Ketuk Reset sekali lagi untuk menghapus warna gambar ini 🧽');G.rt=later(()=>{G.rc=0},3000);return}
+ clearTimeout(G.rt);G.rc=0;const dr=G.dr,a=P().art;Object.keys(a).forEach(k=>k.startsWith(dr.id+'_')&&delete a[k]);save();G.us=[];G.re=[];G.nf=0;draw(dr)},
+cnext(){openDr(pickDr(G.dr&&G.dr.id))},
+wrand(){openDr(pickDr(G.dr&&G.dr.id))},
+wback(){catalog()},
+wpick(v,t){const d=DM[v];if(!d)return;if(t&&t.classList)t.classList.add('sel');const ms=matchMedia('(prefers-reduced-motion:reduce)').matches?0:160;later(()=>openDr(d),ms)},
+wflt(v){CAT.f=v;catalog()},
+wfav(v,t){const w=W(),i=w.fav.indexOf(v);if(i<0)w.fav.push(v);else w.fav.splice(i,1);save();const on=i<0;if(t){t.classList.toggle('on',on);t.setAttribute('aria-pressed',on);t.textContent=on?'♥':'♡'}toast(on?'Ditambah ke favorit ♥':'Dihapus dari favorit');if($('#wg')&&(CAT.f==='*fav'))catalog();},
+wsavec(){const w=W();if(G.c==='#ffffff')return toast('Pilih warna dulu, ya 🎨');const i=w.cf.indexOf(G.c);if(i>=0)w.cf.splice(i,1);else{w.cf.push(G.c);if(w.cf.length>6)w.cf.shift()}save();const r=$('.wfr');if(r)r.innerHTML=favRow();syncSw()},
+wpng(){if(!G.dr)return;mkPng(b=>{dl(b,G.dr.id);toast('Gambar tersimpan 💾')})},
+wshare(){if(!G.dr)return;const id=G.dr.id,nama=G.dr.nama;mkPng(b=>{const f=new File([b],'mewarnai-'+id+'.png',{type:'image/png'});
+ if(navigator.canShare&&navigator.canShare({files:[f]}))navigator.share({files:[f],title:'Karya mewarnai '+nama,text:TXT}).catch(e=>{if(e&&e.name!=='AbortError'){dl(b,id);toast('Gambar disimpan, silakan kirim manual 📤')}});
+ else if(navigator.share)navigator.share({title:'Karya mewarnai '+nama,text:TXT}).catch(()=>{});
+ else{dl(b,id);toast('Peramban ini belum bisa membagikan langsung. Gambar disimpan, silakan kirim manual 📤')}})},
+cdone(){if(!G.dr||G.done)return;const need=Math.ceil(G.dr.s.length*[.4,.5,.6,.7,.8,.9][dif()]);
+ if(cnt()<need)return toast('Warnai minimal '+need+' bagian 🎨');
+ if((G.nf||0)<Math.min(2,need))return toast('Ayo warnai dulu beberapa bagian ya 🎨');
+ const w=W(),id=G.dr.id;if(w.dn[id]===today())return toast('Gambar ini sudah dapat poin hari ini ⭐ Coba warnai gambar lain, ya!');
+ w.dn[id]=today();save();fin();
+ if(G.done){const c=document.querySelector('#main .card');if(c)c.insertAdjacentHTML('beforeend','<div class="row wend"><button class="ghost" data-a="wpng">💾 Simpan PNG</button><button class="ghost" data-a="wshare">📤 Bagikan</button><button class="ghost" data-a="wback">🖼️ Pilih gambar lain</button></div>')}}});
+document.addEventListener('input',e=>{if(e.target.id!=='wq')return;CAT.q=e.target.value;clearTimeout(CAT.t);CAT.t=setTimeout(()=>{if($('#wg'))grid()},120)});
+B.WK={pickDr,PAL,W,CAT,LVN};
 
 /* ================= MENGHUBUNGKAN GARIS: 7 jenis, tak terbatas kombinasi, tap atau seret ================= */
 const tx=t=>`<b class="tl">${t}</b>`,sm=shuf;
