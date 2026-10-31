@@ -115,3 +115,6 @@ Layar sambutan baru (hero, statistik, keunggulan, 3 langkah) untuk pengunjung ba
 ## Versi 20.1 — Audit permainan
 Laporan lengkap: `docs/LAPORAN_AUDIT.md`; matriks uji: `docs/TEST_MATRIX.md`; uji manual: `docs/CHECKLIST_MANUAL.md`; skrip uji otomatis (Playwright): `docs/tests_otomatis/`.
 Ringkas: tanggal harian lokal; batas poin 600/hari (konstanta `DAYCAP`, perlu persetujuan); lembar Mewarnai baru tiap sesi; hadiah Puzzle hanya penyelesaian pertama; timer permainan batal saat keluar; Ingat Urutan terkunci saat jeda + tombol Ulangi contoh; migrasi aman `bba1` (data rusak disalin ke `bba1_rusak`); pilihan tingkat Lebih mudah/Pas/Lebih seru; pengurangan untuk 7–8 tahun; dedupe soal; notifikasi versi baru; cache `bba-v26`; kontrol Ulangi + Menu seragam di dalam semua permainan.
+
+## Versi 20.2 — Pratinjau tautan WhatsApp
+Gambar baru `preview-wa.jpg` (1200×630) dan judul/deskripsi OG & Twitter yang lebih menjual (tanpa klaim "aman"/"offline"). Panduan kata-kata Status dan cara menyegarkan cache pratinjau: `docs/KATA_PROMOSI_WHATSAPP.md`.
