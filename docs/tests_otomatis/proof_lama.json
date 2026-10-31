@@ -1,0 +1,12 @@
+{
+ "tanggal_lokal": "SALAH (today=2026-10-30 lokal=2026-10-31 utc=2026-10-30)",
+ "reset_warna_gambar_sama": "SALAH (bebek->burung)",
+ "warna_tambang_poin": "SALAH (selesai tanpa mewarnai)",
+ "labirin_timer_bocor": "SALAH (home=False, errs=[])",
+ "simon_kunci_setelah_salah": "SALAH (input masih diterima)",
+ "puzzle_tambang_poin": "SALAH (+20 poin untuk puzzle yang sudah pernah selesai)",
+ "puzzle_timpa_beranda": "OK",
+ "garis_resize": "OK",
+ "data_rusak_dicadangkan": "SALAH (data rusak ditimpa tanpa cadangan)",
+ "profil_lama_tanpa_kolom": "SALAH [260, 4] errs=[\"Cannot read properties of undefined (reading '2026-10-30')\"]"
+}

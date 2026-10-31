@@ -1,0 +1,542 @@
+[
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Input",
+  "skenario": "Buka permainan lewat ketukan/klik pada kartu (bukan fungsi), lalu Mulai",
+  "harapan": "layar permainan tampil, tanpa tombol tertutup",
+  "aktual": "G.id=pola",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Kondisi menang",
+  "skenario": "Selesai muncul hanya setelah langkah terakhir; selesai sekali (done=1)",
+  "harapan": "fin tepat di akhir",
+  "aktual": "fin=True fin_terlalu_awal=False dok=5 done=1",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Skor",
+  "skenario": "Poin = 10×benar + 10 per 5 beruntun + 20 selesai (+30 harian bila tantangan hari ini); tanpa NaN",
+  "harapan": "sesuai rumus",
+  "aktual": "delta=80 diharapkan=80 (dok=5)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Pengulangan",
+  "skenario": "Tombol Main Lagi → intro → state bersih (done=0, mulai dari awal), tanpa hadiah ganda",
+  "harapan": "state bersih",
+  "aktual": "intro=True state=[0, 0]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Jawaban benar/salah",
+  "skenario": "Salah: poin tetap + pesan ramah; benar: poin naik / aksi valid",
+  "harapan": "sesuai",
+  "aktual": "salah: poin tetap, bad+1, pesan '❌ Hampir! Polanya A-B '; benar: poin naik",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Reset/Ulangi",
+  "skenario": "Tombol di dalam permainan mengembalikan ke awal tanpa mengurangi poin",
+  "harapan": "state awal",
+  "aktual": "[0, 0]; poin 100->100 (tidak berkurang)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Responsif",
+  "skenario": "Tanpa scroll horizontal/tombol tertutup di 360×800 dan rotasi; state tidak hilang",
+  "harapan": "bersih",
+  "aktual": "potret hs=0 tertutup=[] <44px=[]; landscape hs=0 tertutup=[]; state tetap=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Keluar/Menu",
+  "skenario": "Tombol Menu di dalam permainan → Beranda; tanpa error/timer bocor",
+  "harapan": "beranda",
+  "aktual": "beranda=True G.id=None errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Keluar/Menu",
+  "skenario": "Keluar dari tengah permainan via navigasi global lalu buka permainan lain: state tidak bocor",
+  "harapan": "bersih",
+  "aktual": "dari tengah permainan lewat navigasi → buka hitung: G.id=hitung errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "pola",
+  "dim": "Refresh",
+  "skenario": "Refresh di tengah permainan: progres (poin) tetap, tidak error, bisa mulai lagi",
+  "harapan": "tetap",
+  "aktual": "poin 120->120; kembali ke beranda; errs=[]; bba1 valid=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Input",
+  "skenario": "Buka permainan lewat ketukan/klik pada kartu (bukan fungsi), lalu Mulai",
+  "harapan": "layar permainan tampil, tanpa tombol tertutup",
+  "aktual": "G.id=hitung",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Kondisi menang",
+  "skenario": "Selesai muncul hanya setelah langkah terakhir; selesai sekali (done=1)",
+  "harapan": "fin tepat di akhir",
+  "aktual": "fin=True fin_terlalu_awal=False dok=5 done=1",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Skor",
+  "skenario": "Poin = 10×benar + 10 per 5 beruntun + 20 selesai (+30 harian bila tantangan hari ini); tanpa NaN",
+  "harapan": "sesuai rumus",
+  "aktual": "delta=80 diharapkan=80 (dok=5)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Pengulangan",
+  "skenario": "Tombol Main Lagi → intro → state bersih (done=0, mulai dari awal), tanpa hadiah ganda",
+  "harapan": "state bersih",
+  "aktual": "intro=True state=[0, 0]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Jawaban benar/salah",
+  "skenario": "Salah: poin tetap + pesan ramah; benar: poin naik / aksi valid",
+  "harapan": "sesuai",
+  "aktual": "salah: poin tetap, bad+1, pesan '❌ Hampir! Ada 3 Lebah.'; benar: poin naik",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Reset/Ulangi",
+  "skenario": "Tombol di dalam permainan mengembalikan ke awal tanpa mengurangi poin",
+  "harapan": "state awal",
+  "aktual": "[0, 0]; poin 100->100 (tidak berkurang)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Responsif",
+  "skenario": "Tanpa scroll horizontal/tombol tertutup di 360×800 dan rotasi; state tidak hilang",
+  "harapan": "bersih",
+  "aktual": "potret hs=0 tertutup=[] <44px=[]; landscape hs=0 tertutup=[]; state tetap=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Keluar/Menu",
+  "skenario": "Tombol Menu di dalam permainan → Beranda; tanpa error/timer bocor",
+  "harapan": "beranda",
+  "aktual": "beranda=True G.id=None errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Keluar/Menu",
+  "skenario": "Keluar dari tengah permainan via navigasi global lalu buka permainan lain: state tidak bocor",
+  "harapan": "bersih",
+  "aktual": "dari tengah permainan lewat navigasi → buka pola: G.id=pola errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "hitung",
+  "dim": "Refresh",
+  "skenario": "Refresh di tengah permainan: progres (poin) tetap, tidak error, bisa mulai lagi",
+  "harapan": "tetap",
+  "aktual": "poin 120->120; kembali ke beranda; errs=[]; bba1 valid=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Input",
+  "skenario": "Buka permainan lewat ketukan/klik pada kartu (bukan fungsi), lalu Mulai",
+  "harapan": "layar permainan tampil, tanpa tombol tertutup",
+  "aktual": "G.id=beda",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Kondisi menang",
+  "skenario": "Selesai muncul hanya setelah langkah terakhir; selesai sekali (done=1)",
+  "harapan": "fin tepat di akhir",
+  "aktual": "fin=True fin_terlalu_awal=False dok=3 done=1",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Skor",
+  "skenario": "Poin = 10×benar + 10 per 5 beruntun + 20 selesai (+30 harian bila tantangan hari ini); tanpa NaN",
+  "harapan": "sesuai rumus",
+  "aktual": "delta=50 diharapkan=50 (dok=3)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Pengulangan",
+  "skenario": "Tombol Main Lagi → intro → state bersih (done=0, mulai dari awal), tanpa hadiah ganda",
+  "harapan": "state bersih",
+  "aktual": "intro=True state=[0, 0]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Jawaban benar/salah",
+  "skenario": "Salah: poin tetap + pesan ramah; benar: poin naik / aksi valid",
+  "harapan": "sesuai",
+  "aktual": "salah: poin tetap bad+1; benar: +10",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Reset/Ulangi",
+  "skenario": "Tombol di dalam permainan mengembalikan ke awal tanpa mengurangi poin",
+  "harapan": "state awal",
+  "aktual": "[0, 0]; poin 70->70 (tidak berkurang)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Responsif",
+  "skenario": "Tanpa scroll horizontal/tombol tertutup di 360×800 dan rotasi; state tidak hilang",
+  "harapan": "bersih",
+  "aktual": "potret hs=0 tertutup=[] <44px=[]; landscape hs=0 tertutup=[]; state tetap=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Keluar/Menu",
+  "skenario": "Tombol Menu di dalam permainan → Beranda; tanpa error/timer bocor",
+  "harapan": "beranda",
+  "aktual": "beranda=True G.id=None errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Keluar/Menu",
+  "skenario": "Keluar dari tengah permainan via navigasi global lalu buka permainan lain: state tidak bocor",
+  "harapan": "bersih",
+  "aktual": "dari tengah permainan lewat navigasi → buka hitung: G.id=hitung errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "beda",
+  "dim": "Refresh",
+  "skenario": "Refresh di tengah permainan: progres (poin) tetap, tidak error, bisa mulai lagi",
+  "harapan": "tetap",
+  "aktual": "poin 90->90; kembali ke beranda; errs=[]; bba1 valid=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Input",
+  "skenario": "Buka permainan lewat ketukan/klik pada kartu (bukan fungsi), lalu Mulai",
+  "harapan": "layar permainan tampil, tanpa tombol tertutup",
+  "aktual": "G.id=spy",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Kondisi menang",
+  "skenario": "Selesai muncul hanya setelah langkah terakhir; selesai sekali (done=1)",
+  "harapan": "fin tepat di akhir",
+  "aktual": "fin=True fin_terlalu_awal=False dok=3 done=1",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Skor",
+  "skenario": "Poin = 10×benar + 10 per 5 beruntun + 20 selesai (+30 harian bila tantangan hari ini); tanpa NaN",
+  "harapan": "sesuai rumus",
+  "aktual": "delta=50 diharapkan=50 (dok=3)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Pengulangan",
+  "skenario": "Tombol Main Lagi → intro → state bersih (done=0, mulai dari awal), tanpa hadiah ganda",
+  "harapan": "state bersih",
+  "aktual": "intro=True state=[0, 0]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Jawaban benar/salah",
+  "skenario": "Salah: poin tetap + pesan ramah; benar: poin naik / aksi valid",
+  "harapan": "sesuai",
+  "aktual": "salah: poin tetap bad+1; benar: +10",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Reset/Ulangi",
+  "skenario": "Tombol di dalam permainan mengembalikan ke awal tanpa mengurangi poin",
+  "harapan": "state awal",
+  "aktual": "[0, 0]; poin 70->70 (tidak berkurang)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Responsif",
+  "skenario": "Tanpa scroll horizontal/tombol tertutup di 360×800 dan rotasi; state tidak hilang",
+  "harapan": "bersih",
+  "aktual": "potret hs=0 tertutup=[] <44px=[]; landscape hs=0 tertutup=[]; state tetap=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Keluar/Menu",
+  "skenario": "Tombol Menu di dalam permainan → Beranda; tanpa error/timer bocor",
+  "harapan": "beranda",
+  "aktual": "beranda=True G.id=None errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Keluar/Menu",
+  "skenario": "Keluar dari tengah permainan via navigasi global lalu buka permainan lain: state tidak bocor",
+  "harapan": "bersih",
+  "aktual": "dari tengah permainan lewat navigasi → buka hitung: G.id=hitung errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "spy",
+  "dim": "Refresh",
+  "skenario": "Refresh di tengah permainan: progres (poin) tetap, tidak error, bisa mulai lagi",
+  "harapan": "tetap",
+  "aktual": "poin 90->90; kembali ke beranda; errs=[]; bba1 valid=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Input",
+  "skenario": "Buka permainan lewat ketukan/klik pada kartu (bukan fungsi), lalu Mulai",
+  "harapan": "layar permainan tampil, tanpa tombol tertutup",
+  "aktual": "G.id=huruf",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Kondisi menang",
+  "skenario": "Selesai muncul hanya setelah langkah terakhir; selesai sekali (done=1)",
+  "harapan": "fin tepat di akhir",
+  "aktual": "fin=True fin_terlalu_awal=False dok=5 done=1",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Skor",
+  "skenario": "Poin = 10×benar + 10 per 5 beruntun + 20 selesai (+30 harian bila tantangan hari ini); tanpa NaN",
+  "harapan": "sesuai rumus",
+  "aktual": "delta=80 diharapkan=80 (dok=5)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Pengulangan",
+  "skenario": "Tombol Main Lagi → intro → state bersih (done=0, mulai dari awal), tanpa hadiah ganda",
+  "harapan": "state bersih",
+  "aktual": "intro=True state=[0, 0]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Jawaban benar/salah",
+  "skenario": "Salah: poin tetap + pesan ramah; benar: poin naik / aksi valid",
+  "harapan": "sesuai",
+  "aktual": "salah: poin tetap, bad+1, pesan '❌ Hampir! Bola diawali'; benar: poin naik",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Reset/Ulangi",
+  "skenario": "Tombol di dalam permainan mengembalikan ke awal tanpa mengurangi poin",
+  "harapan": "state awal",
+  "aktual": "[0, 0]; poin 100->100 (tidak berkurang)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Responsif",
+  "skenario": "Tanpa scroll horizontal/tombol tertutup di 360×800 dan rotasi; state tidak hilang",
+  "harapan": "bersih",
+  "aktual": "potret hs=0 tertutup=[] <44px=[]; landscape hs=0 tertutup=[]; state tetap=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Keluar/Menu",
+  "skenario": "Tombol Menu di dalam permainan → Beranda; tanpa error/timer bocor",
+  "harapan": "beranda",
+  "aktual": "beranda=True G.id=None errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Keluar/Menu",
+  "skenario": "Keluar dari tengah permainan via navigasi global lalu buka permainan lain: state tidak bocor",
+  "harapan": "bersih",
+  "aktual": "dari tengah permainan lewat navigasi → buka hitung: G.id=hitung errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "huruf",
+  "dim": "Refresh",
+  "skenario": "Refresh di tengah permainan: progres (poin) tetap, tidak error, bisa mulai lagi",
+  "harapan": "tetap",
+  "aktual": "poin 120->120; kembali ke beranda; errs=[]; bba1 valid=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Input",
+  "skenario": "Buka permainan lewat ketukan/klik pada kartu (bukan fungsi), lalu Mulai",
+  "harapan": "layar permainan tampil, tanpa tombol tertutup",
+  "aktual": "G.id=tambah",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Kondisi menang",
+  "skenario": "Selesai muncul hanya setelah langkah terakhir; selesai sekali (done=1)",
+  "harapan": "fin tepat di akhir",
+  "aktual": "fin=True fin_terlalu_awal=False dok=5 done=1",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Skor",
+  "skenario": "Poin = 10×benar + 10 per 5 beruntun + 20 selesai (+30 harian bila tantangan hari ini); tanpa NaN",
+  "harapan": "sesuai rumus",
+  "aktual": "delta=80 diharapkan=80 (dok=5)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Pengulangan",
+  "skenario": "Tombol Main Lagi → intro → state bersih (done=0, mulai dari awal), tanpa hadiah ganda",
+  "harapan": "state bersih",
+  "aktual": "intro=True state=[0, 0]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Jawaban benar/salah",
+  "skenario": "Salah: poin tetap + pesan ramah; benar: poin naik / aksi valid",
+  "harapan": "sesuai",
+  "aktual": "salah: poin tetap, bad+1, pesan '❌ Hampir! 3 Pisang + 2'; benar: poin naik",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Reset/Ulangi",
+  "skenario": "Tombol di dalam permainan mengembalikan ke awal tanpa mengurangi poin",
+  "harapan": "state awal",
+  "aktual": "[0, 0]; poin 100->100 (tidak berkurang)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Responsif",
+  "skenario": "Tanpa scroll horizontal/tombol tertutup di 360×800 dan rotasi; state tidak hilang",
+  "harapan": "bersih",
+  "aktual": "potret hs=0 tertutup=[] <44px=[]; landscape hs=0 tertutup=[]; state tetap=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Keluar/Menu",
+  "skenario": "Tombol Menu di dalam permainan → Beranda; tanpa error/timer bocor",
+  "harapan": "beranda",
+  "aktual": "beranda=True G.id=None errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Keluar/Menu",
+  "skenario": "Keluar dari tengah permainan via navigasi global lalu buka permainan lain: state tidak bocor",
+  "harapan": "bersih",
+  "aktual": "dari tengah permainan lewat navigasi → buka hitung: G.id=hitung errs=[]",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp",
+  "game": "tambah",
+  "dim": "Refresh",
+  "skenario": "Refresh di tengah permainan: progres (poin) tetap, tidak error, bisa mulai lagi",
+  "harapan": "tetap",
+  "aktual": "poin 120->120; kembali ke beranda; errs=[]; bba1 valid=True",
+  "status": "PASS"
+ }
+]
