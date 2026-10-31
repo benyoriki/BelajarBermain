@@ -1,0 +1,35 @@
+[
+ {
+  "id": "kucing",
+  "n": 9,
+  "klik": true,
+  "warna_benar": true,
+  "tanpa_bocor": true,
+  "hitung": true,
+  "undo": true,
+  "redo": true,
+  "reset": true
+ },
+ {
+  "id": "anjing",
+  "n": 9,
+  "klik": true,
+  "warna_benar": true,
+  "tanpa_bocor": true,
+  "hitung": true,
+  "undo": true,
+  "redo": true,
+  "reset": true
+ },
+ {
+  "id": "singa",
+  "n": 11,
+  "klik": true,
+  "warna_benar": true,
+  "tanpa_bocor": true,
+  "hitung": true,
+  "undo": true,
+  "redo": true,
+  "reset": true
+ }
+]
