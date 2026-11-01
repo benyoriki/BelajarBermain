@@ -1,0 +1,850 @@
+[
+ {
+  "game": "pola",
+  "skenario": "Buka permainan",
+  "harapan": "Layar intro + tombol Mulai & Kembali",
+  "aktual": "go",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "Mulai",
+  "harapan": ">=3 pilihan jawaban",
+  "aktual": "3",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "Jawab salah",
+  "harapan": "Poin tetap, bad+1, pesan ramah",
+  "aktual": "pts 0->0, bad 0->1, '❌ Hampir! Polanya A-A-B berula'",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "Soal unik & pilihan valid (5 soal)",
+  "harapan": "tanpa duplikat, tanpa pilihan kosong/ganda",
+  "aktual": "dup=False invalid=False",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "Selesaikan",
+  "harapan": "Layar selesai muncul, poin 4x10 + 20 (+30 bila tantangan harian), tanpa NaN",
+  "aktual": "delta=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "Aktivitas selesai bertambah 1",
+  "harapan": "done=1",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "fin() dipanggil ganda",
+  "harapan": "tidak ada hadiah ganda",
+  "aktual": "done=1 pts=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "Main Lagi",
+  "harapan": "State direset (i=0,done=0,st=0)",
+  "aktual": "[0, 0, 0]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "Kembali ke beranda, tanpa error, tanpa hadiah",
+  "aktual": "errs=[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "pola",
+  "skenario": "Refresh setelah progres tersimpan",
+  "harapan": "pts & done sama setelah reload",
+  "aktual": "[60, 1]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Buka permainan",
+  "harapan": "Layar intro + tombol Mulai & Kembali",
+  "aktual": "go",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Mulai",
+  "harapan": ">=3 pilihan jawaban",
+  "aktual": "3",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Jawab salah",
+  "harapan": "Poin tetap, bad+1, pesan ramah",
+  "aktual": "pts 0->0, bad 0->1, '❌ Hampir! Ada 1 Stroberi. Lanj'",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Soal unik & pilihan valid (5 soal)",
+  "harapan": "tanpa duplikat, tanpa pilihan kosong/ganda",
+  "aktual": "dup=False invalid=False",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Selesaikan",
+  "harapan": "Layar selesai muncul, poin 4x10 + 20 (+30 bila tantangan harian), tanpa NaN",
+  "aktual": "delta=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Aktivitas selesai bertambah 1",
+  "harapan": "done=1",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "fin() dipanggil ganda",
+  "harapan": "tidak ada hadiah ganda",
+  "aktual": "done=1 pts=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Main Lagi",
+  "harapan": "State direset (i=0,done=0,st=0)",
+  "aktual": "[0, 0, 0]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "Kembali ke beranda, tanpa error, tanpa hadiah",
+  "aktual": "errs=[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "hitung",
+  "skenario": "Refresh setelah progres tersimpan",
+  "harapan": "pts & done sama setelah reload",
+  "aktual": "[60, 1]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Buka permainan",
+  "harapan": "Layar intro + tombol Mulai & Kembali",
+  "aktual": "go",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Mulai",
+  "harapan": ">=3 pilihan jawaban",
+  "aktual": "4",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Jawab salah",
+  "harapan": "Poin tetap, bad+1, pesan ramah",
+  "aktual": "pts 0->0, bad 0->1, '❌ Hampir! Nanas diawali huruf '",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Soal unik & pilihan valid (5 soal)",
+  "harapan": "tanpa duplikat, tanpa pilihan kosong/ganda",
+  "aktual": "dup=False invalid=False",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Selesaikan",
+  "harapan": "Layar selesai muncul, poin 4x10 + 20 (+30 bila tantangan harian), tanpa NaN",
+  "aktual": "delta=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Aktivitas selesai bertambah 1",
+  "harapan": "done=1",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "fin() dipanggil ganda",
+  "harapan": "tidak ada hadiah ganda",
+  "aktual": "done=1 pts=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Main Lagi",
+  "harapan": "State direset (i=0,done=0,st=0)",
+  "aktual": "[0, 0, 0]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "Kembali ke beranda, tanpa error, tanpa hadiah",
+  "aktual": "errs=[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "huruf",
+  "skenario": "Refresh setelah progres tersimpan",
+  "harapan": "pts & done sama setelah reload",
+  "aktual": "[60, 1]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Buka permainan",
+  "harapan": "Layar intro + tombol Mulai & Kembali",
+  "aktual": "go",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Mulai",
+  "harapan": ">=3 pilihan jawaban",
+  "aktual": "3",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Jawab salah",
+  "harapan": "Poin tetap, bad+1, pesan ramah",
+  "aktual": "pts 0->0, bad 0->1, '❌ Hampir! 2 Bola + 1 Bola = 3 '",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Soal unik & pilihan valid (5 soal)",
+  "harapan": "tanpa duplikat, tanpa pilihan kosong/ganda",
+  "aktual": "dup=False invalid=False",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Selesaikan",
+  "harapan": "Layar selesai muncul, poin 4x10 + 20 (+30 bila tantangan harian), tanpa NaN",
+  "aktual": "delta=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Aktivitas selesai bertambah 1",
+  "harapan": "done=1",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "fin() dipanggil ganda",
+  "harapan": "tidak ada hadiah ganda",
+  "aktual": "done=1 pts=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Main Lagi",
+  "harapan": "State direset (i=0,done=0,st=0)",
+  "aktual": "[0, 0, 0]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "Kembali ke beranda, tanpa error, tanpa hadiah",
+  "aktual": "errs=[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "tambah",
+  "skenario": "Refresh setelah progres tersimpan",
+  "harapan": "pts & done sama setelah reload",
+  "aktual": "[70, 1]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Buka permainan",
+  "harapan": "Layar intro + tombol Mulai & Kembali",
+  "aktual": "go",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Mulai",
+  "harapan": ">=3 pilihan jawaban",
+  "aktual": "4",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Jawab salah",
+  "harapan": "Poin tetap, bad+1, pesan ramah",
+  "aktual": "pts 0->0, bad 0->1, '❌ Hampir!  berbeda dari yang l'",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Soal unik & pilihan valid (5 soal)",
+  "harapan": "tanpa duplikat, tanpa pilihan kosong/ganda",
+  "aktual": "dup=False invalid=False",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Selesaikan",
+  "harapan": "Layar selesai muncul, poin 4x10 + 20 (+30 bila tantangan harian), tanpa NaN",
+  "aktual": "delta=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Aktivitas selesai bertambah 1",
+  "harapan": "done=1",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "fin() dipanggil ganda",
+  "harapan": "tidak ada hadiah ganda",
+  "aktual": "done=1 pts=60",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Main Lagi",
+  "harapan": "State direset (i=0,done=0,st=0)",
+  "aktual": "[0, 0, 0]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "Kembali ke beranda, tanpa error, tanpa hadiah",
+  "aktual": "errs=[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Refresh setelah progres tersimpan",
+  "harapan": "pts & done sama setelah reload",
+  "aktual": "[70, 1]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Buka permainan",
+  "harapan": "Layar intro + tombol Mulai & Kembali",
+  "aktual": "go",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Mulai",
+  "harapan": ">=3 pilihan jawaban",
+  "aktual": "3",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Jawab salah",
+  "harapan": "Poin tetap, bad+1, pesan ramah",
+  "aktual": "pts 0->0, bad 0->1, '❌ Hampir! Bentuk bayangannya s'",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Soal unik & pilihan valid (5 soal)",
+  "harapan": "tanpa duplikat, tanpa pilihan kosong/ganda",
+  "aktual": "dup=False invalid=False",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Selesaikan",
+  "harapan": "Layar selesai muncul, poin 4x10 + 20 (+30 bila tantangan harian), tanpa NaN",
+  "aktual": "delta=90",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Aktivitas selesai bertambah 1",
+  "harapan": "done=1",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "fin() dipanggil ganda",
+  "harapan": "tidak ada hadiah ganda",
+  "aktual": "done=1 pts=90",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Main Lagi",
+  "harapan": "State direset (i=0,done=0,st=0)",
+  "aktual": "[0, 0, 0]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "Kembali ke beranda, tanpa error, tanpa hadiah",
+  "aktual": "errs=[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Refresh setelah progres tersimpan",
+  "harapan": "pts & done sama setelah reload",
+  "aktual": "[90, 1]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "beda",
+  "skenario": "Ketuk area salah",
+  "harapan": "poin tetap, bad+1, bisa lanjut",
+  "aktual": "pts 0->0 bad+1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "beda",
+  "skenario": "Temukan semua target tiap babak (3 babak)",
+  "harapan": "selesai hanya saat semua target ditemukan; ketukan setelah selesai diabaikan",
+  "aktual": "ok=True",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "beda",
+  "skenario": "Poin",
+  "harapan": "sesuai ok() per target + 20",
+  "aktual": "50",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "beda",
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "tanpa error",
+  "aktual": "[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "spy",
+  "skenario": "Ketuk area salah",
+  "harapan": "poin tetap, bad+1, bisa lanjut",
+  "aktual": "pts 0->0 bad+1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "spy",
+  "skenario": "Temukan semua target tiap babak (3 babak)",
+  "harapan": "selesai hanya saat semua target ditemukan; ketukan setelah selesai diabaikan",
+  "aktual": "ok=True",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "spy",
+  "skenario": "Poin",
+  "harapan": "sesuai ok() per target + 20",
+  "aktual": "50",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "spy",
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "tanpa error",
+  "aktual": "[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "warna",
+  "skenario": "Selesai tanpa mewarnai",
+  "harapan": "ditolak, tidak ada poin",
+  "aktual": "pts 0->0",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "warna",
+  "skenario": "Pilih warna & ketuk area",
+  "harapan": "area terwarnai sesuai warna terpilih",
+  "aktual": "art={\"burung_0\":\"#ff9800\",\"burung_1\":\"#ffd600\"}",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "warna",
+  "skenario": "Undo / Redo",
+  "harapan": "undo 2->1, redo 1->2",
+  "aktual": "1,2",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "warna",
+  "skenario": "Reset",
+  "harapan": "gambar SAMA, semua warna dihapus",
+  "aktual": "burung->burung, art=0",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "warna",
+  "skenario": "Selesai setelah cukup bagian",
+  "harapan": "fin muncul, +20 saja (tidak ada poin tambahan dari mewarnai)",
+  "aktual": "delta=20",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "warna",
+  "skenario": "Main Lagi lalu langsung Selesai (anti tambang poin)",
+  "harapan": "ditolak karena lembar baru kosong",
+  "aktual": "fin=False",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "warna",
+  "skenario": "Gambar lain",
+  "harapan": "tidak mengulang gambar yang sama berturut-turut",
+  "aktual": "burung,rumah",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "warna",
+  "skenario": "Tanpa scroll horizontal (412px)",
+  "harapan": "scrollWidth<=clientWidth",
+  "aktual": "[412, 412]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "garis",
+  "skenario": "Pasangan salah",
+  "harapan": "tidak ada garis, poin tetap, bad+1",
+  "aktual": "lines=0 bad+1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "garis",
+  "skenario": "Pasangan benar via ketuk",
+  "harapan": "1 garis, kedua tombol terkunci",
+  "aktual": "lines=1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "garis",
+  "skenario": "Pasangan benar via seret mouse",
+  "harapan": "garis ke-2 terbentuk, tidak dihitung dua kali",
+  "aktual": "lines=2 m=2",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "garis",
+  "skenario": "Resize/rotasi layar",
+  "harapan": "titik ujung garis tetap pada tombol (selisih <2px)",
+  "aktual": "maks selisih 0.0px",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "garis",
+  "skenario": "Selesaikan semua pasangan",
+  "harapan": "fin muncul sekali",
+  "aktual": "fin=True done=1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "garis",
+  "skenario": "Ulangi",
+  "harapan": "garis kosong lagi & G.cx kosong",
+  "aktual": "lines=0 cx=0",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "memori",
+  "skenario": "Dua kartu beda + ketuk kartu ke-3 saat terkunci",
+  "harapan": "kartu ke-3 diabaikan (2 terbuka), poin tetap",
+  "aktual": "terbuka=2 pts 0->0",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "memori",
+  "skenario": "Pasangan salah menutup kembali",
+  "harapan": "0 kartu terbuka setelah jeda 0.8 dtk",
+  "aktual": "0",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "memori",
+  "skenario": "Temukan semua pasangan",
+  "harapan": "fin muncul sekali, hanya setelah semua pasangan",
+  "aktual": "fin=True done=1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "memori",
+  "skenario": "Ulangi",
+  "harapan": "kartu & langkah direset",
+  "aktual": "[0, 0, 0]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "memori",
+  "skenario": "Keluar saat berjalan",
+  "harapan": "tanpa error",
+  "aktual": "[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "labirin",
+  "skenario": "Menabrak tembok",
+  "harapan": "posisi tidak berubah",
+  "aktual": "0",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "labirin",
+  "skenario": "Petunjuk",
+  "harapan": "menandai jalur (>0 sel)",
+  "aktual": "4",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "labirin",
+  "skenario": "Selesaikan 3 babak (keyboard)",
+  "harapan": "fin muncul setelah babak 3",
+  "aktual": "fin=True done=1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "labirin",
+  "skenario": "Kontrol tombol sentuh (D-pad)",
+  "harapan": "karakter bergerak sesuai tombol",
+  "aktual": "3",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "labirin",
+  "skenario": "Ulangi babak",
+  "harapan": "posisi awal",
+  "aktual": "[0, 0]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "labirin",
+  "skenario": "Keluar tepat setelah babak selesai (timer 700ms)",
+  "harapan": "tetap di beranda, tanpa error",
+  "aktual": "home=True errs=[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "urut",
+  "skenario": "Tombol Ulangi contoh saat demo berjalan",
+  "harapan": "diabaikan (tetap terkunci)",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "urut",
+  "skenario": "Input hanya setelah contoh selesai",
+  "harapan": "G.lock=0 setelah demo",
+  "aktual": "ok",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "urut",
+  "skenario": "Ulangi contoh",
+  "harapan": "terkunci lagi saat demo",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "urut",
+  "skenario": "Jawab salah",
+  "harapan": "terkunci segera, input saat replay diabaikan, bad+1",
+  "aktual": "lock=1 in=0 bad+1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "urut",
+  "skenario": "Selesaikan semua ronde (urutan benar)",
+  "harapan": "fin muncul, urutan bertambah tiap ronde",
+  "aktual": "fin=True done=1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "urut",
+  "skenario": "Keluar saat demo berjalan",
+  "harapan": "timer demo tidak bocor; tanpa error",
+  "aktual": "[]",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "puzzle",
+  "skenario": "Buka menu puzzle",
+  "harapan": "menu kategori/gambar/tingkat",
+  "aktual": "True",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "puzzle",
+  "skenario": "Keping di kotak salah",
+  "harapan": "tidak terkunci, tetap bisa dicoba lagi",
+  "aktual": "ok=0 msg='Belum pas, coba kotak lai'",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "puzzle",
+  "skenario": "Seret keping ke kotak benar",
+  "harapan": "keping terkunci",
+  "aktual": "1",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "puzzle",
+  "skenario": "Petunjuk & Jeda",
+  "harapan": "petunjuk menyorot kotak; jeda dapat dilanjutkan",
+  "aktual": "paused=True",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "puzzle",
+  "skenario": "Selesaikan puzzle (ketuk)",
+  "harapan": "layar selesai, hadiah +20 +bonus tingkat (10) sekali",
+  "aktual": "delta=30 fin=True",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "puzzle",
+  "skenario": "Main lagi puzzle yang sama (anti tambang)",
+  "harapan": "tanpa poin baru",
+  "aktual": "delta 30->30",
+  "status": "PASS",
+  "catatan": ""
+ },
+ {
+  "game": "puzzle",
+  "skenario": "Keluar saat puzzle sedang disiapkan",
+  "harapan": "tidak menimpa beranda, tanpa error",
+  "aktual": "home=True errs=[]",
+  "status": "PASS",
+  "catatan": ""
+ }
+]

@@ -1,0 +1,197 @@
+[
+ {
+  "uji": "Cache bba-<hash> aktif",
+  "status": "PASS",
+  "bukti": "bba-0b47587b18"
+ },
+ {
+  "uji": "gambar-baru.js & warna.css masuk cache",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Offline: katalog 84 kartu",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Offline: kanvas terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Offline: tanpa galat JS",
+  "status": "PASS",
+  "bukti": "[]"
+ },
+ {
+  "uji": "HP 360: tanpa scroll horizontal (katalog & kanvas)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "HP 360: palet tidak menutupi gambar",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "HP 360: swatch >=44px",
+  "status": "PASS",
+  "bukti": "46"
+ },
+ {
+  "uji": "HP 360: tanpa galat JS",
+  "status": "PASS",
+  "bukti": "[]"
+ },
+ {
+  "uji": "HP 320: tanpa scroll horizontal (katalog & kanvas)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "HP 320: palet tidak menutupi gambar",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "HP 320: swatch >=44px",
+  "status": "PASS",
+  "bukti": "46"
+ },
+ {
+  "uji": "HP 320: tanpa galat JS",
+  "status": "PASS",
+  "bukti": "[]"
+ },
+ {
+  "uji": "Tablet: tanpa scroll horizontal (katalog & kanvas)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Tablet: palet tidak menutupi gambar",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Tablet: swatch >=44px",
+  "status": "PASS",
+  "bukti": "47"
+ },
+ {
+  "uji": "Tablet: tanpa galat JS",
+  "status": "PASS",
+  "bukti": "[]"
+ },
+ {
+  "uji": "PC: tanpa scroll horizontal (katalog & kanvas)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "PC: palet tidak menutupi gambar",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "PC: swatch >=44px",
+  "status": "PASS",
+  "bukti": "47"
+ },
+ {
+  "uji": "PC: tanpa galat JS",
+  "status": "PASS",
+  "bukti": "[]"
+ },
+ {
+  "uji": "TV: tanpa scroll horizontal (katalog & kanvas)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "TV: palet tidak menutupi gambar",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "TV: swatch >=44px",
+  "status": "PASS",
+  "bukti": "70"
+ },
+ {
+  "uji": "TV: tanpa galat JS",
+  "status": "PASS",
+  "bukti": "[]"
+ },
+ {
+  "uji": "Permainan pola tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan hitung tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan huruf tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan tambah tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan ganjil tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan garis tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan beda tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan spy tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan memori tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan bayangan tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan labirin tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan urut tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan puzzle tetap terbuka",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Permainan lain tanpa galat JS",
+  "status": "PASS",
+  "bukti": "[]"
+ }
+]

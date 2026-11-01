@@ -1,0 +1,35 @@
+import subprocess,time
+from playwright.sync_api import sync_playwright
+R=lambda m,ok:print(('PASS ' if ok else 'FAIL ')+m)
+with sync_playwright() as p:
+    b=p.chromium.launch();ctx=b.new_context(service_workers='allow');pg=ctx.new_page();er=[];pg.on('pageerror',lambda e:er.append(str(e)))
+    pg.route('https://*/**',lambda r:r.abort())
+    pg.goto('http://localhost:8811/index.html');pg.wait_for_timeout(3500)
+    pg.evaluate("document.getElementById('ld')&&document.getElementById('ld').remove()")
+    R('SW aktif & update.js termuat',pg.evaluate("!!navigator.serviceWorker.controller")) 
+    v1=pg.evaluate("localStorage.getItem('bba_ver')");R('versi awal tercatat '+str(v1),bool(v1))
+    pg.evaluate("window.__marker='lama'")
+    # rilis versi baru: ubah HTML & JS lalu stamp
+    s=open('index.html').read().replace('<title>','<meta name="uji" content="baru"><title>',1);open('index.html','w').write(s)
+    open('games2.js','a').write('\nwindow.__GAMES2_BARU=1;\n')
+    subprocess.run(['node','tools/rilis.js'],capture_output=True)
+    pg.evaluate("document.dispatchEvent(new Event('visibilitychange'))");pg.evaluate("window.dispatchEvent(new Event('online'))")
+    pg.wait_for_timeout(9000)
+    R('Halaman dimuat ulang otomatis (marker lama hilang)',pg.evaluate("window.__marker")is None)
+    R('HTML baru tampil',pg.evaluate("!!document.querySelector('meta[name=uji]')"))
+    R('JS baru berjalan',pg.evaluate("window.__GAMES2_BARU===1"))
+    R('Cache lama dihapus',pg.evaluate("caches.keys().then(k=>k.length)")==1)
+    R('Tanpa galat JS',not er)
+    # offline masih jalan
+    ctx.set_offline(True);pg.reload();pg.wait_for_timeout(1500)
+    R('Offline: halaman tetap terbuka dari cache',pg.evaluate("!!document.querySelector('meta[name=uji]')&&typeof ACT==='object'"))
+    ctx.set_offline(False)
+    # busy: tidak reload saat bermain
+    pg.evaluate("document.getElementById('ld')&&document.getElementById('ld').remove()")
+    pg.evaluate("(()=>{S.p=[{id:'k1',name:'A',av:'🦕',age:1,pts:0,done:0,ok:0,bad:0,best:0,dc:0,dcDay:'',bd:[],hist:[],days:{},art:{},played:0}];S.cur='k1';save();render();ACT.play('pola');window.__m2=1})()");pg.wait_for_timeout(300)
+    open('index.html','a').write('<!--v3-->');subprocess.run(['node','tools/rilis.js'],capture_output=True)
+    pg.evaluate("window.dispatchEvent(new Event('online'))");pg.wait_for_timeout(8000)
+    R('Sedang bermain: tidak dimuat ulang paksa',pg.evaluate("window.__m2")==1)
+    pg.evaluate("ACT.nav('home')");pg.wait_for_timeout(38000)
+    R('Setelah keluar permainan: dimuat ulang otomatis',pg.evaluate("window.__m2")is None)
+    b.close()

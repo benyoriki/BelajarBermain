@@ -1,0 +1,92 @@
+[
+ {
+  "skenario": "Navigasi panah di beranda",
+  "harapan": "fokus selalu ada dan berpindah (tidak hilang)",
+  "aktual": "['nav:belajar:📖Belajar', 'nav:main:🎮Bermain', 'play:bayangan:👤 Main', 'play:huruf:ABHuruf & Ka', 'play:hitung:3Hitung & Li', 'nav:belajar:📖Belajar']",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Indikator fokus terlihat",
+  "harapan": "outline/box-shadow terlihat pada elemen fokus",
+  "aktual": "['solid', '3px', True]",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Main kuis hanya dengan keyboard (Enter) sampai selesai",
+  "harapan": "fokus otomatis ke Lanjut tiap soal; layar selesai",
+  "aktual": "fokus_lanjut=5/5 fin=True",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Labirin: panah remote/keyboard",
+  "harapan": "karakter bergerak (langkah bertambah) tanpa mouse",
+  "aktual": "2",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Puzzle tanpa drag (Enter pada keping lalu kotak)",
+  "harapan": "keping terkunci",
+  "aktual": "1",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Modal Pengaturan Suara: Escape menutup",
+  "harapan": "dialog terbuka lalu tertutup",
+  "aktual": "open=True closed=True",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Modal Donasi: Escape menutup",
+  "harapan": "dialog terbuka lalu tertutup",
+  "aktual": "open=True closed=True",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Kunjungan pertama: cache terbentuk",
+  "harapan": "1 cache bba-v26",
+  "aktual": "['bba-v26']",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Aset inti ter-cache",
+  "harapan": ">= 25 berkas (prasyarat install addAll)",
+  "aktual": "26",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Offline: reload halaman",
+  "harapan": "halaman tetap tampil (bukan blank)",
+  "aktual": "Halo, Dono! 👋  Ayo Belajar dan Bermain! ",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Indikator offline",
+  "harapan": "menampilkan Mode Offline",
+  "aktual": "🟠 Mode Offline",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Offline: 8 permainan terbuka + sprite gambar tersedia",
+  "harapan": "tanpa error, aset.webp dari cache",
+  "aktual": "semua OK",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Offline: selesaikan permainan & simpan progres",
+  "harapan": "poin bertambah, fin tampil",
+  "aktual": "0->80",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Pembaruan versi: cache lama dihapus",
+  "harapan": "hanya bba-v27",
+  "aktual": "['bba-v27']",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Pembaruan versi: progres tetap ada",
+  "harapan": "poin sama setelah update",
+  "aktual": "80->80",
+  "status": "PASS"
+ }
+]

@@ -1,0 +1,98 @@
+[
+ {
+  "skenario": "Sesi sempurna (5 benar)",
+  "harapan": "+50 +10 (5 beruntun) +20 = 80",
+  "aktual": "80",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Lencana awal",
+  "harapan": "Langkah Pertama + 5 Beruntun (5 benar beruntun), belum 100 Poin",
+  "aktual": "['5 Beruntun', 'Langkah Pertama']",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Dimainkan vs diselesaikan",
+  "harapan": "played=1, done=1",
+  "aktual": "(1, 1)",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Sesi semua salah",
+  "harapan": "Poin tidak berkurang; hanya +20 selesai",
+  "aktual": "(80, 100)",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Level & lencana 100 Poin",
+  "harapan": "Level naik ke 2 saat >=100; lencana 100 Poin",
+  "aktual": "(100, ['5 Beruntun', 'Langkah Pertama', '100 Poin'])",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Tantangan harian",
+  "harapan": "bonus +30 hanya sekali per hari (dc=1)",
+  "aktual": "(1, 1)",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Poin tidak pernah berkurang",
+  "harapan": "urutan poin naik/tetap",
+  "aktual": "[370, 450, 530, 600, 600, 600]",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Batas poin harian (anti tambang)",
+  "harapan": "total hari ini <= 600 + 30 (bonus harian)",
+  "aktual": "600",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Setelah batas tercapai",
+  "harapan": "tidak ada poin tambahan, permainan tetap bisa dilanjutkan, pesan ramah",
+  "aktual": "(600, 600, '🎉 Hebat!  ⭐⭐⭐  Aktivitas selesai! Poin hari ini sudah penuh,')",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Level tidak melompat",
+  "harapan": "level = hasil perhitungan dari poin",
+  "aktual": "[600, 3]",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Refresh",
+  "harapan": "poin, done, lencana, hari sama",
+  "aktual": "(600, 600)",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Ganti profil",
+  "harapan": "profil baru mulai 0 poin; profil lama utuh",
+  "aktual": "(0, [600, 0])",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Keluar sebelum selesai",
+  "harapan": "played+1, done tetap 0",
+  "aktual": "(1, 0)",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Pergantian hari lokal (WIB 23:50 -> 00:10)",
+  "harapan": "tanggal & tantangan harian berganti pada 00:00 lokal",
+  "aktual": "(['2026-10-30', 'bayangan'], ['2026-10-31', 'tambah'])",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Kunci hari poin",
+  "harapan": "memakai tanggal lokal",
+  "aktual": "['2026-10-30']",
+  "status": "PASS"
+ },
+ {
+  "skenario": "Migrasi data lama (format v13+) 2 profil",
+  "harapan": "poin, foto, lencana, pengaturan suara tetap sama",
+  "aktual": "[['Budi', 640, 12, True], ['Sari', 20, 1, False]]",
+  "status": "PASS"
+ }
+]

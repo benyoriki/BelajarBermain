@@ -1,0 +1,56 @@
+[
+ {
+  "vp": "hp-sentuh",
+  "game": "labirin",
+  "dim": "Input sentuh",
+  "skenario": "Usap (swipe) jari menggerakkan karakter satu langkah dan halaman tidak ikut bergulir",
+  "harapan": "langkah=1, scrollY tetap",
+  "aktual": "arah 1: langkah=1, scrollY 0->0, halaman_bisa_scroll=True",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp-sentuh",
+  "game": "garis",
+  "dim": "Input sentuh",
+  "skenario": "Seret jari dari gambar kiri ke pasangannya membentuk 1 garis; halaman tidak bergulir",
+  "harapan": "1 garis, scrollY tetap",
+  "aktual": "garis=1 cocok=1 scrollY 142->142",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp-sentuh",
+  "game": "puzzle",
+  "dim": "Input sentuh",
+  "skenario": "Seret keping dengan jari ke kotak benar → terkunci; halaman tidak bergulir",
+  "harapan": "ok=1, scrollY tetap",
+  "aktual": "terkunci=1 scrollY 166->166 halaman_bisa_scroll=True titik_sentuh_mengenai=pzp2|BUTTON",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp-sentuh",
+  "game": "umum",
+  "dim": "Penyimpanan gagal (kuota penuh)",
+  "skenario": "Tidak crash, permainan tetap bisa dilanjutkan, pesan ramah tampil sekali",
+  "harapan": "tanpa error + pesan",
+  "aktual": "error=[] lanjut=True poin_memori 0->10 toast=\"+10 ⭐\"",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp-sentuh",
+  "game": "umum",
+  "dim": "Migrasi data lama",
+  "skenario": "Reload berulang tidak mengubah data lagi",
+  "harapan": "idempoten",
+  "aktual": "JSON tersimpan identik setelah reload ke-2 dan ke-3 (migrasi idempoten)",
+  "status": "PASS"
+ },
+ {
+  "vp": "hp-sentuh",
+  "game": "umum",
+  "dim": "Data lama × 14 permainan",
+  "skenario": "Memainkan/membuka semua 14 permainan dengan profil lama: tak ada kolom hilang, tak ada error",
+  "harapan": "semua utuh",
+  "aktual": "Budi utuh=True (poin 720), Sari utuh=True, pengaturan suara utuh=True, errs=[]",
+  "status": "PASS"
+ }
+]

@@ -1,0 +1,262 @@
+[
+ {
+  "uji": "Total gambar = 84 (36 lama + 48 baru)",
+  "status": "PASS",
+  "bukti": "84"
+ },
+ {
+  "uji": "Tidak ada id dengan garis bawah (anti benturan kunci art)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Katalog menampilkan 84 kartu",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Thumbnail dirender lazy (tidak semua sekaligus)",
+  "status": "PASS",
+  "bukti": "35"
+ },
+ {
+  "uji": "36 gambar lama dipertahankan",
+  "status": "PASS",
+  "bukti": "36"
+ },
+ {
+  "uji": "Semua 84 gambar: area bisa diklik, warna di area benar, tanpa bocor, hitung, undo, redo, reset",
+  "status": "PASS",
+  "bukti": "3 gambar, 29 area"
+ },
+ {
+  "uji": "Jumlah area baru 5..14",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Gambar lain tidak pernah sama dengan sebelumnya (60x)",
+  "status": "PASS",
+  "bukti": "36"
+ },
+ {
+  "uji": "Gambar lain bervariasi (>=20 gambar berbeda dalam 60x)",
+  "status": "PASS",
+  "bukti": "36"
+ },
+ {
+  "uji": "Pemilihan sesuai tingkat (usia grup 0, dif=0): ['Mudah']",
+  "status": "PASS",
+  "bukti": "['Mudah']"
+ },
+ {
+  "uji": "Pemilihan sesuai tingkat (usia grup 2, dif=2): ['Sedang']",
+  "status": "PASS",
+  "bukti": "['Sedang']"
+ },
+ {
+  "uji": "Filter Hewan darat = 18",
+  "status": "PASS",
+  "bukti": "18"
+ },
+ {
+  "uji": "Filter Hewan laut = 10",
+  "status": "PASS",
+  "bukti": "10"
+ },
+ {
+  "uji": "Filter Burung = 7",
+  "status": "PASS",
+  "bukti": "7"
+ },
+ {
+  "uji": "Filter Dinosaurus = 4",
+  "status": "PASS",
+  "bukti": "4"
+ },
+ {
+  "uji": "Filter Serangga = 4",
+  "status": "PASS",
+  "bukti": "4"
+ },
+ {
+  "uji": "Filter Buah dan sayuran = 12",
+  "status": "PASS",
+  "bukti": "12"
+ },
+ {
+  "uji": "Filter Tumbuhan = 7",
+  "status": "PASS",
+  "bukti": "7"
+ },
+ {
+  "uji": "Filter Kendaraan = 7",
+  "status": "PASS",
+  "bukti": "7"
+ },
+ {
+  "uji": "Filter Profesi = 4",
+  "status": "PASS",
+  "bukti": "4"
+ },
+ {
+  "uji": "Filter Benda = 5",
+  "status": "PASS",
+  "bukti": "5"
+ },
+ {
+  "uji": "Filter Luar angkasa = 3",
+  "status": "PASS",
+  "bukti": "3"
+ },
+ {
+  "uji": "Filter Alam = 3",
+  "status": "PASS",
+  "bukti": "3"
+ },
+ {
+  "uji": "Cari \"panda\"",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Cari \"kupu kupu\" (tanpa tanda hubung)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Cari tanpa hasil -> pesan ramah",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Favorit tersimpan di p.wn.fav",
+  "status": "PASS",
+  "bukti": "panda,gurita"
+ },
+ {
+  "uji": "Favorit bertahan setelah muat ulang",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Filter Favorit",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Simpan warna favorit",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Penghapus menghapus warna",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Palet berisi 24 warna",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Selesai tanpa mewarnai: 0 poin",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Selesai setelah diwarnai: +20 poin",
+  "status": "PASS",
+  "bukti": "20"
+ },
+ {
+  "uji": "Menekan Selesai berulang tidak menambah poin",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Layar selesai menyediakan PNG/Bagikan/Pilih gambar lain",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Gambar sama hari sama tidak memberi poin lagi",
+  "status": "PASS",
+  "bukti": "20"
+ },
+ {
+  "uji": "Sesi baru + gambar sama: tidak ada poin tambahan",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Gambar berbeda tetap bisa dapat poin (+20)",
+  "status": "PASS",
+  "bukti": "40"
+ },
+ {
+  "uji": "PNG berhasil dibuat (1200x920) dan nama file benar",
+  "status": "PASS",
+  "bukti": "(1200, 920, 135160, 'mewarnai-merak.png')"
+ },
+ {
+  "uji": "PNG memuat warna yang dipilih",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Bagikan memanggil Web Share dengan berkas PNG",
+  "status": "PASS",
+  "bukti": "{'n': 'mewarnai-merak.png', 't': 'Karya mewarnai Merak', 's': 135160}"
+ },
+ {
+  "uji": "Bagikan tanpa Web Share -> fallback unduh",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Kembali ke katalog",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Tombol Menu ke Beranda",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Tidak ada galat JavaScript",
+  "status": "PASS",
+  "bukti": "[]"
+ },
+ {
+  "uji": "Poin tidak berkurang, profil utuh",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Data lama: poin/profil/kolom tak dikenal tidak berubah",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Warna lama muncul saat gambar lama dibuka (resume)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Penghitung progres kartu lama (2/n)",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Kunci art lain (d3, 0_4) tidak disentuh",
+  "status": "PASS",
+  "bukti": ""
+ },
+ {
+  "uji": "Tanpa galat saat data lama",
+  "status": "PASS",
+  "bukti": "[]"
+ }
+]

@@ -1,0 +1,121 @@
+[
+ {
+  "game": "pola",
+  "skenario": "Fuzz 900 soal (semua tingkat)",
+  "harapan": "tanpa duplikat opsi, indeks valid, jumlah gambar = jawaban, tanpa NaN/undefined/negatif",
+  "aktual": "n=900 err=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "hitung",
+  "skenario": "Fuzz 900 soal (semua tingkat)",
+  "harapan": "tanpa duplikat opsi, indeks valid, jumlah gambar = jawaban, tanpa NaN/undefined/negatif",
+  "aktual": "n=900 err=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "huruf",
+  "skenario": "Fuzz 900 soal (semua tingkat)",
+  "harapan": "tanpa duplikat opsi, indeks valid, jumlah gambar = jawaban, tanpa NaN/undefined/negatif",
+  "aktual": "n=900 err=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "tambah",
+  "skenario": "Fuzz 900 soal (semua tingkat)",
+  "harapan": "tanpa duplikat opsi, indeks valid, jumlah gambar = jawaban, tanpa NaN/undefined/negatif",
+  "aktual": "n=900 err=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "ganjil",
+  "skenario": "Fuzz 900 soal (semua tingkat)",
+  "harapan": "tanpa duplikat opsi, indeks valid, jumlah gambar = jawaban, tanpa NaN/undefined/negatif",
+  "aktual": "n=900 err=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "bayangan",
+  "skenario": "Fuzz 900 soal (semua tingkat)",
+  "harapan": "tanpa duplikat opsi, indeks valid, jumlah gambar = jawaban, tanpa NaN/undefined/negatif",
+  "aktual": "n=900 err=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "bank",
+  "skenario": "Validasi bank soal",
+  "harapan": "0 galat",
+  "aktual": "ok=True err=0 counts={'hitung': 180, 'tambah': 680, 'pola': 42, 'huruf': 48}",
+  "status": "PASS"
+ },
+ {
+  "game": "aset",
+  "skenario": "Rujukan id aset di games2.js",
+  "harapan": "semua ada di katalog",
+  "aktual": "20 id diperiksa, hilang=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "aset",
+  "skenario": "Sel sprite aset.webp tiap id katalog",
+  "harapan": "ukuran 1040x640, tidak ada sel kosong/di luar",
+  "aktual": "87 aset, kosong=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "garis",
+  "skenario": "Fuzz 108 papan (3 usia × 3 tingkat × 12)",
+  "harapan": "tiap kiri tepat 1 pasangan, tanpa duplikat ambigu, tanpa aset hilang",
+  "aktual": "jenis=9 err=[]",
+  "status": "PASS"
+ },
+ {
+  "game": "beda",
+  "skenario": "Fuzz 72 papan",
+  "harapan": "jumlah/posisi target sesuai data, gambar A≠B tepat di target",
+  "aktual": "[]",
+  "status": "PASS"
+ },
+ {
+  "game": "spy",
+  "skenario": "Fuzz 72 papan",
+  "harapan": "jumlah/posisi target sesuai data, gambar A≠B tepat di target",
+  "aktual": "[]",
+  "status": "PASS"
+ },
+ {
+  "game": "memori",
+  "skenario": "Fuzz 54 papan",
+  "harapan": "tiap kartu tepat 2, gambar unik",
+  "aktual": "[]",
+  "status": "PASS"
+ },
+ {
+  "game": "labirin",
+  "skenario": "Fuzz 135 labirin (3 babak × 9 tingkat × 5)",
+  "harapan": "jalur awal→tujuan ada, dinding simetris, bintang terjangkau",
+  "aktual": "{'n0': 135, 'err': []}",
+  "status": "PASS"
+ },
+ {
+  "game": "warna",
+  "skenario": "Katalog gambar mewarnai",
+  "harapan": "semua gambar punya >=1 area (bintang-laut=1, pisang=2: tipis tapi dapat diselesaikan)",
+  "aktual": "{'n': 36, 'err': []}",
+  "status": "PASS"
+ },
+ {
+  "game": "umum",
+  "skenario": "Peringatan konsol \"Aset hilang\"/\"Bank soal\" selama fuzz",
+  "harapan": "tidak ada",
+  "aktual": "[]",
+  "status": "PASS"
+ },
+ {
+  "game": "umum",
+  "skenario": "Error JS selama fuzz",
+  "harapan": "tidak ada",
+  "aktual": "[]",
+  "status": "PASS"
+ }
+]

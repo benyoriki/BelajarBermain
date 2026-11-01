@@ -1,0 +1,998 @@
+[
+ {
+  "area": "pola",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "pola",
+  "tes": "salah = pesan ramah (💛 Hampir), tanpa ❌",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "pola",
+  "tes": "selesai setelah 5 soal + poin bertambah",
+  "status": "PASS",
+  "detail": "120->180"
+ },
+ {
+  "area": "pola",
+  "tes": "layar selesai: Main Lagi + Pilih Permainan",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "pola",
+  "tes": "Pilih Permainan → menu + navigasi global kembali",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "pola",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "hitung",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "hitung",
+  "tes": "salah = pesan ramah (💛 Hampir), tanpa ❌",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "hitung",
+  "tes": "selesai setelah 5 soal + poin bertambah",
+  "status": "PASS",
+  "detail": "120->180"
+ },
+ {
+  "area": "hitung",
+  "tes": "layar selesai: Main Lagi + Pilih Permainan",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "hitung",
+  "tes": "Pilih Permainan → menu + navigasi global kembali",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "hitung",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "huruf",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "huruf",
+  "tes": "salah = pesan ramah (💛 Hampir), tanpa ❌",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "huruf",
+  "tes": "selesai setelah 5 soal + poin bertambah",
+  "status": "PASS",
+  "detail": "120->180"
+ },
+ {
+  "area": "huruf",
+  "tes": "layar selesai: Main Lagi + Pilih Permainan",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "huruf",
+  "tes": "Pilih Permainan → menu + navigasi global kembali",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "huruf",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "tambah",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "tambah",
+  "tes": "salah = pesan ramah (💛 Hampir), tanpa ❌",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "tambah",
+  "tes": "selesai setelah 5 soal + poin bertambah",
+  "status": "PASS",
+  "detail": "120->210"
+ },
+ {
+  "area": "tambah",
+  "tes": "layar selesai: Main Lagi + Pilih Permainan",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "tambah",
+  "tes": "Pilih Permainan → menu + navigasi global kembali",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "tambah",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "ganjil",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "ganjil",
+  "tes": "salah = pesan ramah (💛 Hampir), tanpa ❌",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "ganjil",
+  "tes": "selesai setelah 5 soal + poin bertambah",
+  "status": "PASS",
+  "detail": "120->180"
+ },
+ {
+  "area": "ganjil",
+  "tes": "layar selesai: Main Lagi + Pilih Permainan",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "ganjil",
+  "tes": "Pilih Permainan → menu + navigasi global kembali",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "ganjil",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "bayangan",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "bayangan",
+  "tes": "salah = pesan ramah (💛 Hampir), tanpa ❌",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "bayangan",
+  "tes": "selesai setelah 5 soal + poin bertambah",
+  "status": "PASS",
+  "detail": "120->180"
+ },
+ {
+  "area": "bayangan",
+  "tes": "layar selesai: Main Lagi + Pilih Permainan",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "bayangan",
+  "tes": "Pilih Permainan → menu + navigasi global kembali",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "bayangan",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "beda",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "beda",
+  "tes": "ketukan salah tidak menyelesaikan + tanda lembut",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "beda",
+  "tes": "selesai 3 babak + poin bertambah",
+  "status": "PASS",
+  "detail": "120->210"
+ },
+ {
+  "area": "beda",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "spy",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "spy",
+  "tes": "ketukan salah tidak menyelesaikan + tanda lembut",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "spy",
+  "tes": "selesai 3 babak + poin bertambah",
+  "status": "PASS",
+  "detail": "120->210"
+ },
+ {
+  "area": "spy",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "garis",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "garis",
+  "tes": "tidak ada tombol Ulangi ganda di bawah",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "garis",
+  "tes": "pasangan salah ditolak",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "garis",
+  "tes": "semua pasangan benar → selesai",
+  "status": "PASS",
+  "detail": "120->180"
+ },
+ {
+  "area": "garis",
+  "tes": "seret jari ke pasangan berfungsi",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "garis",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "memori",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "memori",
+  "tes": "pasangan salah menutup lagi",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "memori",
+  "tes": "semua pasangan → selesai",
+  "status": "PASS",
+  "detail": "120->200"
+ },
+ {
+  "area": "memori",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "urut",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "urut",
+  "tes": "kontrol: hanya \"Lihat Contoh Lagi\" + 🔁 header (tanpa Ulangi ganda)",
+  "status": "PASS",
+  "detail": "👀 Lihat Contoh Lagi"
+ },
+ {
+  "area": "urut",
+  "tes": "indikator: \"Perhatikan\" saat contoh + tombol contoh nonaktif",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "urut",
+  "tes": "indikator: \"Giliranmu\" saat giliran anak",
+  "status": "PASS",
+  "detail": "👆 Giliranmu!"
+ },
+ {
+  "area": "urut",
+  "tes": "salah = pesan ramah (💛), contoh diulang otomatis",
+  "status": "PASS",
+  "detail": "💛 Tidak apa-apa! Lihat lagi ya"
+ },
+ {
+  "area": "urut",
+  "tes": "main sampai urutan 5 → selesai + poin",
+  "status": "PASS",
+  "detail": "120->200"
+ },
+ {
+  "area": "urut",
+  "tes": "layar selesai punya Main Lagi",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "urut",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "labirin",
+  "tes": "header seragam (← ada, 🔁 ada)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': True}"
+ },
+ {
+  "area": "labirin",
+  "tes": "D-pad simetris: ↑ di tengah atas; ← ↓ → sebaris; ukuran sama",
+  "status": "PASS",
+  "detail": "{'u': (151, 569, 58), 'l': (86, 634, 58), 'd': (151, 634, 58), 'r': (217, 634, 58)}"
+ },
+ {
+  "area": "labirin",
+  "tes": "D-pad terlihat penuh tanpa scroll (tidak tertutup)",
+  "status": "PASS",
+  "detail": "bawah=682 tinggi=740"
+ },
+ {
+  "area": "labirin",
+  "tes": "panah keyboard/remote menggerakkan dino",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin",
+  "tes": "tembok menahan / gerak balik valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin",
+  "tes": "geser jari (swipe) menggerakkan dino",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin",
+  "tes": "3 babak selesai via D-pad + poin bertambah",
+  "status": "PASS",
+  "detail": "120->170"
+ },
+ {
+  "area": "labirin",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "labirin@320x568",
+  "tes": "D-pad simetris: ↑ di tengah atas; ← ↓ → sebaris; ukuran sama",
+  "status": "PASS",
+  "detail": "{'u': (136, 471, 48), 'l': (82, 526, 48), 'd': (136, 526, 48), 'r': (190, 526, 48)}"
+ },
+ {
+  "area": "labirin@320x568",
+  "tes": "D-pad terlihat penuh tanpa scroll (tidak tertutup)",
+  "status": "PASS",
+  "detail": "bawah=564 tinggi=568"
+ },
+ {
+  "area": "labirin@320x568",
+  "tes": "panah keyboard/remote menggerakkan dino",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@320x568",
+  "tes": "tembok menahan / gerak balik valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@320x568",
+  "tes": "selesai babak 1 via D-pad (babak berikutnya dimuat)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@360x640",
+  "tes": "D-pad simetris: ↑ di tengah atas; ← ↓ → sebaris; ukuran sama",
+  "status": "PASS",
+  "detail": "{'u': (154, 498, 51), 'l': (95, 557, 51), 'd': (154, 557, 51), 'r': (214, 557, 51)}"
+ },
+ {
+  "area": "labirin@360x640",
+  "tes": "D-pad terlihat penuh tanpa scroll (tidak tertutup)",
+  "status": "PASS",
+  "detail": "bawah=598 tinggi=640"
+ },
+ {
+  "area": "labirin@360x640",
+  "tes": "panah keyboard/remote menggerakkan dino",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@360x640",
+  "tes": "tembok menahan / gerak balik valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@360x640",
+  "tes": "selesai babak 1 via D-pad (babak berikutnya dimuat)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@390x844",
+  "tes": "D-pad simetris: ↑ di tengah atas; ← ↓ → sebaris; ukuran sama",
+  "status": "PASS",
+  "detail": "{'u': (166, 597, 58), 'l': (101, 662, 58), 'd': (166, 662, 58), 'r': (232, 662, 58)}"
+ },
+ {
+  "area": "labirin@390x844",
+  "tes": "D-pad terlihat penuh tanpa scroll (tidak tertutup)",
+  "status": "PASS",
+  "detail": "bawah=710 tinggi=844"
+ },
+ {
+  "area": "labirin@390x844",
+  "tes": "panah keyboard/remote menggerakkan dino",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@390x844",
+  "tes": "tembok menahan / gerak balik valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@390x844",
+  "tes": "selesai babak 1 via D-pad (babak berikutnya dimuat)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@430x932",
+  "tes": "D-pad simetris: ↑ di tengah atas; ← ↓ → sebaris; ukuran sama",
+  "status": "PASS",
+  "detail": "{'u': (186, 613, 58), 'l': (121, 679, 58), 'd': (186, 679, 58), 'r': (252, 679, 58)}"
+ },
+ {
+  "area": "labirin@430x932",
+  "tes": "D-pad terlihat penuh tanpa scroll (tidak tertutup)",
+  "status": "PASS",
+  "detail": "bawah=727 tinggi=932"
+ },
+ {
+  "area": "labirin@430x932",
+  "tes": "panah keyboard/remote menggerakkan dino",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@430x932",
+  "tes": "tembok menahan / gerak balik valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@430x932",
+  "tes": "selesai babak 1 via D-pad (babak berikutnya dimuat)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@768x1024",
+  "tes": "D-pad simetris: ↑ di tengah atas; ← ↓ → sebaris; ukuran sama",
+  "status": "PASS",
+  "detail": "{'u': (355, 747, 58), 'l': (290, 812, 58), 'd': (355, 812, 58), 'r': (421, 812, 58)}"
+ },
+ {
+  "area": "labirin@768x1024",
+  "tes": "D-pad terlihat penuh tanpa scroll (tidak tertutup)",
+  "status": "PASS",
+  "detail": "bawah=860 tinggi=1024"
+ },
+ {
+  "area": "labirin@768x1024",
+  "tes": "panah keyboard/remote menggerakkan dino",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@768x1024",
+  "tes": "tembok menahan / gerak balik valid",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "labirin@768x1024",
+  "tes": "selesai babak 1 via D-pad (babak berikutnya dimuat)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "header seragam (← ada, 🔁 tidak dipakai)",
+  "status": "PASS",
+  "detail": "{'back': True, 'bl': 'Kembali ke menu permainan', 're': False}"
+ },
+ {
+  "area": "warna",
+  "tes": "84 gambar tersedia di data",
+  "status": "PASS",
+  "detail": "84"
+ },
+ {
+  "area": "warna",
+  "tes": "tombol Gambar Acak terlihat jelas (lebar penuh, oranye)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "kategori TANPA geser samping (tidak ada kontainer overflow-x)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "kategori ditutup dulu, dibuka lewat 1 ketukan",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "panel kategori terbuka (12 kategori)",
+  "status": "PASS",
+  "detail": "12"
+ },
+ {
+  "area": "warna",
+  "tes": "pilih kategori: daftar terfilter + tombol kategori berwarna aktif + panel menutup",
+  "status": "PASS",
+  "detail": "🦁\nHewan darat\n▾"
+ },
+ {
+  "area": "warna",
+  "tes": "pencarian \"panda\"",
+  "status": "PASS",
+  "detail": "1"
+ },
+ {
+  "area": "warna",
+  "tes": "favorit = ikon hati kecil (≤36px)",
+  "status": "PASS",
+  "detail": "[32, 32]"
+ },
+ {
+  "area": "warna",
+  "tes": "kartu: nama + titik tingkat kecil (tanpa label ⭐ Sedang)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "ketuk ♡ → tersimpan di profil (P().wn.fav)",
+  "status": "PASS",
+  "detail": "kucing"
+ },
+ {
+  "area": "warna",
+  "tes": "tampilan Favorit menampilkan 1 gambar",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "Karyaku kosong → pesan ramah",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "Gambar Acak membuka kanvas",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "← di header kanvas kembali ke KATALOG (bukan keluar permainan)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "palet 24 warna",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "mewarnai 2 bagian (tersimpan)",
+  "status": "PASS",
+  "detail": "2"
+ },
+ {
+  "area": "warna",
+  "tes": "Undo → 1 bagian, Redo → 2 bagian",
+  "status": "PASS",
+  "detail": "(1, 2)"
+ },
+ {
+  "area": "warna",
+  "tes": "Penghapus menghapus warna bagian",
+  "status": "PASS",
+  "detail": "1"
+ },
+ {
+  "area": "warna",
+  "tes": "simpan warna favorit",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "warna",
+  "tes": "Simpan PNG mengunduh berkas .png",
+  "status": "PASS",
+  "detail": "mewarnai-bunga.png"
+ },
+ {
+  "area": "warna",
+  "tes": "Bagikan tidak error (fallback unduh di desktop)",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "warna",
+  "tes": "Selesai → poin bertambah",
+  "status": "PASS",
+  "detail": "120->140"
+ },
+ {
+  "area": "warna",
+  "tes": "progres warna & favorit bertahan setelah refresh",
+  "status": "PASS",
+  "detail": "9"
+ },
+ {
+  "area": "warna",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "puzzle",
+  "tes": "langkah 1: tidak ada Main Puzzle / Beranda / karakter / tingkat",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "langkah 1: 9 kategori, grid 2 kolom",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "langkah 2/3 terkunci di indikator sebelum kategori dipilih",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "pilih kategori → otomatis ke langkah 2 (karakter, 3 kolom di 360px)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "pilih karakter → otomatis ke langkah 3; 7 tingkat, grid 2 kolom",
+  "status": "PASS",
+  "detail": "10"
+ },
+ {
+  "area": "puzzle",
+  "tes": "kembali ke langkah 1 → pilihan kategori & karakter TIDAK hilang",
+  "status": "PASS",
+  "detail": "Hewan Air|Lumba-lumba|Tingkat"
+ },
+ {
+  "area": "puzzle",
+  "tes": "← di langkah 1 keluar ke menu permainan (Bermain)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "buka lagi: pilihan sebelumnya masih ada (sesi)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "ganti kategori → karakter direset (milik kategori lama), tingkat tetap",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "semua pilihan lengkap → baru muncul Main Puzzle (3/3)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "papan: kontrol hanya yang dibutuhkan (Petunjuk, Lihat Gambar; tanpa Zoom/Jeda/Suara/Acak untuk 4 keping tanpa timer)",
+  "status": "PASS",
+  "detail": "💡 Petunjuk|👁 Lihat Gambar"
+ },
+ {
+  "area": "puzzle",
+  "tes": "salah tempat → pesan ramah, keping tetap",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "seret & lepas (drag and drop) menempatkan keping",
+  "status": "PASS",
+  "detail": "1"
+ },
+ {
+  "area": "puzzle",
+  "tes": "selesai → poin/progres tersimpan",
+  "status": "PASS",
+  "detail": "120->150"
+ },
+ {
+  "area": "puzzle",
+  "tes": "tombol layar selesai: Berikutnya / Main Lagi / Menu Puzzle",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "35 keping + timer: Zoom dan Jeda tampil, 35 kotak & 35 keping",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "Jeda/Lanjut",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "Petunjuk menyorot kotak",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "🔁 header mengacak ulang puzzle yang sama",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "← di papan kembali ke menu puzzle (siap main)",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "puzzle",
+  "tes": "tanpa error JS",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "puzzle",
+  "tes": "HP 320px: grid karakter 2 kolom",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "navigasi",
+  "tes": "menu Belajar",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "navigasi",
+  "tes": "menu Bermain",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "navigasi",
+  "tes": "menu Peringkat",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "navigasi",
+  "tes": "menu Profil",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "navigasi",
+  "tes": "menu Beranda",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "navigasi",
+  "tes": "navigasi bawah pendek (≤ 4.2rem=67px)",
+  "status": "PASS",
+  "detail": "52"
+ },
+ {
+  "area": "header",
+  "tes": "header ringkas (≤ 62px di HP)",
+  "status": "PASS",
+  "detail": "54"
+ },
+ {
+  "area": "navigasi",
+  "tes": "intro permainan: tombol ← Kembali ada",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "navigasi",
+  "tes": "HP: navigasi global disembunyikan saat bermain, tombol ← tersedia",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "navigasi",
+  "tes": "← kembali ke menu Belajar & navigasi tampil lagi",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "permainan",
+  "tes": "14 permainan tersedia (6 Belajar + 8 Bermain)",
+  "status": "PASS",
+  "detail": "(6, 8)"
+ },
+ {
+  "area": "data",
+  "tes": "kunci localStorage bba1 dipakai, profil lama utuh",
+  "status": "PASS",
+  "detail": "120"
+ },
+ {
+  "area": "data",
+  "tes": "refresh: profil & poin tetap",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "data",
+  "tes": "refresh di tengah permainan: kembali aman ke Beranda, poin tetap, tanpa error",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "keyboard",
+  "tes": "fokus Tab terlihat (outline)",
+  "status": "PASS",
+  "detail": "['solid', '3px']"
+ },
+ {
+  "area": "TV",
+  "tes": "Mode TV: ring fokus tebal (5px) terlihat",
+  "status": "PASS",
+  "detail": "['solid', '5px']"
+ },
+ {
+  "area": "TV",
+  "tes": "panah kanan memindahkan fokus ke menu berikutnya",
+  "status": "PASS",
+  "detail": "belajar"
+ },
+ {
+  "area": "TV",
+  "tes": "OK/Enter membuka menu",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "TV",
+  "tes": "PC/TV: navigasi tetap di header saat bermain",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "offline",
+  "tes": "Service Worker aktif",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "offline",
+  "tes": "offline: halaman tetap termuat dari cache",
+  "status": "PASS",
+  "detail": ""
+ },
+ {
+  "area": "offline",
+  "tes": "offline: puzzle berjalan",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "offline",
+  "tes": "offline: labirin berjalan",
+  "status": "PASS",
+  "detail": "[]"
+ },
+ {
+  "area": "offline",
+  "tes": "offline: warna berjalan",
+  "status": "PASS",
+  "detail": "[]"
+ }
+]
