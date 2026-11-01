@@ -125,7 +125,7 @@ function donHtml(){
   '<li><span aria-hidden="true">🛠️</span><div><b>Merawat dan meningkatkan website</b><br>Perbaikan, pembaruan, serta pengembangan agar Buku Belajar Anak terus bertumbuh.</div></li></ul></section>'+
   '<section class="dm-q" aria-label="Donasi lewat QRIS"><h3>Donasi sukarela melalui QRIS</h3><p class="dm-p">Jika Anda berkenan mendukung perjalanan ini, silakan berdonasi sesuai kemampuan dan keikhlasan. Tidak ada nominal minimum.</p><div class="qw"><img src="qris.png" alt="Kode QRIS donasi atas nama '+QRIS_NAME+'" width="800" height="924" decoding="async" loading="lazy"></div>'+
   '<p class="dm-n"><b>'+QRIS_NAME+'</b><span>NMID: '+NMID+'</span></p>'+
-  '<a class="cta dm-dl" href="qris.png" download="QRIS-Donasi-Buku-Belajar-Anak.png">⬇ Unduh Kode QRIS</a></section>'+
+  '<a class="cta dm-dl" href="image/qris.png" download="QRIS-Donasi-Buku-Belajar-Anak.png">⬇ Unduh Kode QRIS</a></section>'+
   '<ol class="dm-s"><li>Pindai QRIS di atas atau unduh gambar QRIS.</li><li>Buka aplikasi e-wallet atau mobile banking (GoPay, OVO, DANA, ShopeePay, LinkAja, dll).</li><li>Pilih <b>Scan</b> (atau <b>Upload dari galeri</b>), isi nominal sesuai keikhlasan, lalu konfirmasi.</li></ol>'+
   '<blockquote class="dm-k"><b>Tidak bisa berdonasi saat ini?</b> Tidak apa-apa. Menemani anak belajar, membagikan website kepada keluarga, atau memberikan saran juga merupakan dukungan yang sangat berarti. Terima kasih! 🦕💛</blockquote>'+
   '<p class="dm-f">Terima kasih telah menjadi bagian dari perjalanan kecil ini. Semoga semakin banyak anak dapat belajar, bermain, dan tumbuh dengan gembira. 🦖💛</p>'+

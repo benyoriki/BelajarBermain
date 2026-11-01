@@ -1,8 +1,8 @@
 /* service-worker.js — pembaruan otomatis.
    Kode (HTML/JS/CSS/JSON): JARINGAN DULU (batas 4 dtk), cadangan cache saat offline/lambat -> pengguna selalu dapat versi terbaru bila ada internet.
    Aset besar (gambar, font, audio): cache dulu agar cepat & hemat kuota.
-   Jalankan `node tools/rilis.js` sebelum unggah: nomor versi (V) diperbarui otomatis dari isi berkas. */
-const V='bba-922275e3e6',F=['./','index.html','style.css','script.js','bank.js','games2.js','gambar-baru.js','warna.css','puzzle.js','suara.js','update.js','ikon.js','pengunjung.js','modern.css','kids.css','fredoka-latin-wght-normal.woff2','nunito-latin-wght-normal.woff2','manifest.json','icon-192.png','icon-512.png','karakter.webp','aset.webp','icon-maskable-512.png','mulai-cerita-500.webp','mulai-cerita-1000.webp','tombol-play.webp','audio/lagu_5.mp3','audio/lagu_6.mp3','audio/lagu_7.mp3','qris.png'];
+   Jalankan `node rilis.js` sebelum unggah: nomor versi (V) diperbarui otomatis dari isi berkas. */
+const V='bba-4188d003b1',F=['./','index.html','style.css','script.js','bank.js','games2.js','gambar-baru.js','warna.css','puzzle.js','suara.js','update.js','kembali.js','tombol.js','tampil.css','ikon.js','pengunjung.js','modern.css','kids.css','fredoka-latin-wght-normal.woff2','nunito-latin-wght-normal.woff2','manifest.json','image/icon-192.png','image/icon-512.png','image/karakter.webp','image/aset.webp','image/icon-maskable-512.png','image/mulai-cerita-500.webp','image/mulai-cerita-1000.webp','image/tombol-play.webp','audio/lagu_01.mp3','audio/lagu_5.mp3','audio/lagu_6.mp3','audio/lagu_7.mp3','image/qris.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(V).then(c=>Promise.all(F.map(u=>fetch(new Request(u,{cache:'reload'})).then(r=>r.ok?c.put(u,r):0).catch(()=>0)))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
 self.addEventListener('message',e=>{if(e.data==='SKIP_WAITING')self.skipWaiting()});

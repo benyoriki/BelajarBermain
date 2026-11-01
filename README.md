@@ -120,3 +120,11 @@ Ringkas: tanggal harian lokal; batas poin 600/hari (konstanta `DAYCAP`, perlu pe
 
 ## Versi 20.2 — Pratinjau tautan WhatsApp
 Gambar baru `preview-wa.jpg` (1200×630) dan judul/deskripsi OG & Twitter yang lebih menjual (tanpa klaim "aman"/"offline"). Panduan kata-kata Status dan cara menyegarkan cache pratinjau: `docs/KATA_PROMOSI_WHATSAPP.md`.
+
+## v15.1 — perbaikan tampilan, tombol Kembali HP, loading, jalur file
+- `tampil.css` (baru, di root): tombol seragam, toolbar Mewarnai, loading modern. Dimuat paling akhir di index.html.
+- v15.3: loading "Fajar Ceria" (palet indigo-ungu-merah muda-persik), hero Beranda, Selamat Datang, navigasi kapsul (semua di tampil.css).
+- `tombol.js` (baru, di root): ikon tombol seragam (SVG ringan).
+- `kembali.js` (baru, di root): tombol Kembali HP mundur di dalam aplikasi; di Beranda tekan 2x untuk keluar.
+- Gambar dibaca dari `image/`, audio dari `audio/`, halaman SEO dari `mewarnai/`. Tidak ada folder baru.
+- Rilis: jalankan `node rilis.js` dari folder proyek (bukan `tools/`), lalu unggah semua isi folder.

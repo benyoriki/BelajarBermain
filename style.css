@@ -23,7 +23,7 @@ h1{font-size:1.6rem;margin:.4rem 0}h2{font-size:1.2rem;margin:1rem 0 .5rem}label
 .cta,.ghost{min-height:48px;border-radius:99px;padding:.6rem 1.2rem;font:inherit;font-weight:800;cursor:pointer;margin:.15rem 0}
 .cta{background:var(--o);color:#fff;border:0;box-shadow:0 4px 0 #b85a00}.cta:active{transform:translateY(3px);box-shadow:0 1px 0 #b85a00}.ghost{background:#fff;color:var(--ink);border:3px solid var(--b)}.hero .ghost{background:#fff2;border-color:#fff;color:#fff}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(9.5rem,46%),1fr));gap:.7rem}
-.sp{display:inline-block;aspect-ratio:1;width:var(--s,4rem);background:url(karakter.webp) var(--x) var(--y)/600% 500% no-repeat}
+.sp{display:inline-block;aspect-ratio:1;width:var(--s,4rem);background:url(image/karakter.webp) var(--x) var(--y)/600% 500% no-repeat}
 .gal{display:flex;gap:.6rem;overflow-x:auto;scroll-snap-type:x proximity;padding:.2rem .1rem .6rem;-webkit-overflow-scrolling:touch}
 .ch{flex:0 0 6.2rem;scroll-snap-align:start;background:#fffd;border:0;border-radius:18px;padding:.4rem .3rem;font:inherit;color:var(--ink);text-align:center;cursor:pointer;box-shadow:0 3px 10px #0002}.ch .sp{--s:4.6rem}.ch b{display:block;font-size:.8rem}.ch small{font-size:.7rem;opacity:.75}
 @media(min-width:1000px){.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(7rem,1fr));overflow:visible}.ch{flex:none}}
@@ -82,7 +82,7 @@ h2::before{content:"";display:inline-block;width:.3rem;height:1.05em;border-radi
 .pf .row .ghost{min-height:44px;padding:.35rem .9rem;font-size:.85rem}
 
 /* v7 aset gambar */
-.ai{display:inline-block;width:var(--s,2.4rem);aspect-ratio:1;background:url(aset.webp) var(--x) var(--y)/1300% 800% no-repeat;vertical-align:middle}
+.ai{display:inline-block;width:var(--s,2.4rem);aspect-ratio:1;background:url(image/aset.webp) var(--x) var(--y)/1300% 800% no-repeat;vertical-align:middle}
 .opt .ai{--s:3rem}.qb .ai{--s:2.6rem}.big .ai{--s:3.4rem}.mc .ai{--s:2.6rem}.gr .opt .ai,.cell .ai{--s:80%}.cell{overflow:hidden}.sh{display:inline-block}
 
 .cnt{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;align-items:center;margin:.4rem 0}.cnt .ai{--s:clamp(2.6rem,12vw,3.6rem)}.plus{display:block;font-size:2rem;line-height:1}.miss{font-size:.8rem;border:2px dashed #999;border-radius:8px;padding:.2rem .4rem}

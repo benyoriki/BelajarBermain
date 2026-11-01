@@ -8,7 +8,7 @@ TH={dinosaurus:['#8fd3ff','#d4f5b0','#5fbf4a','#3f9e3a'],'hewan-darat':['#7cc7ff
 GM.puzzle=['🧩','Puzzle Petualangan'];GD.puzzle=['#00a8e8','Susun potongan, temukan keajaiban!'];
 INS.puzzle='Pilih gambar dan jumlah keping, lalu seret atau ketuk keping ke posisi yang benar.';
 HOW.puzzle=['Pilih gambar dan tingkat','Seret keping (atau ketuk keping, lalu ketuk kotak)','Susun sampai gambar utuh'];
-const sel={cat:null,img:null,lv:null,timer:0},SH=new Image();SH.src='aset.webp';
+const sel={cat:null,img:null,lv:null,timer:0},SH=new Image();SH.src='image/aset.webp';
 const ready=()=>Promise.race([new Promise(r=>{if(SH.complete&&SH.naturalWidth)return r();SH.onload=SH.onerror=r}),new Promise(r=>setTimeout(r,1200))]);
 const adv=n=>{const g=G;setTimeout(()=>{if(G===g&&G.id==='puzzle'&&!G.pz)pzMenu(n)},matchMedia('(prefers-reduced-motion:reduce)').matches?0:240)},tg=t=>{[...t.parentNode.children].forEach(b=>b.classList.remove('on'));t.classList.add('on')},msg=t=>{const m=$('#pzmsg');if(m)m.textContent=t},
 list=c=>Object.values(B.ASSETS).filter(a=>a.kategori===c);
@@ -23,7 +23,7 @@ function draw(a,W,H){const c=document.createElement('canvas');c.width=W;c.height
  x.fillStyle='rgba(0,0,0,.18)';x.beginPath();x.ellipse(W/2,H*.9,m*.28,m*.05,0,0,7);x.fill();sp(a.r,a.c,W/2,H*.53,m*.78);
  try{return c.toDataURL('image/jpeg',.88)}catch(e){return''}}
 B.pzDraw=draw;
-/* ---- menu bertahap: 1 kategori -> 2 karakter -> 3 tingkat -> (siap) Main Puzzle ----
+/* ---- menu bertahap: 1 kategori -> 2 karakter -> 3 tingkat -> (siap) Mulai Puzzle ----
    Pilihan disimpan di `sel` dan TIDAK dihapus saat anak kembali ke langkah sebelumnya (hanya karakter yang direset bila kategori diganti, karena karakter milik kategori). */
 const grid=()=>{const pz=P().pz||{};return list(sel.cat).map(a=>`<button class="pzt ${a.id===sel.img?'on':''}" data-a="pzimg" data-v="${a.id}" aria-pressed="${a.id===sel.img}">${B.img(a.id)}<small>${a.nama}${pz[a.id]?' ✔':''}</small></button>`).join('')};
 const first=()=>!sel.cat?1:!sel.img?2:sel.lv===null?3:4,
@@ -33,7 +33,7 @@ function pzMenu(v){clr();const pz=P().pz||{};G.pz=null;const f=first();v=+v>=1&&
  if(v===1)body=`<h2 class="pzh3">Pilih kategori</h2><div class="pzcats">${CATS.map(c=>{const x=list(c[0])[0];return `<button class="pzc ${c[0]===sel.cat?'on':''}" data-a="pzcat" data-v="${c[0]}" aria-pressed="${c[0]===sel.cat}"><span class="pzci" aria-hidden="true">${x?B.img(x.id):c[2]}</span><b>${c[1]}</b></button>`}).join('')}</div><p class="sm pzdone">Gambar yang pernah selesai: ${Object.keys(pz).length}</p>`;
  else if(v===2)body=`<h2 class="pzh3">Pilih karakter</h2><div class="pzg">${grid()}</div>`;
  else if(v===3)body=`<h2 class="pzh3">Pilih tingkat</h2><div class="pzlvs">${LV.map((l,i)=>`<button class="pzl ${i===sel.lv?'on':''}" data-a="pzlv" data-v="${i}" aria-pressed="${i===sel.lv}"><b>${l[1]} keping</b><small>${l[0]}</small></button>`).join('')}</div>`;
- else{const a=B.ASSETS[sel.img];body=`<div class="pzready"><div class="pzpv" aria-hidden="true">${B.img(a.id)}</div><p class="pzsum"><b>${a.nama}</b><br>${LV[sel.lv][1]} keping · ${LV[sel.lv][0]}</p><button class="cta pzgo" data-a="pzgo">▶ Main Puzzle</button><label class="pzo pzsw"><input type="checkbox" id="pzt" ${sel.timer?'checked':''}><span>⏱ Pakai timer (boleh dilewati)</span></label></div>`}
+ else{const a=B.ASSETS[sel.img];body=`<div class="pzready"><div class="pzpv" aria-hidden="true">${B.img(a.id)}</div><p class="pzsum"><b>${a.nama}</b><br>${LV[sel.lv][1]} keping · ${LV[sel.lv][0]}</p><button class="cta pzgo" data-a="pzgo">▶ Mulai Puzzle</button><label class="pzo pzsw"><input type="checkbox" id="pzt" ${sel.timer?'checked':''}><span>⏱ Pakai timer (boleh dilewati)</span></label></div>`}
  M(`<section class="card pzm"><div class="gh"><button class="gback" data-a="pzback" aria-label="${v>1?'Kembali ke langkah sebelumnya':'Kembali ke menu permainan'}"><span aria-hidden="true">←</span></button><b class="gt">🧩 Puzzle Petualangan</b></div>${pzBar(v)}${body}</section>`)}
 function clr(){if(G.pz&&G.pz.iv){clearInterval(G.pz.iv);G.pz.iv=0}}
 /* ---- bermain ---- */
@@ -64,7 +64,7 @@ function bind(el){let d=null;
  el.addEventListener('pointerup',end);el.addEventListener('pointercancel',end)}
 function win(){const z=G.pz,p=P(),id=z.a.id;z.done=1;clr();p.pz=p.pz||{};const arr=p.pz[id]=p.pz[id]||[],first=!arr.includes(sel.lv);let b='';
  if(first){arr.push(sel.lv);const pt=10+sel.lv*5;p.ok++;add(pt,'Puzzle '+z.a.nama+' ('+z.n+')');b=' Bonus puzzle baru +'+pt+'.'}else save();
- const info=`<p class="sm">👣 ${z.steps} langkah · 💡 ${z.hints} petunjuk${sel.timer?' · ⏱ '+(z.sec/60|0)+':'+String(z.sec%60).padStart(2,'0'):''}${b?'':' · Puzzle ini sudah pernah selesai di tingkat ini, jadi tanpa bonus baru.'}</p><p><button class="cta" data-a="pznext">▶ Puzzle Berikutnya</button> <button class="ghost" data-a="pzre">🔁 Main Lagi</button> <button class="ghost" data-a="pzmenu">🧩 Menu Puzzle</button></p>`;
+ const info=`<p class="sm">👣 ${z.steps} langkah · 💡 ${z.hints} petunjuk${sel.timer?' · ⏱ '+(z.sec/60|0)+':'+String(z.sec%60).padStart(2,'0'):''}${b?'':' · Puzzle ini sudah pernah selesai di tingkat ini, jadi tanpa bonus baru.'}</p><p><button class="cta" data-a="pznext">▶ Puzzle Berikutnya</button> <button class="ghost" data-a="pzre">Bermain Lagi</button> <button class="ghost" data-a="pzmenu">🧩 Menu Puzzle</button></p>`;
  later(()=>{if(first&&!G.done){fin();const c=$('#main .card');if(c)c.insertAdjacentHTML('beforeend',info)}else{boom();M(`<section class="card"><h1>🎉 Puzzle Selesai!</h1><div class="cnt">${B.img(z.a.id)}</div><p class="big pop">⭐⭐⭐</p>${info}</section>`)}},500)}
 Object.assign(ACT,{
 pzcat(v,t){if(sel.cat!==v){sel.cat=v;sel.img=null}tg(t);adv(2)},pzimg(v,t){sel.img=v;tg(t);adv(3)},pzlv(v,t){sel.lv=+v;tg(t);adv(4)},pzstep(v){pzMenu(+v)},

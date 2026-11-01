@@ -16,7 +16,7 @@ const R = [
 ];
 const CAT0 = ['dinosaurus','hewan-darat','hewan-air','burung-serangga','buah','buah','benda','benda'];
 const ASSETS = {};
-R.forEach((row, r) => row.forEach((e, c) => { if (e) ASSETS[e[0]] = { id: e[0], nama: e[1], kategori: e[2] || CAT0[r], alt: 'Gambar ' + e[1], r, c, sheet: 'aset.webp' }; }));
+R.forEach((row, r) => row.forEach((e, c) => { if (e) ASSETS[e[0]] = { id: e[0], nama: e[1], kategori: e[2] || CAT0[r], alt: 'Gambar ' + e[1], r, c, sheet: 'image/aset.webp' }; }));
 
 const nm = id => ASSETS[id] ? ASSETS[id].nama : id;
 const img = id => {
