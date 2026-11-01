@@ -114,8 +114,9 @@ function setMode(m){
 
 /* ---------- Donasi ---------- */
 var QRIS_NAME='RIKI HERMAWAN, DIGITAL & KREATIF',NMID='ID1026615097429';
+var BANK_NO='6830896757',BANK_FMT='683 089 6757',BANK_NAME='Riki Hermawan';
 function donHtml(){
-  return '<div class="dm-h"><span class="dm-ic" aria-hidden="true">💛</span><div><h2 id="mt">Donasi melalui QRIS</h2><p class="dm-sub">Dukungan kecil, semangat besar untuk anak-anak Indonesia.</p></div></div>'+
+  return '<div class="dm-h"><span class="dm-ic" aria-hidden="true">💛</span><div><h2 id="mt">Donasi Sukarela</h2><p class="dm-sub">Dukungan kecil, semangat besar untuk anak-anak Indonesia.</p></div></div>'+
   '<p class="dm-p"><b>Satu kebaikan kecil dapat membuka lebih banyak kesempatan untuk belajar.</b> Buku Belajar Anak hadir untuk menemani anak-anak Indonesia mengenal huruf, berhitung, melatih logika, dan menjelajahi dunia melalui permainan yang menyenangkan.</p>'+
   '<p class="dm-p">Kami ingin ruang belajar ini tetap mudah diakses, ramah anak, dan terus berkembang. Di balik setiap permainan, ada waktu untuk merancang soal, membuat ilustrasi, mengembangkan fitur, serta merawat website agar tetap nyaman digunakan.</p>'+
   '<section class="dm-b" aria-label="Manfaat dukungan Anda"><h3>Dukungan Anda membantu kami untuk</h3><ul>'+
@@ -123,10 +124,16 @@ function donHtml(){
   '<li><span aria-hidden="true">🎨</span><div><b>Mengembangkan ilustrasi dan cerita</b><br>Karakter, gambar, dan petualangan yang membuat anak semakin antusias.</div></li>'+
   '<li><span aria-hidden="true">🎵</span><div><b>Menyempurnakan pengalaman belajar</b><br>Musik, suara, dan interaksi yang membantu anak menikmati proses belajar.</div></li>'+
   '<li><span aria-hidden="true">🛠️</span><div><b>Merawat dan meningkatkan website</b><br>Perbaikan, pembaruan, serta pengembangan agar Buku Belajar Anak terus bertumbuh.</div></li></ul></section>'+
-  '<section class="dm-q" aria-label="Donasi lewat QRIS"><h3>Donasi sukarela melalui QRIS</h3><p class="dm-p">Jika Anda berkenan mendukung perjalanan ini, silakan berdonasi sesuai kemampuan dan keikhlasan. Tidak ada nominal minimum.</p><div class="qw"><img src="qris.png" alt="Kode QRIS donasi atas nama '+QRIS_NAME+'" width="800" height="924" decoding="async" loading="lazy"></div>'+
+  '<section class="dm-q" aria-labelledby="dpt"><h3 id="dpt">Pilih cara donasi</h3><p class="dm-p">Jika Anda berkenan mendukung perjalanan ini, silakan berdonasi sesuai kemampuan dan keikhlasan. Tidak ada nominal minimum.</p>'+
+  '<div class="dm-tabs" role="tablist" aria-label="Metode donasi"><button type="button" role="tab" id="dt-qris" class="on" aria-selected="true" aria-controls="dp-qris" data-a="dtab" data-v="qris"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 14v.01M14 21h3M21 17v4"/></svg>QRIS</button><button type="button" role="tab" id="dt-bca" aria-selected="false" tabindex="-1" aria-controls="dp-bca" data-a="dtab" data-v="bca"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></svg>Transfer BCA</button></div>'+
+  '<div class="dm-pn" role="tabpanel" id="dp-qris" aria-labelledby="dt-qris"><div class="qw"><img src="image/qris.png" alt="Kode QRIS donasi atas nama '+QRIS_NAME+'" width="800" height="924" decoding="async" loading="lazy"></div>'+
   '<p class="dm-n"><b>'+QRIS_NAME+'</b><span>NMID: '+NMID+'</span></p>'+
-  '<a class="cta dm-dl" href="image/qris.png" download="QRIS-Donasi-Buku-Belajar-Anak.png">⬇ Unduh Kode QRIS</a></section>'+
-  '<ol class="dm-s"><li>Pindai QRIS di atas atau unduh gambar QRIS.</li><li>Buka aplikasi e-wallet atau mobile banking (GoPay, OVO, DANA, ShopeePay, LinkAja, dll).</li><li>Pilih <b>Scan</b> (atau <b>Upload dari galeri</b>), isi nominal sesuai keikhlasan, lalu konfirmasi.</li></ol>'+
+  '<a class="cta dm-dl" href="image/qris.png" download="QRIS-Donasi-Buku-Belajar-Anak.png">⬇ Unduh Kode QRIS</a>'+
+  '<ol class="dm-s"><li>Pindai QRIS di atas atau unduh gambar QRIS.</li><li>Buka aplikasi e-wallet atau mobile banking (GoPay, OVO, DANA, ShopeePay, LinkAja, dll).</li><li>Pilih <b>Scan</b> (atau <b>Upload dari galeri</b>), isi nominal sesuai keikhlasan, lalu konfirmasi.</li></ol></div>'+
+  '<div class="dm-pn" role="tabpanel" id="dp-bca" aria-labelledby="dt-bca" hidden>'+
+  '<div class="bk"><p class="bk-top"><b>Bank BCA</b><span>Transfer bank</span></p><p class="bk-l">Nomor rekening</p><p class="bk-no" aria-label="'+BANK_NO.split('').join(' ')+'">'+BANK_FMT+'</p><p class="bk-l">Atas nama</p><p class="bk-nm">'+BANK_NAME+'</p></div>'+
+  '<button type="button" class="cta dm-dl dm-cp" data-a="copy" data-v="'+BANK_NO+'"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg><span>Salin Nomor Rekening</span></button>'+
+  '<ol class="dm-s"><li>Buka m-BCA, BCA mobile, ATM, atau aplikasi bank lain.</li><li>Pilih transfer, lalu masukkan nomor rekening di atas. Dari bank lain, gunakan kode bank <b>014</b>.</li><li>Pastikan nama penerima sesuai, isi nominal sesuai keikhlasan, lalu konfirmasi.</li></ol></div></section>'+
   '<blockquote class="dm-k"><b>Tidak bisa berdonasi saat ini?</b> Tidak apa-apa. Menemani anak belajar, membagikan website kepada keluarga, atau memberikan saran juga merupakan dukungan yang sangat berarti. Terima kasih! 🦕💛</blockquote>'+
   '<p class="dm-f">Terima kasih telah menjadi bagian dari perjalanan kecil ini. Semoga semakin banyak anak dapat belajar, bermain, dan tumbuh dengan gembira. 🦖💛</p>'+
   '<button class="ghost dm-x" data-a="mclose">Tutup</button>';
@@ -147,6 +154,20 @@ window.prof=function(){return _prof.apply(this,arguments)+donCard()};
 ACT.snd=function(v,t){openSettings(t)};
 ACT.smode=function(v){setMode(v)};
 ACT.don=function(v,t){openDon(t)};
+ACT.dtab=function(v,t){var r=t.closest('.dm-q');if(!r)return;
+  r.querySelectorAll('[role=tab]').forEach(function(b){var on=b===t;b.classList.toggle('on',on);b.setAttribute('aria-selected',on?'true':'false');b.tabIndex=on?0:-1});
+  r.querySelectorAll('[role=tabpanel]').forEach(function(p){p.hidden=p.id!=='dp-'+v})};
+document.addEventListener('keydown',function(e){var t=e.target;if(!(t&&t.matches&&t.matches('.dm-tabs [role=tab]')))return;
+  var k=e.key;if(k!=='ArrowLeft'&&k!=='ArrowRight'&&k!=='Home'&&k!=='End')return;e.preventDefault();
+  var tabs=[].slice.call(t.parentNode.querySelectorAll('[role=tab]')),i=tabs.indexOf(t);
+  i=k==='Home'?0:k==='End'?tabs.length-1:(i+(k==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[i].focus();tabs[i].click()});
+ACT.copy=function(v,t){
+  var lbl=t.querySelector('span'),old=lbl?lbl.textContent:'';
+  function done(ok){
+    if(typeof toast==='function')toast(ok?'Nomor rekening disalin ✅':'Gagal menyalin. Tekan lama pada nomor untuk menyalin.');
+    if(ok&&lbl){lbl.textContent='Tersalin ✓';t.classList.add('ok');clearTimeout(t._c);t._c=setTimeout(function(){lbl.textContent=old;t.classList.remove('ok')},1800)}}
+  function fb(){try{var a=document.createElement('textarea');a.value=v;a.setAttribute('readonly','');a.style.cssText='position:fixed;top:0;left:0;opacity:0';document.body.appendChild(a);a.select();a.setSelectionRange(0,99);var ok=document.execCommand('copy');document.body.removeChild(a);done(ok)}catch(e){done(false)}}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(function(){done(true)},fb)}else fb()};
 ACT.mclose=function(){closeModal()};
 
 window.Suara={icon:function(){return ICON[S.sm]||'🔊'},open:openSettings};

@@ -128,3 +128,7 @@ Gambar baru `preview-wa.jpg` (1200×630) dan judul/deskripsi OG & Twitter yang l
 - `kembali.js` (baru, di root): tombol Kembali HP mundur di dalam aplikasi; di Beranda tekan 2x untuk keluar.
 - Gambar dibaca dari `image/`, audio dari `audio/`, halaman SEO dari `mewarnai/`. Tidak ada folder baru.
 - Rilis: jalankan `node rilis.js` dari folder proyek (bukan `tools/`), lalu unggah semua isi folder.
+
+
+## Donasi: QRIS + Transfer BCA
+Jendela donasi (`suara.js`) kini punya tab **QRIS** dan **Transfer BCA** (kartu rekening, tombol Salin Nomor Rekening, langkah transfer, kode bank 014). Data rekening ada di `BANK_NO`, `BANK_FMT`, `BANK_NAME` (`suara.js`). Gaya di `tampil.css`.

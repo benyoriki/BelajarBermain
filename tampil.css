@@ -180,3 +180,27 @@ main{scroll-margin-top:4.5rem}
   nav .on{background:linear-gradient(180deg,#8366ff,#6a4cff);box-shadow:0 4px 10px #6a4cff55}
   body:not(.inplay){padding-bottom:calc(var(--nav-space) + .8rem)}
 }
+
+/* ===== Donasi: pilihan QRIS / Transfer BCA ===== */
+.dm-q .dm-p{margin-left:0;margin-right:0;margin-top:.1rem;text-align:left;max-width:none;font-size:.9rem}
+.dm-q>h3{text-align:left;font-size:1.02rem;margin-bottom:.4rem}
+.dm-tabs{display:grid;grid-template-columns:1fr 1fr;gap:.3rem;padding:.3rem;margin:.85rem 0 1rem;border-radius:99px;background:#eaf1fc;border:1px solid #d9e5f7}
+.dm-tabs button{display:flex;align-items:center;justify-content:center;gap:.45rem;min-height:46px;padding:0 .5rem;border:0;border-radius:99px;background:transparent;color:#42557a;font:800 .92rem/1 var(--ff-h);cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background-color .2s,color .2s,box-shadow .2s}
+.dm-tabs button.on{background:#fff;color:#1b3a6b;box-shadow:0 2px 8px #13233d26,inset 0 0 0 1.5px #2f7bff}
+.dm-tabs button:focus-visible,.dm-cp:focus-visible{outline:3px solid #2f7bff;outline-offset:2px}
+.dm-pn[hidden]{display:none}
+.dm-q .dm-s{margin-left:0;margin-right:0;text-align:left}
+
+.bk{position:relative;overflow:hidden;text-align:left;margin:.2rem auto 1rem;max-width:20rem;padding:1.05rem 1.15rem 1.15rem;border-radius:22px;color:#fff;
+  background:radial-gradient(120% 90% at 100% 0,#3d94f0 0,#1f6fd1 45%,#0b4a9c 100%);box-shadow:0 12px 26px #0b4a9c45,inset 0 1px 0 #ffffff40}
+.bk::after{content:"";position:absolute;right:-2.2rem;bottom:-2.6rem;width:8.5rem;height:8.5rem;border-radius:50%;border:2rem solid #ffffff14;pointer-events:none}
+.bk p{margin:0;position:relative;z-index:1}
+.bk-top{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;margin-bottom:1rem!important}
+.bk-top b{font:800 1.1rem/1 var(--ff-h);letter-spacing:.01em}
+.bk-top span{font-size:.78rem;font-weight:700;opacity:.85}
+.bk-l{font-size:.78rem;font-weight:700;opacity:.8;margin-bottom:.15rem!important}
+.bk-no{margin-bottom:.9rem!important;font:700 clamp(1.55rem,7.4vw,1.95rem)/1.15 var(--ff-h);letter-spacing:.06em;font-variant-numeric:tabular-nums;-webkit-user-select:all;user-select:all;word-break:keep-all}
+.bk-nm{font:700 1.08rem/1.25 var(--ff-h)}
+.dm-cp svg{flex:none}
+.dm-cp.ok{background:linear-gradient(180deg,#34d27b,#16a34a);box-shadow:inset 0 1px 0 #ffffff80,0 4px 0 #0f7a36}
+@media(prefers-reduced-motion:reduce){.dm-tabs button{transition:none}}
